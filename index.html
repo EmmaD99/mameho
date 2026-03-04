@@ -2,176 +2,424 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Mameho</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mameho – Jus de fruits artisanaux pressés à froid, produits dans notre domaine à Marcilly-le-Hayer, Aube. Pomme, Gingembre, Hibiscus et plus.">
+  <meta name="keywords" content="jus de pomme artisanal, jus de fruits frais, Mameho, Marcilly-le-Hayer, Aube, jus pressé, domaine fruitier, gingembre hibiscus">
+  <meta name="author" content="Mameho">
+  <meta property="og:title" content="Mameho – Jus de Fruits Artisanaux">
+  <meta property="og:description" content="Des jus de fruits 100% naturels, pressés avec soin dans notre domaine de l'Aube.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <title>Mameho – Jus de Fruits Artisanaux | Marcilly-le-Hayer</title>
+  <link rel="canonical" href="https://www.mameho.fr/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Mameho",
+    "description": "Producteur de jus de fruits artisanaux à Marcilly-le-Hayer",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3 rue de Hauteroux",
+      "addressLocality": "Marcilly-le-Hayer",
+      "postalCode": "10290",
+      "addressCountry": "FR"
+    },
+    "email": "contact@mameho.fr",
+    "url": "https://www.mameho.fr"
+  }
+  </script>
 </head>
 <body>
 
+<!-- SKIP TO CONTENT -->
+<a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
 <!-- HEADER -->
-<header class="topbar">
-  <button class="menu-btn" id="openMenu" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir le menu">&#9776;</button>
-  <div class="logo">Mameho</div>
+<header class="topbar" id="topbar">
+  <button class="menu-btn" id="openMenu" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir le menu">
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+  </button>
+  <a href="#accueil" class="logo-link" aria-label="Mameho – Accueil">
+    <div class="logo">
+      <span class="logo-main">MAMEHO</span>
+      <span class="logo-sub">Jus Artisanaux</span>
+    </div>
+  </a>
+  <nav class="topbar-nav" aria-label="Navigation principale">
+    <a href="#jus">Nos Jus</a>
+    <a href="#domaine">Le Domaine</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <!-- MENU OVERLAY -->
-<nav class="menu-overlay" id="menu" aria-hidden="true">
-  <div class="falling-apples"></div>
+<nav class="menu-overlay" id="menu" aria-hidden="true" aria-label="Menu principal">
+  <div class="falling-apples" id="fallingApples" aria-hidden="true"></div>
   <div class="menu-content">
     <button class="close-btn" id="closeMenu" aria-label="Fermer le menu">✕</button>
     <ul class="menu-links">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#jus">Nos Jus de Fruits</a></li>
       <li><a href="#domaine">Le Domaine</a></li>
-      <li><a href="#photos">Photos</a></li>
+      <li><a href="#fabrication">La Fabrication</a></li>
+      <li><a href="#photos">Galerie</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <p class="menu-tagline">100% naturel · Pressé à la ferme</p>
   </div>
 </nav>
 
-<main>
+<main id="main-content">
 
   <!-- HERO -->
-  <section id="accueil" class="hero reveal">
+  <section id="accueil" class="hero" aria-label="Présentation Mameho">
+    <div class="hero-bg"></div>
     <div class="hero-overlay">
-      <h1>Mameho</h1>
-      <p>Jus de Fruits artisanaux</p>
+      <div class="hero-content reveal-hero">
+        <p class="hero-eyebrow">Domaine de l'Aube · Depuis 2020</p>
+        <h1>MAMEHO</h1>
+        <p class="hero-tagline">Jus de Fruits <em>Artisanaux</em></p>
+        <p class="hero-desc">Pressés à la ferme, sans conservateurs, 100% naturels</p>
+        <div class="hero-cta">
+          <a href="#jus" class="btn-primary">Découvrir nos jus</a>
+          <a href="#domaine" class="btn-secondary">Notre domaine</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator" aria-hidden="true">
+      <span></span>
     </div>
   </section>
 
+  <!-- BANDEAU VALEURS -->
+  <div class="values-band reveal">
+    <div class="values-inner">
+      <div class="value-item">
+        <span class="value-icon">🍎</span>
+        <span>100% Naturel</span>
+      </div>
+      <div class="value-sep" aria-hidden="true">·</div>
+      <div class="value-item">
+        <span class="value-icon">🌿</span>
+        <span>Sans conservateurs</span>
+      </div>
+      <div class="value-sep" aria-hidden="true">·</div>
+      <div class="value-item">
+        <span class="value-icon">🏡</span>
+        <span>Pressé à la ferme</span>
+      </div>
+      <div class="value-sep" aria-hidden="true">·</div>
+      <div class="value-item">
+        <span class="value-icon">🌱</span>
+        <span>Agriculture raisonnée</span>
+      </div>
+    </div>
+  </div>
+
   <!-- NOS JUS -->
-  <section id="jus" class="section reveal green-bg">
-    <h2>Nos Jus de Fruits</h2>
+  <section id="jus" class="section jus-section reveal" aria-labelledby="jus-title">
+    <div class="section-header">
+      <p class="section-label">Notre Gamme</p>
+      <h2 id="jus-title">Nos Jus de Fruits</h2>
+      <p class="section-desc">Chaque bouteille est le fruit d'un savoir-faire artisanal transmis avec passion.</p>
+    </div>
     <div class="grid">
-      <div class="card">
-        <a href="cuvee-tradition.html" class="wine-link">
-          <figure>
-            <img src="Photos/Jus%20de%20Pomme,%20Gingembre,%20Hibiscus.jpg" alt="Jus de Pomme, Gingembre & Hibiscus" loading="lazy">
-            <figcaption>Jus de Pomme, Gingembre & Hibiscus</figcaption>
-          </figure>
-        </a>
-      </div>
-      <div class="card">
-        <a href="cuvee-prestige.html" class="wine-link">
-          <figure>
-            <img src="Photos/jus-de-pomme-2.jpg" alt="Jus de Pomme Classique" loading="lazy">
-            <figcaption>Jus de Pomme Classique</figcaption>
-          </figure>
-        </a>
-      </div>
-      <div class="card">
-        <a href="cuvee-selection.html" class="wine-link">
-          <figure>
-            <img src="Photos/jus-de-pomme-3.jpg" alt="Jus de Pomme Sélection" loading="lazy">
-            <figcaption>Jus de Pomme Sélection</figcaption>
-          </figure>
-        </a>
-      </div>
-      <div class="card">
-        <a href="cuvee-rose.html" class="wine-link">
-          <figure>
-            <img src="Photos/jus-de-pomme-rose.jpg" alt="Jus de Pomme Rosé" loading="lazy">
-            <figcaption>Jus de Pomme Rosé</figcaption>
-          </figure>
-        </a>
-      </div>
-      <div class="card">
-        <a href="cuvee-blanc.html" class="wine-link">
-          <figure>
-            <img src="Photos/jus-de-pomme-blanc.jpg" alt="Jus de Pomme Blanc" loading="lazy">
-            <figcaption>Jus de Pomme Blanc</figcaption>
-          </figure>
-        </a>
-      </div>
-      <div class="card">
-        <a href="cuvee-grand-cru.html" class="wine-link">
-          <figure>
-            <img src="Photos/jus-de-pomme-grand-cru.jpg" alt="Jus de Pomme Grand Cru" loading="lazy">
-            <figcaption>Jus de Pomme Grand Cru</figcaption>
-          </figure>
-        </a>
-      </div>
+
+      <article class="card" aria-label="Jus de Pomme, Gingembre et Hibiscus">
+        <figure>
+          <div class="card-img-wrap">
+            <img src="photos/jus-de-pomme-gingembre-hibiscus.jpg" alt="Bouteille de jus de pomme, gingembre et hibiscus Mameho posée dans l'herbe" loading="lazy" width="400" height="500">
+            <div class="card-overlay">
+              <p class="card-desc">Une alliance surprenante entre la douceur de la pomme, le piquant du gingembre frais et les notes florales de l'hibiscus. Un jus vitaminé et rafraîchissant, parfait en toute saison.</p>
+              <span class="card-tag">Édition Spéciale</span>
+            </div>
+          </div>
+          <figcaption>
+            <h3>Pomme · Gingembre · Hibiscus</h3>
+            <span class="card-volume">1 L · 100% Naturel</span>
+          </figcaption>
+        </figure>
+      </article>
+
+      <article class="card" aria-label="Jus de Pomme Classique">
+        <figure>
+          <div class="card-img-wrap card-img-placeholder">
+            <div class="placeholder-img" aria-hidden="true">🍎</div>
+            <div class="card-overlay">
+              <p class="card-desc">Notre jus de pomme emblématique, élaboré à partir d'un assemblage soigné de variétés locales. Fruité, équilibré et d'une belle robe ambrée. La quintessence de nos vergers.</p>
+              <span class="card-tag">Bestseller</span>
+            </div>
+          </div>
+          <figcaption>
+            <h3>Pomme Classique</h3>
+            <span class="card-volume">1 L · 100% Naturel</span>
+          </figcaption>
+        </figure>
+      </article>
+
+      <article class="card" aria-label="Jus de Pomme Sélection">
+        <figure>
+          <div class="card-img-wrap card-img-placeholder">
+            <div class="placeholder-img" aria-hidden="true">🍏</div>
+            <div class="card-overlay">
+              <p class="card-desc">Une sélection rigoureuse de pommes récoltées à parfaite maturité. Ce jus révèle une complexité aromatique remarquable, avec des notes de miel et de fleurs blanches.</p>
+              <span class="card-tag">Cuvée Sélection</span>
+            </div>
+          </div>
+          <figcaption>
+            <h3>Pomme Sélection</h3>
+            <span class="card-volume">1 L · 100% Naturel</span>
+          </figcaption>
+        </figure>
+      </article>
+
+      <article class="card" aria-label="Jus de Pomme Rosé">
+        <figure>
+          <div class="card-img-wrap card-img-placeholder">
+            <div class="placeholder-img" aria-hidden="true">🌸</div>
+            <div class="card-overlay">
+              <p class="card-desc">Issu de variétés de pommes à chair rouge, ce jus d'une belle teinte rosée offre des arômes fruités et légèrement acidulés. Une découverte sensorielle unique et élégante.</p>
+              <span class="card-tag">Nouveauté</span>
+            </div>
+          </div>
+          <figcaption>
+            <h3>Pomme Rosé</h3>
+            <span class="card-volume">1 L · 100% Naturel</span>
+          </figcaption>
+        </figure>
+      </article>
+
+      <article class="card" aria-label="Jus de Pomme Blanc">
+        <figure>
+          <div class="card-img-wrap card-img-placeholder">
+            <div class="placeholder-img" aria-hidden="true">✨</div>
+            <div class="card-overlay">
+              <p class="card-desc">Filtré avec soin, ce jus de pomme blanc offre une limpidité cristalline et un goût délicat. Doux et raffiné, il révèle toute la pureté du fruit sans aucun additif.</p>
+              <span class="card-tag">Premium</span>
+            </div>
+          </div>
+          <figcaption>
+            <h3>Pomme Blanc</h3>
+            <span class="card-volume">1 L · 100% Naturel</span>
+          </figcaption>
+        </figure>
+      </article>
+
+      <article class="card" aria-label="Jus de Pomme Grand Cru">
+        <figure>
+          <div class="card-img-wrap card-img-placeholder">
+            <div class="placeholder-img" aria-hidden="true">🏆</div>
+            <div class="card-overlay">
+              <p class="card-desc">Notre jus d'exception, produit en quantité limitée à partir des meilleures pommes du domaine. Un profil aromatique d'une richesse inégalée, pour les amateurs exigeants.</p>
+              <span class="card-tag">Édition Limitée</span>
+            </div>
+          </div>
+          <figcaption>
+            <h3>Pomme Grand Cru</h3>
+            <span class="card-volume">1 L · 100% Naturel</span>
+          </figcaption>
+        </figure>
+      </article>
+
     </div>
   </section>
 
   <!-- DOMAINE -->
-  <section id="domaine" class="section alt reveal">
-    <div class="two-cols">
-      <div>
-        <h2>Le Domaine</h2>
-        <p>Découvrez notre domaine et nos vergers soigneusement entretenus.</p>
+  <section id="domaine" class="section domaine-section reveal" aria-labelledby="domaine-title">
+    <div class="domaine-inner">
+      <div class="domaine-text">
+        <p class="section-label">Notre Histoire</p>
+        <h2 id="domaine-title">Le Domaine</h2>
+        <p>Niché au cœur de l'Aube, le domaine Mameho cultive ses vergers avec passion et respect de la nature. Nos pommiers, soigneusement sélectionnés pour la qualité de leurs fruits, donnent naissance à des jus d'une fraîcheur incomparable.</p>
+        <p>Chaque bouteille est le reflet de notre engagement : des produits 100% naturels, sans conservateurs ni arômes artificiels, pressés directement à la ferme pour préserver tous les bienfaits du fruit.</p>
+        <div class="domaine-stats">
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Naturel</span>
+          </div>
+          <div class="stat">
+            <strong>6+</strong>
+            <span>Variétés de jus</span>
+          </div>
+          <div class="stat">
+            <strong>Local</strong>
+            <span>Aube, France</span>
+          </div>
+        </div>
       </div>
-      <img src="Photos/domaine.jpg" alt="Vue du domaine Mameho" class="photo" loading="lazy">
+      <div class="domaine-images">
+        <div class="domaine-img-main">
+          <img src="photos/pommes.jpg" alt="Variété de pommes fraîches du domaine Mameho" loading="lazy" width="600" height="400">
+        </div>
+        <div class="domaine-img-secondary">
+          <img src="photos/pomme.png" alt="Pomme rouge du domaine Mameho" loading="lazy" width="200" height="200">
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- PHOTOS -->
-  <section id="photos" class="section alt reveal">
-    <h2>Photos</h2>
-    <div class="carousel-container">
-      <button class="carousel-btn prev">&#10094;</button>
-      <div class="carousel-track">
-        <div class="carousel-slide"><img src="Photos/evenement-1.jpg" alt="Photo 1" loading="lazy"></div>
-        <div class="carousel-slide"><img src="Photos/evenement-2.jpg" alt="Photo 2" loading="lazy"></div>
-        <div class="carousel-slide"><img src="Photos/evenement-3.jpg" alt="Photo 3" loading="lazy"></div>
+  <!-- FABRICATION -->
+  <section id="fabrication" class="section fabrication-section reveal" aria-labelledby="fab-title">
+    <div class="section-header light">
+      <p class="section-label">Savoir-faire</p>
+      <h2 id="fab-title">La Fabrication</h2>
+      <p class="section-desc">De la récolte à la bouteille, chaque étape est réalisée avec soin dans notre atelier.</p>
+    </div>
+    <div class="fab-grid">
+      <div class="fab-card reveal">
+        <div class="fab-img">
+          <img src="photos/les-travailleurs.jpg" alt="Travailleurs manipulant la presse à jus au domaine Mameho" loading="lazy" width="500" height="600">
+        </div>
+        <div class="fab-text">
+          <span class="fab-num">01</span>
+          <h3>La Presse</h3>
+          <p>Nos pommes sont pressées selon les méthodes traditionnelles dans notre pressoir hydraulique, garantissant une extraction optimale des jus sans dégradation thermique.</p>
+        </div>
       </div>
-      <button class="carousel-btn next">&#10095;</button>
+      <div class="fab-card reveal">
+        <div class="fab-img">
+          <img src="photos/les-travailleurs-1.jpg" alt="Vue du pressoir hydraulique du domaine Mameho" loading="lazy" width="500" height="600">
+        </div>
+        <div class="fab-text">
+          <span class="fab-num">02</span>
+          <h3>L'Équipe</h3>
+          <p>Une équipe passionnée travaille à chaque étape de la production : du tri minutieux des fruits jusqu'à la mise en bouteille, avec un contrôle qualité rigoureux.</p>
+        </div>
+      </div>
+      <div class="fab-card reveal">
+        <div class="fab-img">
+          <img src="photos/machine.jpg" alt="Gros plan sur le pressoir du domaine Mameho" loading="lazy" width="500" height="600">
+        </div>
+        <div class="fab-text">
+          <span class="fab-num">03</span>
+          <h3>La Qualité</h3>
+          <p>Chaque lot est contrôlé pour vous assurer un jus d'une fraîcheur irréprochable. Aucun conservateur, aucun arôme artificiel : juste le fruit dans toute sa pureté.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="photos" class="section galerie-section reveal" aria-labelledby="galerie-title">
+    <div class="section-header">
+      <p class="section-label">Galerie</p>
+      <h2 id="galerie-title">Le Domaine en Images</h2>
+    </div>
+    <div class="carousel-container" role="region" aria-label="Galerie photos du domaine Mameho">
+      <button class="carousel-btn prev" aria-label="Photo précédente">&#10094;</button>
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide">
+          <img src="photos/pommes.jpg" alt="Assortiment de pommes colorées sur bois rustique" loading="lazy" width="1000" height="600">
+        </div>
+        <div class="carousel-slide">
+          <img src="photos/jus-de-pomme-gingembre-hibiscus.jpg" alt="Bouteille Mameho Pomme Gingembre Hibiscus dans l'herbe" loading="lazy" width="1000" height="600">
+        </div>
+        <div class="carousel-slide">
+          <img src="photos/les-travailleurs.jpg" alt="L'équipe Mameho au travail à la presse" loading="lazy" width="1000" height="600">
+        </div>
+        <div class="carousel-slide">
+          <img src="photos/machine.jpg" alt="Le pressoir hydraulique du domaine Mameho" loading="lazy" width="1000" height="600">
+        </div>
+      </div>
+      <button class="carousel-btn next" aria-label="Photo suivante">&#10095;</button>
+      <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section contact-premium reveal">
-    <h2>Nous contacter</h2>
+  <section id="contact" class="section contact-section reveal" aria-labelledby="contact-title">
+    <div class="section-header">
+      <p class="section-label">Nous Rejoindre</p>
+      <h2 id="contact-title">Nous Contacter</h2>
+      <p class="section-desc">Une question, une commande ? Nous sommes à votre écoute.</p>
+    </div>
 
     <div class="contact-wrapper">
-
       <div class="contact-left">
-        <h3>Domaine Mameho</h3>
-        <p class="contact-address">
-          3 rue de Hauteroux<br>
-          10290 Marcilly-le-Hayer<br>
-          France
-        </p>
-        <p class="contact-mail">
-          <a href="mailto:contact@mameho.fr">contact@mameho.fr</a>
-        </p>
+        <div class="contact-info">
+          <h3>Domaine Mameho</h3>
+          <address>
+            <p class="contact-address">
+              3 rue de Hauteroux<br>
+              10290 Marcilly-le-Hayer<br>
+              France
+            </p>
+          </address>
+          <p class="contact-mail">
+            <a href="mailto:contact@mameho.fr" aria-label="Envoyer un email à Mameho">contact@mameho.fr</a>
+          </p>
+        </div>
         <div class="contact-map">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.5!2d3.412228!3d48.347169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f15!3m3!1m2!1s0x47eedd7b519858cf%3A0xd20859f38bd7bf8d!2s3%20Rue%20de%20Hauteroux%2C%2010290%20Marcilly-le-Hayer!5e0!3m2!1sfr!2sfr!4v1700000000000"
             loading="lazy"
-            title="Domaine Mameho">
+            title="Carte localisation Domaine Mameho, 3 rue de Hauteroux, Marcilly-le-Hayer">
           </iframe>
         </div>
       </div>
 
-      <form class="contact-form-premium">
-        <div class="field">
-          <input type="text" required>
-          <label>Nom</label>
-        </div>
-
-        <div class="field">
-          <input type="email" required>
-          <label>Email</label>
-        </div>
-
-        <div class="field">
-          <textarea rows="5" required></textarea>
-          <label>Message</label>
-        </div>
-
-        <button type="submit">Envoyer le message</button>
-      </form>
-
+      <div class="contact-right">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="field">
+            <input type="text" id="nom" name="nom" autocomplete="name" required placeholder=" ">
+            <label for="nom">Nom complet</label>
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder=" ">
+            <label for="email">Adresse email</label>
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <input type="tel" id="telephone" name="telephone" autocomplete="tel" placeholder=" ">
+            <label for="telephone">Téléphone (optionnel)</label>
+          </div>
+          <div class="field">
+            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+            <label for="message">Votre message</label>
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn-submit">
+            <span class="btn-text">Envoyer le message</span>
+            <span class="btn-icon" aria-hidden="true">→</span>
+          </button>
+          <p class="form-success" id="formSuccess" aria-live="polite" role="status"></p>
+        </form>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer class="footer">
-  <p>© Mameho</p>
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">MAMEHO</span>
+      <span class="footer-tagline">Jus de Fruits Artisanaux</span>
+    </div>
+    <nav class="footer-nav" aria-label="Navigation secondaire">
+      <a href="#accueil">Accueil</a>
+      <a href="#jus">Nos Jus</a>
+      <a href="#domaine">Le Domaine</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-legal">
+      <p>© <span id="year"></span> Mameho · 3 rue de Hauteroux, 10290 Marcilly-le-Hayer</p>
+      <p><a href="mailto:contact@mameho.fr">contact@mameho.fr</a></p>
+    </div>
+  </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
