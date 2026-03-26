@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- ═══ Meta essentiels ═══ -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#085E54">
-
-  <!-- ═══ SEO ═══ -->
   <title>Mamé'ho – Jus de Fruits Artisanaux | Marcilly-le-Hayer, Aube</title>
   <meta name="description" content="Mamé'ho, producteur de jus de fruits artisanaux 100% naturels à Marcilly-le-Hayer (Aube). Pommes, Hibiscus, Gingembre, Miel, Bissap – pressés à la ferme, sans conservateurs.">
   <meta name="keywords" content="jus de pomme artisanal, jus naturel, Mamé'ho, Marcilly-le-Hayer, Aube, jus pressé, hibiscus gingembre, producteur local, Champagne">
   <meta name="author" content="Mamé'ho">
   <link rel="canonical" href="https://www.mameho.fr/">
-
-  <!-- ═══ Open Graph / Réseaux sociaux ═══ -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="Mamé'ho – Jus de Fruits Artisanaux">
@@ -23,22 +18,14 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Mamé'ho">
-
-  <!-- ═══ Twitter Card ═══ -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mamé'ho – Jus de Fruits Artisanaux">
   <meta name="twitter:description" content="Jus de fruits 100% naturels pressés à la ferme de l'Aube.">
   <meta name="twitter:image" content="https://www.mameho.fr/pictures/og-image.jpg">
-
-  <!-- ═══ Fonts ═══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-
-  <!-- ═══ CSS ═══ -->
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- ═══ Données structurées Schema.org ═══ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,10 +45,7 @@
       "addressCountry": "FR"
     },
     "openingHours": ["Tu 16:00-18:00", "We 16:00-18:00", "Fr 16:00-18:00", "Sa 09:00-12:00"],
-    "sameAs": [
-      "https://www.instagram.com/mameho_fruits",
-      "https://www.facebook.com/mameho"
-    ],
+    "sameAs": ["https://www.instagram.com/mameho_fruits","https://www.facebook.com/mameho"],
     "servesCuisine": "Jus de fruits artisanaux",
     "priceRange": "€"
   }
@@ -71,37 +55,31 @@
 
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-<!-- ═══════════════════════════════════════
-     TOPBAR
-════════════════════════════════════════ -->
+<!-- TOPBAR -->
 <header class="topbar" id="topbar" role="banner">
-  <button class="menu-btn" id="openMenu"
-          aria-controls="menu" aria-expanded="false" aria-label="Ouvrir le menu">
+  <button class="menu-btn" id="openMenu" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir le menu">
     <span class="burger-line"></span>
     <span class="burger-line"></span>
     <span class="burger-line"></span>
   </button>
-
   <a href="#accueil" class="logo-link" aria-label="Mamé'ho – Retour à l'accueil">
     <div class="logo">
       <span class="logo-main">MA MÉ'<span class="ho">ho</span></span>
       <span class="logo-sub">Jus Artisanaux · Aube</span>
     </div>
   </a>
-
   <nav class="topbar-nav" aria-label="Navigation principale">
     <a href="#jus">Nos Jus</a>
+    <a href="#ingredients">Ingrédients</a>
     <a href="#augustin">Histoire</a>
     <a href="#galerie">Galerie</a>
     <a href="#fabrication">Fabrication</a>
-    <a href="#trouver">Nous Trouver</a>
+    <a href="#trouver">Nous Goûter</a>
     <a href="#contact" class="btn-cta">Contact</a>
   </nav>
 </header>
 
-<!-- ═══════════════════════════════════════
-     MENU OVERLAY
-════════════════════════════════════════ -->
+<!-- MENU OVERLAY -->
 <nav class="menu-overlay" id="menu" aria-hidden="true" aria-label="Menu principal">
   <div class="falling-apples" id="fallingApples" aria-hidden="true"></div>
   <div class="menu-content">
@@ -109,11 +87,12 @@
     <ul class="menu-links">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#jus">Nos Jus</a></li>
+      <li><a href="#ingredients">Ingrédients</a></li>
       <li><a href="#augustin">Notre Histoire</a></li>
       <li><a href="#decouvrir">À Découvrir</a></li>
-      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#galerie">Mamé'ho en images</a></li>
       <li><a href="#fabrication">Fabrication</a></li>
-      <li><a href="#trouver">Nous Trouver</a></li>
+      <li><a href="#trouver">Nous Goûter</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <p class="menu-tagline">100% naturel · Pressé à la ferme · Aube, France</p>
@@ -122,594 +101,567 @@
 
 <main id="main-content">
 
-  <!-- ═══════════════════════════════════════
-       HERO
-  ════════════════════════════════════════ -->
-  <section id="accueil" class="hero" aria-labelledby="hero-title">
-    <div class="hero-decos" aria-hidden="true">
-      <span class="d hd-1">🍎</span>
-      <span class="d hd-2">🍏</span>
-      <span class="d hd-3">🍋</span>
-      <span class="d hd-4">🌺</span>
-      <span class="d hd-5">🌿</span>
-      <span class="d hd-6">🍎</span>
-      <span class="d hd-7">🌿</span>
-      <span class="d hd-8">🍎</span>
-      <span class="d hd-9">🍏</span>
-      <span class="d hd-10">🍋</span>
-      <span class="d hd-11">🌺</span>
+<!-- ═══ HERO ═══ -->
+<section id="accueil" class="hero" aria-labelledby="hero-title">
+  <div class="hero-decos" aria-hidden="true">
+    <!-- Bouteilles packshot SVG -->
+    <div class="hbottle hb1">
+      <svg viewBox="0 0 56 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="0" width="16" height="12" rx="4" fill="#085E54" opacity=".8"/>
+        <path d="M14 26 Q9 46 9 74 L9 146 Q9 157 20 159 L36 159 Q47 157 47 146 L47 74 Q47 46 42 26 Z" fill="#085E54" opacity=".13" stroke="#085E54" stroke-width="1.5" opacity=".5"/>
+        <rect x="13" y="54" width="30" height="64" rx="3" fill="#91CF5C" opacity=".22"/>
+        <path d="M17 12 L39 12 L41 26 L15 26 Z" fill="#FCCF00" opacity=".75"/>
+      </svg>
     </div>
-
-    <div class="hero-inner">
-      <p class="hero-eyebrow">Ferme de Marcilly-le-Hayer · Aube, France</p>
-
-      <h1 class="hero-logo" id="hero-title">
-        MA<br>MÉ'<span class="ho">ho</span>
-      </h1>
-
-      <p class="hero-tagline">
-        Le <span class="jus">jus</span> qui fait<br>
-        <span class="fruit">fruitcher</span>* vos journées !
-      </p>
-      <p class="hero-wavy">~ ~ ~ ~ ~</p>
-      <p class="hero-desc">Jus de fruits artisanaux · 100% naturels · Sans conservateurs</p>
-
-      <div class="hero-cta">
-        <a href="#jus" class="btn-primary">Découvrir nos jus</a>
-        <a href="#augustin" class="btn-secondary">Notre histoire</a>
-      </div>
-      <p class="hero-note">*Fruitcher : apporter une explosion de saveurs fruitées et de fraîcheur.</p>
+    <div class="hbottle hb2">
+      <svg viewBox="0 0 56 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="0" width="16" height="12" rx="4" fill="#AD1C69" opacity=".8"/>
+        <path d="M14 26 Q9 46 9 74 L9 146 Q9 157 20 159 L36 159 Q47 157 47 146 L47 74 Q47 46 42 26 Z" fill="#AD1C69" opacity=".13" stroke="#AD1C69" stroke-width="1.5" opacity=".5"/>
+        <rect x="13" y="54" width="30" height="64" rx="3" fill="#AD1C69" opacity=".2"/>
+        <path d="M17 12 L39 12 L41 26 L15 26 Z" fill="#AD1C69" opacity=".65"/>
+      </svg>
     </div>
-
-    <div class="hero-scroll" aria-hidden="true">
-      <div class="scroll-dot"></div>
-      <span>Défiler</span>
+    <div class="hbottle hb3">
+      <svg viewBox="0 0 56 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="0" width="16" height="12" rx="4" fill="#5A7A30" opacity=".8"/>
+        <path d="M14 26 Q9 46 9 74 L9 146 Q9 157 20 159 L36 159 Q47 157 47 146 L47 74 Q47 46 42 26 Z" fill="#FCCF00" opacity=".16" stroke="#5A7A30" stroke-width="1.5" opacity=".5"/>
+        <rect x="13" y="54" width="30" height="64" rx="3" fill="#FCCF00" opacity=".28"/>
+        <path d="M17 12 L39 12 L41 26 L15 26 Z" fill="#FCCF00" opacity=".85"/>
+      </svg>
     </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       VALEURS
-  ════════════════════════════════════════ -->
-  <div class="values-band" role="region" aria-label="Nos engagements">
-    <div class="values-inner">
-      <div class="value-item"><span class="value-icon" aria-hidden="true">🍎</span><span>100% Naturel</span></div>
-      <div class="value-sep" aria-hidden="true">·</div>
-      <div class="value-item"><span class="value-icon" aria-hidden="true">🌿</span><span>Sans conservateurs</span></div>
-      <div class="value-sep" aria-hidden="true">·</div>
-      <div class="value-item"><span class="value-icon" aria-hidden="true">🏡</span><span>Pressé à la ferme</span></div>
-      <div class="value-sep" aria-hidden="true">·</div>
-      <div class="value-item"><span class="value-icon" aria-hidden="true">🇫🇷</span><span>Made in Aube</span></div>
+    <!-- Formes graphiques -->
+    <div class="hshape hs-ring"></div>
+    <div class="hshape hs-blob"></div>
+    <div class="hshape hs-leaf1">
+      <svg viewBox="0 0 70 100" fill="none"><path d="M35 4Q64 24 60 62Q53 95 35 97Q17 95 10 62Q6 24 35 4Z" fill="#91CF5C" opacity=".16" stroke="#91CF5C" stroke-width="1" opacity=".28"/><line x1="35" y1="6" x2="35" y2="94" stroke="#91CF5C" stroke-width="1" opacity=".2"/></svg>
     </div>
+    <div class="hshape hs-leaf2">
+      <svg viewBox="0 0 70 100" fill="none"><path d="M35 4Q64 24 60 62Q53 95 35 97Q17 95 10 62Q6 24 35 4Z" fill="#085E54" opacity=".1" stroke="#085E54" stroke-width="1" opacity=".2"/></svg>
+    </div>
+    <div class="hshape hs-apple">
+      <svg viewBox="0 0 70 70" fill="none"><path d="M35 7Q15 3 11 22Q5 43 17 55Q25 64 35 62Q45 64 53 55Q65 43 59 22Q55 3 35 7Z" fill="#91CF5C" opacity=".2" stroke="#91CF5C" stroke-width="1.2" opacity=".35"/><path d="M35 7Q38 1 46 3" stroke="#5A7A30" stroke-width="1.5" fill="none" opacity=".35" stroke-linecap="round"/></svg>
+    </div>
+    <div class="hshape hs-dot1"></div>
+    <div class="hshape hs-dot2"></div>
   </div>
 
-  <!-- ═══════════════════════════════════════
-       NOS JUS
-  ════════════════════════════════════════ -->
-  <section id="jus" class="section jus-section reveal" aria-labelledby="jus-title">
-    <div class="section-wrap">
-      <div class="section-hd">
-        <span class="section-label">Notre Gamme</span>
-        <h2 id="jus-title">Nos Jus <span class="heart" aria-hidden="true">♥</span></h2>
-        <p>Passez sur une bouteille pour découvrir le descriptif de chaque jus.</p>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Ferme de Marcilly-le-Hayer · Aube, France</p>
+    <h1 class="hero-logo" id="hero-title">MA<br>MÉ'<span class="ho">ho</span></h1>
+    <p class="hero-tagline">Le <span class="jus">jus</span> qui fait<br><span class="fruit">fruitcher</span>* vos journées !</p>
+    <p class="hero-wavy">~ ~ ~ ~ ~</p>
+    <p class="hero-desc">Jus de fruits artisanaux · 100% naturels · Sans conservateurs</p>
+    <div class="hero-cta">
+      <a href="#jus" class="btn-primary">Découvrir nos jus</a>
+      <a href="#augustin" class="btn-secondary">Notre histoire</a>
+    </div>
+    <p class="hero-note">*Fruitcher : apporter une explosion de saveurs fruitées et de fraîcheur.</p>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-dot"></div>
+    <span>Défiler</span>
+  </div>
+</section>
+
+<!-- VALEURS -->
+<div class="values-band" role="region" aria-label="Nos engagements">
+  <div class="values-inner">
+    <div class="value-item"><span class="value-icon" aria-hidden="true">🍎</span><span>100% Naturel</span></div>
+    <div class="value-sep" aria-hidden="true">·</div>
+    <div class="value-item"><span class="value-icon" aria-hidden="true">🌿</span><span>Sans conservateurs</span></div>
+    <div class="value-sep" aria-hidden="true">·</div>
+    <div class="value-item"><span class="value-icon" aria-hidden="true">🏡</span><span>Pressé à la ferme</span></div>
+    <div class="value-sep" aria-hidden="true">·</div>
+    <div class="value-item"><span class="value-icon" aria-hidden="true">🇫🇷</span><span>Made in Aube</span></div>
+  </div>
+</div>
+
+<!-- ═══ NOS JUS ═══ -->
+<section id="jus" class="section jus-section" aria-labelledby="jus-title">
+  <div class="section-wrap">
+    <div class="section-hd">
+      <span class="section-label">Notre Gamme</span>
+      <h2 id="jus-title">Nos Jus <span class="heart" aria-hidden="true">♥</span></h2>
+      <p>Passez sur une bouteille pour découvrir le descriptif de chaque jus.</p>
+    </div>
+    <div class="jus-grid">
+
+      <article class="juice-card" data-f="pomme">
+        <div class="juice-card-img">
+          <span class="bottle-icon" aria-hidden="true">🍾</span>
+          <div class="juice-card-overlay" aria-hidden="true">
+            <span class="tag">Bestseller</span>
+            <p>Le goût pur de la pomme fraîchement pressée, à boire à tout moment de la journée. Fruité, équilibré, d'une belle robe ambrée.</p>
+          </div>
+        </div>
+        <div class="juice-card-body">
+          <h3><strong>Pommes</strong></h3>
+          <span class="juice-vol">33cl ou 1L · 100% Naturel</span>
+          <div class="juice-ings">
+            <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+          </div>
+          <div><span class="juice-price">2,00 € / 3,50 €</span></div>
+        </div>
+      </article>
+
+      <article class="juice-card" data-f="hibiscus">
+        <div class="juice-card-img">
+          <span class="bottle-icon" aria-hidden="true">🌺</span>
+          <div class="juice-card-overlay" aria-hidden="true">
+            <span class="tag">Édition Spéciale</span>
+            <p>Une alliance de pomme, fleur d'hibiscus et gingembre pour un jus parfumé et tonique. Rafraîchissant et vitaminé !</p>
+          </div>
+        </div>
+        <div class="juice-card-body">
+          <h3><strong>Pomme · Hibiscus · Gingembre</strong></h3>
+          <span class="juice-vol">33cl ou 1L · 100% Naturel</span>
+          <div class="juice-ings">
+            <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+            <span class="ji" title="Hibiscus"><svg viewBox="0 0 36 36" fill="none"><path d="M18 6Q22 2 25 6Q29 3 30 9Q34 10 33 15Q36 19 31 20Q32 25 26 25Q24 30 19 28Q18 33 16 28Q11 30 9 25Q3 24 5 19Q1 16 4 11Q3 6 7 7Q8 3 12 7Z" fill="#AD1C69" opacity=".85"/><circle cx="18" cy="16" r="3.5" fill="#FCCF00"/></svg></span>
+            <span class="ji" title="Gingembre"><svg viewBox="0 0 36 36" fill="none"><ellipse cx="18" cy="20" rx="12" ry="8" fill="#EDBF91"/><ellipse cx="9" cy="14" rx="5.5" ry="4.5" fill="#EDBF91"/><ellipse cx="27" cy="13" rx="4.5" ry="3.5" fill="#EDBF91"/><ellipse cx="18" cy="20" rx="12" ry="8" fill="none" stroke="#C89A60" stroke-width="1.2"/></svg></span>
+          </div>
+          <div><span class="juice-price">2,50 € / 4,00 €</span></div>
+        </div>
+      </article>
+
+      <article class="juice-card" data-f="miel">
+        <div class="juice-card-img">
+          <span class="bottle-icon" aria-hidden="true">🍯</span>
+          <div class="juice-card-overlay" aria-hidden="true">
+            <span class="tag">Gourmand</span>
+            <p>Une recette gourmande et réconfortante, aux notes de noisettes et de miel. Parfait pour un petit-déjeuner de caractère.</p>
+          </div>
+        </div>
+        <div class="juice-card-body">
+          <h3><strong>Pommes · Noisettes · Miel</strong></h3>
+          <span class="juice-vol">33cl · 100% Naturel</span>
+          <div class="juice-ings">
+            <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+            <span class="ji" title="Noisette"><svg viewBox="0 0 36 36" fill="none"><ellipse cx="18" cy="22" rx="10" ry="9" fill="#C89A60"/><path d="M12 22Q18 9 24 22" fill="#A07840"/><circle cx="18" cy="12" r="3" fill="#5A7A30"/></svg></span>
+            <span class="ji" title="Miel"><svg viewBox="0 0 36 36" fill="none"><path d="M18 5L25 12L25 24L18 31L11 24L11 12Z" fill="#FCCF00"/><path d="M18 5L25 12L25 24L18 31L11 24L11 12Z" fill="none" stroke="#C8A000" stroke-width="1.2"/></svg></span>
+          </div>
+          <div><span class="juice-price">3,00 €</span></div>
+        </div>
+      </article>
+
+      <article class="juice-card" data-f="bissap">
+        <div class="juice-card-img">
+          <span class="bottle-icon" aria-hidden="true">🫶</span>
+          <div class="juice-card-overlay" aria-hidden="true">
+            <span class="tag">Nouveauté</span>
+            <p>Boisson à base d'hibiscus, acidulée et désaltérante, idéale bien glacée. Une découverte sensorielle unique.</p>
+          </div>
+        </div>
+        <div class="juice-card-body">
+          <h3><strong>Bissap</strong></h3>
+          <span class="juice-vol">33cl · 100% Naturel</span>
+          <div class="juice-ings">
+            <span class="ji" title="Hibiscus"><svg viewBox="0 0 36 36" fill="none"><path d="M18 6Q22 2 25 6Q29 3 30 9Q34 10 33 15Q36 19 31 20Q32 25 26 25Q24 30 19 28Q18 33 16 28Q11 30 9 25Q3 24 5 19Q1 16 4 11Q3 6 7 7Q8 3 12 7Z" fill="#AD1C69" opacity=".85"/><circle cx="18" cy="16" r="3.5" fill="#FCCF00"/></svg></span>
+          </div>
+          <div><span class="juice-price">2,50 €</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INGRÉDIENTS ═══ -->
+<section id="ingredients" class="section ingredients-section" aria-labelledby="ing-title">
+  <div class="section-wrap">
+    <div class="section-hd">
+      <span class="section-label">Nos Matières Premières</span>
+      <h2 id="ing-title">Nos Ingrédients <span class="heart" aria-hidden="true">♥</span></h2>
+      <p>Des ingrédients soigneusement sélectionnés pour des saveurs authentiques et 100% naturelles.</p>
+    </div>
+    <div class="ing-grid">
+
+      <article class="ing-card">
+        <div class="ing-icon-wrap ing-pomme">
+          <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 9Q16 4 12 25Q6 48 18 60Q26 70 36 68Q46 70 54 60Q66 48 60 25Q56 4 36 9Z" fill="#91CF5C"/>
+            <path d="M36 9Q39 2 48 4" stroke="#5A7A30" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M36 28Q27 34 25 46" stroke="#5A7A30" stroke-width="1.5" fill="none" opacity=".35" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="ing-body">
+          <h3>Pomme</h3>
+          <p>Cœur de notre gamme, nos pommes auboise sont récoltées à parfaite maturité. Elles apportent douceur, fruité et une belle robe ambrée à chaque cuvée.</p>
+          <span class="ing-badge">Vergers de l'Aube</span>
+        </div>
+      </article>
+
+      <article class="ing-card">
+        <div class="ing-icon-wrap ing-hibiscus">
+          <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 14Q43 5 50 14Q59 7 61 18Q70 22 67 31Q72 40 63 42Q65 51 54 51Q51 61 40 57Q36 68 32 57Q21 61 18 51Q7 49 9 40Q0 32 5 23Q3 12 13 14Q15 5 25 14Z" fill="#AD1C69" opacity=".88"/>
+            <circle cx="36" cy="33" r="7" fill="#FCCF00"/>
+            <circle cx="36" cy="33" r="3.5" fill="#C8A000"/>
+          </svg>
+        </div>
+        <div class="ing-body">
+          <h3>Hibiscus</h3>
+          <p>Fleur aux notes acidulées et florales, l'hibiscus apporte une belle couleur rubis et une fraîcheur unique à nos jus. Naturellement riche en antioxydants.</p>
+          <span class="ing-badge">Fleur séchée</span>
+        </div>
+      </article>
+
+      <article class="ing-card">
+        <div class="ing-icon-wrap ing-noisette">
+          <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="36" cy="44" rx="20" ry="18" fill="#C89A60"/>
+            <path d="M25 44Q36 18 47 44" fill="#A07840"/>
+            <ellipse cx="36" cy="44" rx="20" ry="18" fill="none" stroke="#8A6030" stroke-width="2"/>
+            <circle cx="36" cy="26" r="6" fill="#5A7A30"/>
+            <path d="M32 23Q36 20 40 23" stroke="#5A7A30" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="ing-body">
+          <h3>Noisette</h3>
+          <p>Nos noisettes locales apportent une touche gourmande et torréfiée à notre jus Pommes-Noisettes-Miel. Un accord chaleureux et réconfortant.</p>
+          <span class="ing-badge">Locale &amp; artisanale</span>
+        </div>
+      </article>
+
+      <article class="ing-card">
+        <div class="ing-icon-wrap ing-miel">
+          <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 10L52 24L52 48L36 62L20 48L20 24Z" fill="#FCCF00"/>
+            <path d="M36 10L52 24L52 48L36 62L20 48L20 24Z" fill="none" stroke="#C8A000" stroke-width="2"/>
+            <path d="M28 34Q36 42 44 34" stroke="#C8A000" stroke-width="2" fill="none"/>
+            <path d="M30 26Q36 32 42 26" stroke="#C8A000" stroke-width="1.5" fill="none" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="ing-body">
+          <h3>Miel</h3>
+          <p>Sélectionné auprès de producteurs locaux, notre miel aux notes florales adoucit nos jus et leur confère une rondeur et une longueur en bouche incomparables.</p>
+          <span class="ing-badge">Producteur local</span>
+        </div>
+      </article>
+
+      <article class="ing-card">
+        <div class="ing-icon-wrap ing-gingembre">
+          <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="36" cy="40" rx="24" ry="16" fill="#EDBF91"/>
+            <ellipse cx="18" cy="29" rx="11" ry="9" fill="#EDBF91"/>
+            <ellipse cx="54" cy="27" rx="9" ry="7" fill="#EDBF91"/>
+            <ellipse cx="33" cy="18" rx="7" ry="7" fill="#EDBF91"/>
+            <ellipse cx="36" cy="40" rx="24" ry="16" fill="none" stroke="#C89A60" stroke-width="2"/>
+            <ellipse cx="18" cy="29" rx="11" ry="9" fill="none" stroke="#C89A60" stroke-width="1.5"/>
+            <ellipse cx="54" cy="27" rx="9" ry="7" fill="none" stroke="#C89A60" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="ing-body">
+          <h3>Gingembre</h3>
+          <p>Racine épicée et tonique, le gingembre apporte chaleur et caractère à notre jus Pomme-Hibiscus-Gingembre. Une note piquante qui réveille les papilles.</p>
+          <span class="ing-badge">Racine fraîche</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AUGUSTIN ═══ -->
+<section id="augustin" class="section augustin-section" aria-labelledby="augustin-title">
+  <div class="section-wrap">
+    <div class="augustin-inner">
+      <div class="augustin-photo">
+        <div class="photo-blob">
+          <img src="pictures/general/augustin.jpg" alt="Augustin, fondateur de Mamé'ho, dans les vergers à Marcilly-le-Hayer" width="600" height="750" loading="lazy" onerror="this.style.display='none'; this.parentElement.textContent='🧑‍🌾';">
+        </div>
+        <div class="aug-badge" aria-hidden="true">🍎</div>
       </div>
-
-      <div class="jus-grid">
-
-        <article class="juice-card reveal reveal-delay-1" data-f="pomme">
-          <div class="juice-card-img">
-            <span class="bottle-icon" aria-hidden="true">🍾</span>
-            <div class="juice-card-overlay" aria-hidden="true">
-              <span class="tag">Bestseller</span>
-              <p>Le goût pur de la pomme fraîchement pressée, à boire à tout moment de la journée. Fruité, équilibré, d'une belle robe ambrée.</p>
-            </div>
-          </div>
-          <div class="juice-card-body">
-            <h3>Pommes</h3>
-            <span class="juice-vol">33cl ou 1L · 100% Naturel</span>
-            <div><span class="juice-price">2,00 € / 3,50 €</span></div>
-          </div>
-        </article>
-
-        <article class="juice-card reveal reveal-delay-2" data-f="hibiscus">
-          <div class="juice-card-img">
-            <span class="bottle-icon" aria-hidden="true">🌺</span>
-            <div class="juice-card-overlay" aria-hidden="true">
-              <span class="tag">Édition Spéciale</span>
-              <p>Une alliance de pomme, fleur d'hibiscus et gingembre pour un jus parfumé et tonique. Rafraîchissant et vitaminé !</p>
-            </div>
-          </div>
-          <div class="juice-card-body">
-            <h3>Pomme · Hibiscus · Gingembre</h3>
-            <span class="juice-vol">33cl ou 1L · 100% Naturel</span>
-            <div><span class="juice-price">2,50 € / 4,00 €</span></div>
-          </div>
-        </article>
-
-        <article class="juice-card reveal reveal-delay-3" data-f="miel">
-          <div class="juice-card-img">
-            <span class="bottle-icon" aria-hidden="true">🍯</span>
-            <div class="juice-card-overlay" aria-hidden="true">
-              <span class="tag">Gourmand</span>
-              <p>Une recette gourmande et réconfortante, aux notes de noisettes et de miel. Parfait pour un petit-déjeuner de caractère.</p>
-            </div>
-          </div>
-          <div class="juice-card-body">
-            <h3>Pommes · Noisettes · Miel</h3>
-            <span class="juice-vol">33cl · 100% Naturel</span>
-            <div><span class="juice-price">3,00 €</span></div>
-          </div>
-        </article>
-
-        <article class="juice-card reveal reveal-delay-1" data-f="bissap">
-          <div class="juice-card-img">
-            <span class="bottle-icon" aria-hidden="true">🫶</span>
-            <div class="juice-card-overlay" aria-hidden="true">
-              <span class="tag">Nouveauté</span>
-              <p>Boisson à base d'hibiscus, acidulée et désaltérante, idéale bien glacée. Une découverte sensorielle unique.</p>
-            </div>
-          </div>
-          <div class="juice-card-body">
-            <h3>Bissap</h3>
-            <span class="juice-vol">33cl · 100% Naturel</span>
-            <div><span class="juice-price">2,50 €</span></div>
-          </div>
-        </article>
-
+      <div class="augustin-text">
+        <span class="section-label">Notre Histoire</span>
+        <h2 id="augustin-title">Le petit mot d'Augustin</h2>
+        <p class="aug-wavy" aria-hidden="true">~ ~ ~ ~ ~</p>
+        <p class="aug-lead">Mamé'ho, ce sont des fruits choisis et transformés avec soin.</p>
+        <p>Issu du monde agricole, j'ai créé Mamé'ho avec une conviction simple : la qualité de nos jus repose sur le choix des produits et sur un travail exigeant, mené avec soin à chaque étape.</p>
+        <p>Avec Mamé'ho, je souhaite mettre en avant les produits, fruits et savoir-faire locaux de notre belle région de l'Aube.</p>
+        <p class="aug-sig">Augustin</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════════════
-       AUGUSTIN
-  ════════════════════════════════════════ -->
-  <section id="augustin" class="section augustin-section reveal" aria-labelledby="augustin-title">
-    <div class="section-wrap">
-      <div class="augustin-inner">
-
-        <div class="augustin-photo">
-          <div class="photo-blob">
-            <img
-              src="pictures/general/augustin.jpg"
-              alt="Augustin, fondateur de Mamé'ho, dans les vergers à Marcilly-le-Hayer"
-              width="600" height="750"
-              loading="lazy"
-              onerror="this.style.display='none'; this.parentElement.textContent='🧑‍🌾';">
-          </div>
-          <div class="aug-badge" aria-hidden="true">🍎</div>
+<!-- ═══ À DÉCOUVRIR ═══ -->
+<section id="decouvrir" class="section discover-section" aria-labelledby="decouvrir-title">
+  <div class="section-wrap">
+    <div class="section-hd">
+      <div class="made-badge" role="img" aria-label="Fabriqué en France, dans l'Aube">🇫🇷 Made in Aube</div>
+      <h2 id="decouvrir-title">Nos jus à découvrir <span class="heart" aria-hidden="true">♥</span></h2>
+    </div>
+    <p class="discover-intro">Mamé'ho propose une gamme de jus élaborés avec les fruits de nos vergers aubois. Des recettes maison, naturelles, avec une pointe d'originalité.</p>
+    <div class="discover-grid">
+      <div class="discover-item" data-di="pomme">
+        <div class="di-img" aria-hidden="true">🍾</div>
+        <div class="di-text">
+          <h3>Pommes</h3>
+          <span class="di-vol">33cl ou 1L</span>
+          <p>Le goût pur de la pomme fraîchement pressée, à boire à tout moment de la journée.</p>
+          <p class="di-price">2,00 € · 3,50 €</p>
         </div>
-
-        <div class="augustin-text">
-          <span class="section-label">Notre Histoire</span>
-          <h2 id="augustin-title">Le petit mot d'Augustin</h2>
-          <p class="aug-wavy" aria-hidden="true">~ ~ ~ ~ ~</p>
-          <p class="aug-lead">Mamé'ho, ce sont des fruits choisis et transformés avec soin.</p>
-          <p>Issu du monde agricole, j'ai créé Mamé'ho avec une conviction simple : la qualité de nos jus repose sur le choix des produits et sur un travail exigeant, mené avec soin à chaque étape.</p>
-          <p>Avec Mamé'ho, je souhaite mettre en avant les produits, fruits et savoir-faire locaux de notre belle région de l'Aube.</p>
-          <p class="aug-sig">Augustin</p>
+      </div>
+      <div class="discover-item" data-di="miel">
+        <div class="di-img" aria-hidden="true">🍯</div>
+        <div class="di-text">
+          <h3>Pommes, Noisettes et Miel</h3>
+          <span class="di-vol">33cl</span>
+          <p>Une recette gourmande et réconfortante, aux notes de noisettes et de miel.</p>
+          <p class="di-price">3,00 €</p>
         </div>
-
+      </div>
+      <div class="discover-item" data-di="hibiscus">
+        <div class="di-img" aria-hidden="true">🌺</div>
+        <div class="di-text">
+          <h3>Pomme, Hibiscus et Gingembre</h3>
+          <span class="di-vol">33cl ou 1L</span>
+          <p>Une alliance de pomme, fleur d'hibiscus et gingembre pour un jus parfumé et tonique.</p>
+          <p class="di-price">2,50 € · 4,00 €</p>
+        </div>
+      </div>
+      <div class="discover-item" data-di="bissap">
+        <div class="di-img" aria-hidden="true">🫶</div>
+        <div class="di-text">
+          <h3>Bissap</h3>
+          <span class="di-vol">33cl</span>
+          <p>Boisson à base d'hibiscus, acidulée, idéale bien glacée.</p>
+          <p class="di-price">2,50 €</p>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       À DÉCOUVRIR
-  ════════════════════════════════════════ -->
-  <section id="decouvrir" class="section discover-section reveal" aria-labelledby="decouvrir-title">
-    <div class="section-wrap">
-      <div class="section-hd">
-        <div class="made-badge" role="img" aria-label="Fabriqué en France, dans l'Aube">🇫🇷 Made in Aube</div>
-        <h2 id="decouvrir-title">Nos jus à découvrir <span class="heart" aria-hidden="true">♥</span></h2>
-      </div>
-
-      <p class="discover-intro">Mamé'ho propose une gamme de jus élaborés avec les fruits de nos vergers aubois. Des recettes maison, naturelles, avec une pointe d'originalité.</p>
-
-      <div class="discover-grid">
-        <div class="discover-item" data-di="pomme">
-          <div class="di-img" aria-hidden="true">🍾</div>
-          <div class="di-text">
-            <h3 class="di-text h4">Pommes</h3>
-            <span class="di-vol">33cl ou 1L</span>
-            <p>Le goût pur de la pomme fraîchement pressée, à boire à tout moment de la journée.</p>
-            <p class="di-price">2,00 € · 3,50 €</p>
-          </div>
-        </div>
-
-        <div class="discover-item" data-di="miel">
-          <div class="di-img" aria-hidden="true">🍯</div>
-          <div class="di-text">
-            <h3>Pommes, Noisettes et Miel</h3>
-            <span class="di-vol">33cl</span>
-            <p>Une recette gourmande et réconfortante, aux notes de noisettes et de miel.</p>
-            <p class="di-price">3,00 €</p>
-          </div>
-        </div>
-
-        <div class="discover-item" data-di="hibiscus">
-          <div class="di-img" aria-hidden="true">🌺</div>
-          <div class="di-text">
-            <h3>Pomme, Hibiscus et Gingembre</h3>
-            <span class="di-vol">33cl ou 1L</span>
-            <p>Une alliance de pomme, fleur d'hibiscus et gingembre pour un jus parfumé et tonique.</p>
-            <p class="di-price">2,50 € · 4,00 €</p>
-          </div>
-        </div>
-
-        <div class="discover-item" data-di="bissap">
-          <div class="di-img" aria-hidden="true">🫶</div>
-          <div class="di-text">
-            <h3>Bissap</h3>
-            <span class="di-vol">33cl</span>
-            <p>Boisson à base d'hibiscus, acidulée, idéale bien glacée.</p>
-            <p class="di-price">2,50 €</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Comment savourer -->
-      <div class="savourer-box reveal">
-        <h3>✨ Comment les savourer ?</h3>
-        <div class="savourer-pills">
-          <span class="savourer-pill">🌅 Au petit-déjeuner</span>
-          <span class="savourer-pill">🥂 À l'apéritif</span>
-          <span class="savourer-pill">🍹 En cocktails</span>
-          <span class="savourer-pill">🧺 Paniers gourmands</span>
-          <span class="savourer-pill">🎁 Coffrets cadeaux</span>
-        </div>
-      </div>
-
-      <!-- Idée cocktail -->
-      <div class="cocktail-box reveal">
-        <h3>🍹 Idée cocktail</h3>
-        <p class="cocktail-name">Le Red Pulse :</p>
-        <ul>
-          <li>12 cl de jus Pomme – Hibiscus – Gingembre Mamé'ho</li>
-          <li>4 cl d'eau pétillante bien fraîche</li>
-          <li>1 trait de jus de citron vert</li>
-          <li>Glaçons · Quelques feuilles de menthe</li>
-          <li>1 fine lamelle de pomme pour la décoration</li>
-        </ul>
+    <div class="savourer-box">
+      <h3>✨ Comment les savourer ?</h3>
+      <div class="savourer-pills">
+        <span class="savourer-pill">🌅 Au petit-déjeuner</span>
+        <span class="savourer-pill">🥂 À l'apéritif</span>
+        <span class="savourer-pill">🍹 En cocktails</span>
+        <span class="savourer-pill">🧺 Paniers gourmands</span>
+        <span class="savourer-pill">🎁 Coffrets cadeaux</span>
       </div>
     </div>
-  </section>
+    <div class="cocktail-box">
+      <h3>🍹 Idée cocktail</h3>
+      <p class="cocktail-name">Le Red Pulse :</p>
+      <ul>
+        <li>12 cl de jus Pomme – Hibiscus – Gingembre Mamé'ho</li>
+        <li>4 cl d'eau pétillante bien fraîche</li>
+        <li>1 trait de jus de citron vert</li>
+        <li>Glaçons · Quelques feuilles de menthe</li>
+        <li>1 fine lamelle de pomme pour la décoration</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════════════
-       GALERIE PHOTOS
-  ════════════════════════════════════════ -->
-  <section id="galerie" class="section galerie-section reveal" aria-labelledby="galerie-title">
-    <div class="section-wrap">
-      <div class="section-hd">
-        <span class="section-label">Photos</span>
-        <h2 id="galerie-title">Le Domaine en Images <span class="heart" aria-hidden="true">♥</span></h2>
-        <p>Nos vergers, notre savoir-faire et nos jus — au fil des saisons.</p>
+<!-- ═══ GALERIE ═══ -->
+<section id="galerie" class="section galerie-section" aria-labelledby="galerie-title">
+  <div class="section-wrap">
+    <div class="section-hd">
+      <span class="section-label">Photos</span>
+      <h2 id="galerie-title">Mamé'ho en Images <span class="heart" aria-hidden="true">♥</span></h2>
+      <p>Nos vergers, notre savoir-faire et nos jus — au fil des saisons.</p>
+    </div>
+    <div class="gallery-grid" role="list">
+      <div class="gallery-item tall" role="listitem" tabindex="0" data-src="pictures/general/apples.jpg" data-caption="Nos pommes fraîches" aria-label="Voir la photo : Nos pommes fraîches">
+        <img src="pictures/general/apples.jpg" alt="Assortiment de pommes colorées du domaine Mamé'ho" loading="lazy" width="600" height="900" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🍎</span><span>Nos pommes</span></div>'">
+        <div class="gallery-label">Nos pommes</div>
       </div>
-
-      <div class="gallery-grid" role="list">
-
-        <!-- Item 1 – grand, rangée 1 col 1 (tall) -->
-        <div class="gallery-item tall" role="listitem" tabindex="0"
-             data-src="pictures/general/apples.jpg"
-             data-caption="Nos pommes fraîches"
-             aria-label="Voir la photo : Nos pommes fraîches">
-          <img src="pictures/general/apples.jpg"
-               alt="Assortiment de pommes colorées du domaine Mamé'ho"
-               loading="lazy" width="600" height="900"
-               onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🍎</span><span>Nos pommes</span></div>'">
-          <div class="gallery-label">Nos pommes</div>
-        </div>
-
-        <!-- Item 2 – normal -->
-        <div class="gallery-item" role="listitem" tabindex="0"
-             data-src="pictures/juice/apple-juice-ginger-hibiscus.jpg"
-             data-caption="Jus Pomme · Hibiscus · Gingembre"
-             aria-label="Voir la photo : Jus Pomme Hibiscus Gingembre">
-          <img src="pictures/juice/apple-juice-ginger-hibiscus.jpg"
-               alt="Bouteille de jus Pomme Hibiscus Gingembre Mamé'ho posée dans l'herbe"
-               loading="lazy" width="600" height="400"
-               onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🌺</span><span>Hibiscus · Gingembre</span></div>'">
-          <div class="gallery-label">Hibiscus · Gingembre</div>
-        </div>
-
-        <!-- Item 3 – normal -->
-        <div class="gallery-item" role="listitem" tabindex="0"
-             data-src="pictures/workers/workers-1.jpg"
-             data-caption="L'équipe Mamé'ho à la presse"
-             aria-label="Voir la photo : L'équipe à la presse">
-          <img src="pictures/workers/workers-1.jpg"
-               alt="Membres de l'équipe Mamé'ho manipulant la presse à jus"
-               loading="lazy" width="600" height="400"
-               onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>👐</span><span>Notre équipe</span></div>'">
-          <div class="gallery-label">Notre équipe</div>
-        </div>
-
-        <!-- Item 4 – wide -->
-        <div class="gallery-item wide" role="listitem" tabindex="0"
-             data-src="pictures/general/vergers.jpg"
-             data-caption="Les vergers de Marcilly-le-Hayer"
-             aria-label="Voir la photo : Les vergers">
-          <img src="pictures/general/vergers.jpg"
-               alt="Vue panoramique des vergers du domaine Mamé'ho à Marcilly-le-Hayer au printemps"
-               loading="lazy" width="1200" height="500"
-               onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🌳</span><span>Nos vergers</span></div>'">
-          <div class="gallery-label">Nos vergers</div>
-        </div>
-
-        <!-- Item 5 – normal -->
-        <div class="gallery-item" role="listitem" tabindex="0"
-             data-src="pictures/workers/workers-2.jpg"
-             data-caption="Le pressoir hydraulique Mamé'ho"
-             aria-label="Voir la photo : Le pressoir">
-          <img src="pictures/workers/workers-2.jpg"
-               alt="Vue du pressoir hydraulique du domaine Mamé'ho"
-               loading="lazy" width="600" height="400"
-               onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>⚙️</span><span>Le pressoir</span></div>'">
-          <div class="gallery-label">Le pressoir</div>
-        </div>
-
-        <!-- Item 6 – normal -->
-        <div class="gallery-item" role="listitem" tabindex="0"
-             data-src="pictures/general/bouteilles.jpg"
-             data-caption="Nos bouteilles prêtes à déguster"
-             aria-label="Voir la photo : Nos bouteilles">
-          <img src="pictures/general/bouteilles.jpg"
-               alt="Bouteilles de jus Mamé'ho alignées, prêtes à être dégustées"
-               loading="lazy" width="600" height="400"
-               onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🍾</span><span>Nos bouteilles</span></div>'">
-          <div class="gallery-label">Nos bouteilles</div>
-        </div>
-
-        <!-- Item 7 – tall -->
-        <div class="gallery-item tall" role="listitem" tabindex="0"
-             data-src="pictures/general/augustin.jpg"
-             data-caption="Augustin dans les vergers"
-             aria-label="Voir la photo : Augustin dans les vergers">
-          <img src="pictures/general/augustin.jpg"
-               alt="Augustin, fondateur de Mamé'ho, cueillant des pommes dans les vergers"
-               loading="lazy" width="600" height="900"
-               onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🧑‍🌾</span><span>Augustin</span></div>'">
-          <div class="gallery-label">Augustin</div>
-        </div>
-
-        <!-- Item 8 – normal -->
-        <div class="gallery-item" role="listitem" tabindex="0"
-             data-src="pictures/general/plate-heat-exchanger.jpg"
-             data-caption="Notre atelier de fabrication"
-             aria-label="Voir la photo : L'atelier">
-          <img src="pictures/general/plate-heat-exchanger.jpg"
-               alt="Atelier de fabrication et pasteurisation des jus Mamé'ho"
-               loading="lazy" width="600" height="400"
-               onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🏭</span><span>L\'atelier</span></div>'">
-          <div class="gallery-label">L'atelier</div>
-        </div>
-
-        <!-- Item 9 – normal -->
-        <div class="gallery-item" role="listitem" tabindex="0"
-             data-src="pictures/general/recolte.jpg"
-             data-caption="La récolte des pommes"
-             aria-label="Voir la photo : La récolte">
-          <img src="pictures/general/recolte.jpg"
-               alt="Cueillette des pommes à la main dans les vergers de Marcilly-le-Hayer"
-               loading="lazy" width="600" height="400"
-               onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🧺</span><span>La récolte</span></div>'">
-          <div class="gallery-label">La récolte</div>
-        </div>
-
+      <div class="gallery-item" role="listitem" tabindex="0" data-src="pictures/juice/apple-juice-ginger-hibiscus.jpg" data-caption="Jus Pomme · Hibiscus · Gingembre" aria-label="Voir la photo : Jus Pomme Hibiscus Gingembre">
+        <img src="pictures/juice/apple-juice-ginger-hibiscus.jpg" alt="Bouteille de jus Pomme Hibiscus Gingembre Mamé'ho" loading="lazy" width="600" height="400" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🌺</span><span>Hibiscus · Gingembre</span></div>'">
+        <div class="gallery-label">Hibiscus · Gingembre</div>
+      </div>
+      <div class="gallery-item" role="listitem" tabindex="0" data-src="pictures/workers/workers-1.jpg" data-caption="L'équipe Mamé'ho à la presse" aria-label="Voir la photo : L'équipe à la presse">
+        <img src="pictures/workers/workers-1.jpg" alt="L'équipe Mamé'ho manipulant la presse à jus" loading="lazy" width="600" height="400" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>👐</span><span>Notre équipe</span></div>'">
+        <div class="gallery-label">Notre équipe</div>
+      </div>
+      <div class="gallery-item wide" role="listitem" tabindex="0" data-src="pictures/general/vergers.jpg" data-caption="Les vergers de Marcilly-le-Hayer" aria-label="Voir la photo : Les vergers">
+        <img src="pictures/general/vergers.jpg" alt="Vue panoramique des vergers du domaine Mamé'ho" loading="lazy" width="1200" height="500" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🌳</span><span>Nos vergers</span></div>'">
+        <div class="gallery-label">Nos vergers</div>
+      </div>
+      <div class="gallery-item" role="listitem" tabindex="0" data-src="pictures/workers/workers-2.jpg" data-caption="Le pressoir hydraulique Mamé'ho" aria-label="Voir la photo : Le pressoir">
+        <img src="pictures/workers/workers-2.jpg" alt="Vue du pressoir hydraulique du domaine Mamé'ho" loading="lazy" width="600" height="400" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>⚙️</span><span>Le pressoir</span></div>'">
+        <div class="gallery-label">Le pressoir</div>
+      </div>
+      <div class="gallery-item" role="listitem" tabindex="0" data-src="pictures/general/bouteilles.jpg" data-caption="Nos bouteilles prêtes à déguster" aria-label="Voir la photo : Nos bouteilles">
+        <img src="pictures/general/bouteilles.jpg" alt="Bouteilles de jus Mamé'ho alignées" loading="lazy" width="600" height="400" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🍾</span><span>Nos bouteilles</span></div>'">
+        <div class="gallery-label">Nos bouteilles</div>
+      </div>
+      <div class="gallery-item tall" role="listitem" tabindex="0" data-src="pictures/general/augustin.jpg" data-caption="Augustin dans les vergers" aria-label="Voir la photo : Augustin dans les vergers">
+        <img src="pictures/general/augustin.jpg" alt="Augustin, fondateur de Mamé'ho, dans les vergers" loading="lazy" width="600" height="900" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🧑‍🌾</span><span>Augustin</span></div>'">
+        <div class="gallery-label">Augustin</div>
+      </div>
+      <div class="gallery-item" role="listitem" tabindex="0" data-src="pictures/general/plate-heat-exchanger.jpg" data-caption="Notre atelier de fabrication" aria-label="Voir la photo : L'atelier">
+        <img src="pictures/general/plate-heat-exchanger.jpg" alt="Atelier de fabrication et pasteurisation des jus Mamé'ho" loading="lazy" width="600" height="400" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🏭</span><span>L\'atelier</span></div>'">
+        <div class="gallery-label">L'atelier</div>
+      </div>
+      <div class="gallery-item" role="listitem" tabindex="0" data-src="pictures/general/recolte.jpg" data-caption="La récolte des pommes" aria-label="Voir la photo : La récolte">
+        <img src="pictures/general/recolte.jpg" alt="Cueillette des pommes à la main dans les vergers" loading="lazy" width="600" height="400" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🧺</span><span>La récolte</span></div>'">
+        <div class="gallery-label">La récolte</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════════════
-       FABRICATION
-  ════════════════════════════════════════ -->
-  <section id="fabrication" class="section fabrication-section reveal" aria-labelledby="fab-title">
-    <div class="section-wrap">
-      <div class="section-hd">
-        <span class="section-label">Savoir-faire artisanal</span>
-        <h2 id="fab-title">La Fabrication</h2>
-        <p>De la récolte à la bouteille, chaque étape est réalisée avec soin dans notre atelier à Marcilly-le-Hayer.</p>
+<!-- ═══ FABRICATION ═══ -->
+<section id="fabrication" class="section fabrication-section" aria-labelledby="fab-title">
+  <div class="section-wrap">
+    <div class="section-hd">
+      <span class="section-label">Savoir-faire artisanal</span>
+      <h2 id="fab-title">La Fabrication</h2>
+      <p>De la récolte à la bouteille, chaque étape est réalisée avec soin dans notre atelier à Marcilly-le-Hayer.</p>
+    </div>
+    <div class="fab-grid">
+      <div class="fab-card">
+        <div class="fab-img"><img src="pictures/workers/workers-1.jpg" alt="Récolte des pommes à la main" loading="lazy" width="600" height="450" onerror="this.style.display='none'; this.parentElement.textContent='🍎';"></div>
+        <div class="fab-text"><span class="fab-num" aria-hidden="true">01</span><h3>La Récolte</h3><p>Nos pommes sont soigneusement cueillies à parfaite maturité dans nos vergers aubois, garantissant une qualité optimale à chaque cuvée.</p></div>
       </div>
-
-      <div class="fab-grid">
-
-        <div class="fab-card reveal reveal-delay-1">
-          <div class="fab-img">
-            <img src="pictures/workers/workers-1.jpg"
-                 alt="Récolte des pommes à la main dans les vergers Mamé'ho"
-                 loading="lazy" width="600" height="450"
-                 onerror="this.style.display='none'; this.parentElement.textContent='🍎';">
-          </div>
-          <div class="fab-text">
-            <span class="fab-num" aria-hidden="true">01</span>
-            <h3>La Récolte</h3>
-            <p>Nos pommes sont soigneusement cueillies à parfaite maturité dans nos vergers aubois, garantissant une qualité optimale à chaque cuvée.</p>
-          </div>
-        </div>
-
-        <div class="fab-card reveal reveal-delay-2">
-          <div class="fab-img">
-            <img src="pictures/workers/workers-2.jpg"
-                 alt="Pressoir hydraulique artisanal du domaine Mamé'ho"
-                 loading="lazy" width="600" height="450"
-                 onerror="this.style.display='none'; this.parentElement.textContent='🍏';">
-          </div>
-          <div class="fab-text">
-            <span class="fab-num" aria-hidden="true">02</span>
-            <h3>La Presse</h3>
-            <p>Nos pommes sont pressées selon les méthodes traditionnelles dans notre pressoir hydraulique, pour une extraction optimale sans dégradation thermique.</p>
-          </div>
-        </div>
-
-        <div class="fab-card reveal reveal-delay-3">
-          <div class="fab-img">
-            <img src="pictures/general/plate-heat-exchanger.jpg"
-                 alt="Contrôle qualité et mise en bouteille des jus Mamé'ho"
-                 loading="lazy" width="600" height="450"
-                 onerror="this.style.display='none'; this.parentElement.textContent='✨';">
-          </div>
-          <div class="fab-text">
-            <span class="fab-num" aria-hidden="true">03</span>
-            <h3>La Qualité</h3>
-            <p>Chaque lot est contrôlé rigoureusement avant mise en bouteille. Aucun conservateur, aucun arôme artificiel : juste le fruit dans toute sa pureté.</p>
-          </div>
-        </div>
-
+      <div class="fab-card">
+        <div class="fab-img"><img src="pictures/workers/workers-2.jpg" alt="Pressoir hydraulique artisanal" loading="lazy" width="600" height="450" onerror="this.style.display='none'; this.parentElement.textContent='🍏';"></div>
+        <div class="fab-text"><span class="fab-num" aria-hidden="true">02</span><h3>La Presse</h3><p>Nos pommes sont pressées selon les méthodes traditionnelles dans notre pressoir hydraulique, pour une extraction optimale sans dégradation thermique.</p></div>
+      </div>
+      <div class="fab-card">
+        <div class="fab-img"><img src="pictures/general/plate-heat-exchanger.jpg" alt="Contrôle qualité et mise en bouteille" loading="lazy" width="600" height="450" onerror="this.style.display='none'; this.parentElement.textContent='✨';"></div>
+        <div class="fab-text"><span class="fab-num" aria-hidden="true">03</span><h3>La Qualité</h3><p>Chaque lot est contrôlé rigoureusement avant mise en bouteille. Aucun conservateur, aucun arôme artificiel : juste le fruit dans toute sa pureté.</p></div>
       </div>
     </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════
-       OÙ NOUS TROUVER
-  ════════════════════════════════════════ -->
-  <section id="trouver" class="section trouver-section reveal" aria-labelledby="trouver-title">
-    <div class="section-wrap">
-      <div class="section-hd">
-        <span class="section-label">Ventes &amp; Points de retrait</span>
-        <h2 id="trouver-title">Où nous trouver ? <span aria-hidden="true">💚</span></h2>
-      </div>
-
-      <div class="trouver-inner">
-
+    <!-- CONTRE-ÉTIQUETTE -->
+    <div class="contre-etiquette">
+      <div class="ce-header">
+        <svg class="ce-apple" viewBox="0 0 50 50" fill="none"><path d="M25 4Q12 1 9 18Q5 36 14 45Q20 52 25 50Q30 52 36 45Q45 36 41 18Q38 1 25 4Z" fill="#FCCF00" opacity=".9"/><path d="M25 4Q27 0 34 2" stroke="#C8A000" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
         <div>
-          <p class="trouver-title">Ferme Mamé'ho</p>
-          <address class="trouver-address">
-            <strong>3 rue de la Haute Roue</strong><br>
-            10290 Marcilly-le-Hayer<br>
-            France
-          </address>
-
-          <div class="points-vente">
-            <h3 class="points-vente h4">Nos points de vente</h3>
-            <div class="pv-item">
-              <span class="pv-arrow" aria-hidden="true">→</span>
-              <div>
-                <strong>À la ferme (Marcilly-le-Hayer) :</strong><br>
-                Mardi, Mercredi &amp; Vendredi : 16h – 18h<br>
-                Samedi : 9h – 12h
-              </div>
-            </div>
-            <div class="pv-item">
-              <span class="pv-arrow" aria-hidden="true">→</span>
-              <div>Épiceries fines</div>
-            </div>
-            <div class="pv-item">
-              <span class="pv-arrow" aria-hidden="true">→</span>
-              <div>Marchés de producteurs</div>
-            </div>
-          </div>
-
-          <div class="prestations-box">
-            <h3 class="prestations-box h4">Prestations</h3>
-            <p class="prest-q">Vous avez des fruits à transformer ?</p>
-            <p>À partir de 50 kg, nous pressons vos fruits, pasteurisons et conditionnons votre jus (bouteilles 1L ou poches 3L) pour valoriser vos récoltes.</p>
-          </div>
+          <p class="ce-eyebrow">Contre-étiquette officielle</p>
+          <h3 class="ce-title">De la pomme à la bouteille</h3>
         </div>
-
-        <div class="trouver-map-wrap">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.04!2d3.5972!3d48.3505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ee82c9f3c5b2d5%3A0x99e12a04e0b44b5f!2s3%20Rue%20de%20la%20Haute%20Roue%2C%2010290%20Marcilly-le-Hayer!5e0!3m2!1sfr!2sfr!4v1700000000001"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Carte Ferme Mamé'ho – 3 rue de la Haute Roue, Marcilly-le-Hayer">
-          </iframe>
-          <div class="map-contact-pill">
-            <div class="mcp-row">
-              <span class="mcp-icon" aria-hidden="true">📍</span>
-              <span>3 rue de la Haute Roue, 10290 Marcilly-le-Hayer</span>
-            </div>
-            <div class="mcp-row">
-              <span class="mcp-icon" aria-hidden="true">✉️</span>
-              <a href="mailto:contact@mameho.fr">contact@mameho.fr</a>
-            </div>
-            <div class="mcp-row">
-              <span class="mcp-icon" aria-hidden="true">📱</span>
-              <a href="tel:+33630626307">06 30 62 63 07</a>
-            </div>
-            <div class="social-pills">
-              <a href="https://instagram.com/mameho_fruits" class="social-pill" target="_blank" rel="noopener noreferrer">
-                <span aria-hidden="true">📷</span> @mameho_fruits
-              </a>
-              <a href="https://facebook.com/mameho" class="social-pill" target="_blank" rel="noopener noreferrer">
-                <span aria-hidden="true">👍</span> Facebook
-              </a>
-            </div>
-          </div>
-        </div>
-
+      </div>
+      <ol class="ce-steps">
+        <li class="ce-step"><span class="ce-num">1</span><div><strong>Tri &amp; lavage</strong><p>Chaque fruit est trié à la main et soigneusement lavé avant transformation.</p></div></li>
+        <li class="ce-step"><span class="ce-num">2</span><div><strong>Broyage &amp; pressage</strong><p>Les fruits sont broyés puis pressés dans notre pressoir hydraulique artisanal à froid.</p></div></li>
+        <li class="ce-step"><span class="ce-num">3</span><div><strong>Filtration</strong><p>Le jus est filtré pour obtenir une belle robe claire, sans ajout de sucre ni d'additifs.</p></div></li>
+        <li class="ce-step"><span class="ce-num">4</span><div><strong>Pasteurisation Flash</strong><p>Flash-pasteurisé à haute température quelques secondes pour conserver les arômes et garantir la sécurité alimentaire.</p></div></li>
+        <li class="ce-step"><span class="ce-num">5</span><div><strong>Mise en bouteille</strong><p>Conditionné en bouteille verre 33cl ou 1L, ou poche BIB 3L. Chaque bouteille est étiquetée à la main.</p></div></li>
+      </ol>
+      <div class="ce-footer">
+        <span>🍎 100% Naturel</span>
+        <span>🚫 Sans conservateurs</span>
+        <span>🏡 Pressé à la ferme</span>
+        <span>🇫🇷 Made in Aube</span>
       </div>
     </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════
-       CONTACT
-  ════════════════════════════════════════ -->
-  <section id="contact" class="section contact-section reveal" aria-labelledby="contact-title">
-    <div class="section-wrap">
-      <div class="section-hd">
-        <span class="section-label">Nous écrire</span>
-        <h2 id="contact-title">Contactez-nous <span class="heart" aria-hidden="true">♥</span></h2>
-        <p>Mamé'ho, des jus de fruits faits avec soin, à partager avec ceux que vous aimez.</p>
-      </div>
+  </div>
+</section>
 
-      <div class="contact-wrap">
-
-        <div class="contact-info">
-          <h3>Mamé'ho</h3>
-          <address class="contact-address">
-            3 rue de la Haute Roue<br>
-            10290 Marcilly-le-Hayer<br>
-            France
-          </address>
-          <div class="contact-links">
-            <a href="mailto:contact@mameho.fr"><span aria-hidden="true">✉️</span> contact@mameho.fr</a>
-            <a href="tel:+33630626307"><span aria-hidden="true">📱</span> 06 30 62 63 07</a>
-          </div>
-          <div class="social-pills" style="margin-top:20px;">
-            <a href="https://instagram.com/mameho_fruits" class="social-pill" target="_blank" rel="noopener noreferrer">
-              <span aria-hidden="true">📷</span> @mameho_fruits
-            </a>
-            <a href="https://facebook.com/mameho" class="social-pill" target="_blank" rel="noopener noreferrer">
-              <span aria-hidden="true">👍</span> Facebook
-            </a>
-          </div>
+<!-- ═══ OÙ NOUS GOÛTER ═══ -->
+<section id="trouver" class="section trouver-section" aria-labelledby="trouver-title">
+  <div class="section-wrap">
+    <div class="section-hd">
+      <span class="section-label">Ventes &amp; Points de retrait</span>
+      <h2 id="trouver-title">Où nous goûter ? <span aria-hidden="true">💚</span></h2>
+    </div>
+    <div class="trouver-inner">
+      <div>
+        <p class="trouver-title">Ferme Mamé'ho</p>
+        <address class="trouver-address">
+          <strong>3 rue de la Haute Roue</strong><br>
+          10290 Marcilly-le-Hayer<br>
+          France
+        </address>
+        <div class="points-vente">
+          <h3 class="points-vente h4">Nos points de vente</h3>
+          <div class="pv-item"><span class="pv-arrow" aria-hidden="true">→</span><div><strong>À la ferme (Marcilly-le-Hayer) :</strong><br>Mardi, Mercredi &amp; Vendredi : 16h – 18h<br>Samedi : 9h – 12h</div></div>
+          <div class="pv-item"><span class="pv-arrow" aria-hidden="true">→</span><div>Épiceries fines</div></div>
+          <div class="pv-item"><span class="pv-arrow" aria-hidden="true">→</span><div>Marchés de producteurs</div></div>
         </div>
-
-        <form id="contactForm" novalidate aria-label="Formulaire de contact Mamé'ho">
-          <div class="field">
-            <input type="text" id="nom" name="nom" required placeholder=" " autocomplete="name">
-            <label for="nom">Nom complet</label>
-            <span class="field-error" aria-live="polite"></span>
-          </div>
-          <div class="field">
-            <input type="email" id="email" name="email" required placeholder=" " autocomplete="email">
-            <label for="email">Adresse email</label>
-            <span class="field-error" aria-live="polite"></span>
-          </div>
-          <div class="field">
-            <input type="tel" id="tel" name="tel" placeholder=" " autocomplete="tel">
-            <label for="tel">Téléphone (optionnel)</label>
-          </div>
-          <div class="field">
-            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
-            <label for="message">Votre message</label>
-            <span class="field-error" aria-live="polite"></span>
-          </div>
-          <button type="submit" class="btn-submit">
-            <span>Envoyer le message</span>
-            <span aria-hidden="true">→</span>
+        <div class="prestations-box">
+          <h3 class="prestations-box h4">Prestations</h3>
+          <p class="prest-q">Vous avez des fruits à transformer ?</p>
+          <p>À partir de 50 kg, nous pressons vos fruits, pasteurisons et conditionnons votre jus (bouteilles 1L ou poches 3L) pour valoriser vos récoltes.</p>
+        </div>
+        <!-- BOUTON REVENDEUR -->
+        <div style="margin-top:24px;">
+          <button class="btn-revendeur" id="openRevendeur" aria-haspopup="dialog">
+            🤝 Devenir revendeur <span aria-hidden="true">→</span>
           </button>
-          <p class="form-success" id="formSuccess" aria-live="polite" role="status"></p>
-        </form>
-
+        </div>
+      </div>
+      <div class="trouver-map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.04!2d3.5972!3d48.3505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ee82c9f3c5b2d5%3A0x99e12a04e0b44b5f!2s3%20Rue%20de%20la%20Haute%20Roue%2C%2010290%20Marcilly-le-Hayer!5e0!3m2!1sfr!2sfr!4v1700000000001" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Carte Ferme Mamé'ho"></iframe>
+        <div class="map-contact-pill">
+          <div class="mcp-row"><span class="mcp-icon" aria-hidden="true">📍</span><span>3 rue de la Haute Roue, 10290 Marcilly-le-Hayer</span></div>
+          <div class="mcp-row"><span class="mcp-icon" aria-hidden="true">✉️</span><a href="mailto:contact@mameho.fr">contact@mameho.fr</a></div>
+          <div class="mcp-row"><span class="mcp-icon" aria-hidden="true">📱</span><a href="tel:+33630626307">06 30 62 63 07</a></div>
+          <div class="social-pills">
+            <a href="https://instagram.com/mameho_fruits" class="social-pill" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📷</span> @mameho_fruits</a>
+            <a href="https://facebook.com/mameho" class="social-pill" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">👍</span> Facebook</a>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="section contact-section" aria-labelledby="contact-title">
+  <div class="section-wrap">
+    <div class="section-hd">
+      <span class="section-label">Nous écrire</span>
+      <h2 id="contact-title">Contactez-nous <span class="heart" aria-hidden="true">♥</span></h2>
+      <p>Mamé'ho, des jus de fruits faits avec soin, à partager avec ceux que vous aimez.</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3>Mamé'ho</h3>
+        <address class="contact-address">3 rue de la Haute Roue<br>10290 Marcilly-le-Hayer<br>France</address>
+        <div class="contact-links">
+          <a href="mailto:contact@mameho.fr"><span aria-hidden="true">✉️</span> contact@mameho.fr</a>
+          <a href="tel:+33630626307"><span aria-hidden="true">📱</span> 06 30 62 63 07</a>
+        </div>
+        <div class="social-pills" style="margin-top:20px;">
+          <a href="https://instagram.com/mameho_fruits" class="social-pill" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📷</span> @mameho_fruits</a>
+          <a href="https://facebook.com/mameho" class="social-pill" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">👍</span> Facebook</a>
+        </div>
+      </div>
+      <form id="contactForm" novalidate aria-label="Formulaire de contact Mamé'ho">
+        <div class="field"><input type="text" id="nom" name="nom" required placeholder=" " autocomplete="name"><label for="nom">Nom complet</label><span class="field-error" aria-live="polite"></span></div>
+        <div class="field"><input type="email" id="email" name="email" required placeholder=" " autocomplete="email"><label for="email">Adresse email</label><span class="field-error" aria-live="polite"></span></div>
+        <div class="field"><input type="tel" id="tel" name="tel" placeholder=" " autocomplete="tel"><label for="tel">Téléphone (optionnel)</label></div>
+        <div class="field"><textarea id="message" name="message" rows="5" required placeholder=" "></textarea><label for="message">Votre message</label><span class="field-error" aria-live="polite"></span></div>
+        <button type="submit" class="btn-submit"><span>Envoyer le message</span><span aria-hidden="true">→</span></button>
+        <p class="form-success" id="formSuccess" aria-live="polite" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
 
 </main>
 
-<!-- ═══════════════════════════════════════
-     LIGHTBOX
-════════════════════════════════════════ -->
+<!-- MODAL REVENDEUR -->
+<div class="modal-overlay" id="revendeurModal" aria-hidden="true" role="dialog" aria-labelledby="rv-title" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-close" id="closeRevendeur" aria-label="Fermer">✕</button>
+    <div class="modal-hd">
+      <span style="font-size:2rem;display:block;margin-bottom:8px;">🤝</span>
+      <h2 id="rv-title">Devenir revendeur</h2>
+      <p>Épicier, restaurateur, caviste ? Parlez-nous de votre activité !</p>
+    </div>
+    <form id="revendeurForm" novalidate>
+      <div class="field"><input type="text" id="rv-nom" name="rv-nom" required placeholder=" " autocomplete="name"><label for="rv-nom">Nom du contact</label><span class="field-error" aria-live="polite"></span></div>
+      <div class="field"><input type="text" id="rv-entreprise" name="rv-entreprise" required placeholder=" " autocomplete="organization"><label for="rv-entreprise">Nom de l'entreprise / enseigne</label><span class="field-error" aria-live="polite"></span></div>
+      <div class="field"><input type="text" id="rv-activite" name="rv-activite" required placeholder=" "><label for="rv-activite">Type d'activité (épicerie, restaurant…)</label><span class="field-error" aria-live="polite"></span></div>
+      <div class="field"><input type="text" id="rv-ville" name="rv-ville" required placeholder=" " autocomplete="address-level2"><label for="rv-ville">Ville &amp; code postal</label><span class="field-error" aria-live="polite"></span></div>
+      <div class="field"><input type="email" id="rv-email" name="rv-email" required placeholder=" " autocomplete="email"><label for="rv-email">Adresse email</label><span class="field-error" aria-live="polite"></span></div>
+      <div class="field"><input type="tel" id="rv-tel" name="rv-tel" placeholder=" " autocomplete="tel"><label for="rv-tel">Téléphone (optionnel)</label></div>
+      <div class="field"><textarea id="rv-msg" name="rv-msg" rows="3" placeholder=" "></textarea><label for="rv-msg">Message (optionnel)</label></div>
+      <button type="submit" class="btn-submit"><span>Envoyer ma demande</span><span aria-hidden="true">→</span></button>
+      <p class="form-success" id="rvSuccess" aria-live="polite" role="status"></p>
+    </form>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Galerie photo agrandie" aria-modal="true">
   <button class="lightbox-close" id="lightboxClose" aria-label="Fermer la galerie">✕</button>
   <button class="lightbox-prev" id="lightboxPrev" aria-label="Photo précédente">&#8592;</button>
@@ -718,9 +670,7 @@
   <p class="lightbox-caption" id="lightboxCaption"></p>
 </div>
 
-<!-- ═══════════════════════════════════════
-     FOOTER
-════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
@@ -730,10 +680,11 @@
     <nav class="footer-nav" aria-label="Navigation secondaire">
       <a href="#accueil">Accueil</a>
       <a href="#jus">Nos Jus</a>
+      <a href="#ingredients">Ingrédients</a>
       <a href="#augustin">Histoire</a>
       <a href="#galerie">Galerie</a>
       <a href="#fabrication">Fabrication</a>
-      <a href="#trouver">Nous Trouver</a>
+      <a href="#trouver">Nous Goûter</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="footer-social">
@@ -743,9 +694,8 @@
   </div>
   <div class="footer-bottom">
     <p>© <span id="year"></span> Mamé'ho · 3 rue de la Haute Roue, 10290 Marcilly-le-Hayer</p>
-    <p>contact@mameho.fr · 06 30 62 63 07 · @mameho_fruits</p>
+    <p><a href="mailto:contact@mameho.fr">contact@mameho.fr</a></p>
   </div>
-  <p class="footer-note">*Fruitcher signifie apporter une explosion de saveurs fruitées et de fraîcheur. Une seule gorgée et vous serez conquis !</p>
 </footer>
 
 <script src="js/script.js"></script>

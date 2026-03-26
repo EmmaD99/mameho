@@ -1,21 +1,20 @@
 'use strict';
 
-/* ── Utilitaires ─────────────────────── */
 const $ = (s, c = document) => c.querySelector(s);
 const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
 
-/* ── Topbar scroll ───────────────────── */
+/* ── Topbar scroll ── */
 const topbar = $('#topbar');
 window.addEventListener('scroll', () => {
   topbar.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-/* ── Menu overlay + pommes tombantes ─── */
+/* ── Menu overlay ── */
 const menu     = $('#menu');
 const openBtn  = $('#openMenu');
 const closeBtn = $('#closeMenu');
 const appleCtx = $('#fallingApples');
-const EMOJIS   = ['🍎', '🍏', '🍋', '🌺', '🌿', '🍎', '🍏', '🍋'];
+const EMOJIS   = ['🍎','🍏','🍋','🌺','🌿','🍎','🍏','🍋'];
 
 function createApples() {
   if (!appleCtx) return;
@@ -25,12 +24,7 @@ function createApples() {
     const el = document.createElement('div');
     el.classList.add('apple-fall');
     const size = 22 + Math.random() * 30;
-    el.style.cssText = `
-      left: ${Math.random() * 102 - 1}vw;
-      font-size: ${size}px;
-      animation-duration: ${3 + Math.random() * 3}s;
-      animation-delay: ${Math.random() * 2}s;
-    `;
+    el.style.cssText = `left:${Math.random()*102-1}vw;font-size:${size}px;animation-duration:${3+Math.random()*3}s;animation-delay:${Math.random()*2}s;`;
     el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
     appleCtx.appendChild(el);
   }
@@ -56,26 +50,9 @@ function closeMenu() {
 openBtn.addEventListener('click', openMenu);
 closeBtn.addEventListener('click', closeMenu);
 $$('.menu-links a').forEach(a => a.addEventListener('click', closeMenu));
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    if (menu.classList.contains('active')) closeMenu();
-    if (lightbox.classList.contains('active')) closeLightbox();
-  }
-});
 
-/* ── Reveal au scroll ────────────────── */
-const revObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-$$('.reveal').forEach(el => revObs.observe(el));
-
-/* ── Lightbox galerie ────────────────── */
+/* ── Lightbox ── */
+/* IMPORTANT: déclaré avant le listener keydown */
 const lightbox    = $('#lightbox');
 const lightboxImg = $('#lightboxImg');
 const lightboxCap = $('#lightboxCaption');
@@ -83,8 +60,7 @@ let galleryItems  = [];
 let currentIndex  = 0;
 
 function openLightbox(index) {
-  const items = $$('.gallery-item[data-src]');
-  galleryItems = items;
+  galleryItems = $$('.gallery-item[data-src]');
   currentIndex = index;
   updateLightbox();
   lightbox.classList.add('active');
@@ -102,22 +78,13 @@ function closeLightbox() {
 function updateLightbox() {
   const item = galleryItems[currentIndex];
   if (!item) return;
-  const src = item.dataset.src;
-  const cap = item.dataset.caption || '';
-  lightboxImg.src = src;
-  lightboxImg.alt = cap;
-  if (lightboxCap) lightboxCap.textContent = cap;
+  lightboxImg.src = item.dataset.src;
+  lightboxImg.alt = item.dataset.caption || '';
+  if (lightboxCap) lightboxCap.textContent = item.dataset.caption || '';
 }
 
-function prevPhoto() {
-  currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-  updateLightbox();
-}
-
-function nextPhoto() {
-  currentIndex = (currentIndex + 1) % galleryItems.length;
-  updateLightbox();
-}
+function prevPhoto() { currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length; updateLightbox(); }
+function nextPhoto() { currentIndex = (currentIndex + 1) % galleryItems.length; updateLightbox(); }
 
 $$('.gallery-item[data-src]').forEach((item, i) => {
   item.addEventListener('click', () => openLightbox(i));
@@ -127,12 +94,8 @@ $$('.gallery-item[data-src]').forEach((item, i) => {
 $('#lightboxClose')?.addEventListener('click', closeLightbox);
 $('#lightboxPrev')?.addEventListener('click', prevPhoto);
 $('#lightboxNext')?.addEventListener('click', nextPhoto);
+lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 
-lightbox?.addEventListener('click', e => {
-  if (e.target === lightbox) closeLightbox();
-});
-
-// Swipe sur mobile
 let touchStartX = 0;
 lightbox?.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
 lightbox?.addEventListener('touchend', e => {
@@ -140,26 +103,29 @@ lightbox?.addEventListener('touchend', e => {
   if (Math.abs(diff) > 50) diff > 0 ? nextPhoto() : prevPhoto();
 });
 
-/* ── Formulaire de contact ───────────── */
-const cf  = $('#contactForm');
-const fOk = $('#formSuccess');
+/* ── Escape global (après lightbox) ── */
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if (menu.classList.contains('active')) closeMenu();
+  if (lightbox.classList.contains('active')) closeLightbox();
+  const rv = document.getElementById('revendeurModal');
+  if (rv?.classList.contains('active')) closeRevendeur();
+});
 
+/* ── Validation champ ── */
 function validateField(input) {
   const field = input.closest('.field');
   const err   = field?.querySelector('.field-error');
   if (!err) return true;
   err.textContent = '';
-  if (input.required && !input.value.trim()) {
-    err.textContent = 'Ce champ est requis.';
-    return false;
-  }
-  if (input.type === 'email' && input.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
-    err.textContent = 'Adresse email invalide.';
-    return false;
-  }
+  if (input.required && !input.value.trim()) { err.textContent = 'Ce champ est requis.'; return false; }
+  if (input.type === 'email' && input.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) { err.textContent = 'Adresse email invalide.'; return false; }
   return true;
 }
 
+/* ── Formulaire contact ── */
+const cf  = $('#contactForm');
+const fOk = $('#formSuccess');
 if (cf) {
   $$('input, textarea', cf).forEach(inp => inp.addEventListener('blur', () => validateField(inp)));
   cf.addEventListener('submit', e => {
@@ -168,8 +134,7 @@ if (cf) {
     $$('input[required], textarea[required]', cf).forEach(inp => { if (!validateField(inp)) valid = false; });
     if (!valid) return;
     const btn = cf.querySelector('.btn-submit');
-    btn.textContent = 'Envoi en cours…';
-    btn.disabled = true;
+    btn.textContent = 'Envoi en cours…'; btn.disabled = true;
     setTimeout(() => {
       if (fOk) fOk.textContent = '✓ Message bien reçu ! Nous vous répondrons rapidement. 🍎';
       cf.reset();
@@ -179,6 +144,49 @@ if (cf) {
   });
 }
 
-/* ── Année footer ────────────────────── */
+/* ── Modal Revendeur ── */
+const rvModal = document.getElementById('revendeurModal');
+const rvForm  = document.getElementById('revendeurForm');
+const rvOk    = document.getElementById('rvSuccess');
+
+function openRevendeur() {
+  if (!rvModal) return;
+  rvModal.classList.add('active');
+  rvModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('closeRevendeur')?.focus();
+}
+
+function closeRevendeur() {
+  if (!rvModal) return;
+  rvModal.classList.remove('active');
+  rvModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  document.getElementById('openRevendeur')?.focus();
+}
+
+document.getElementById('openRevendeur')?.addEventListener('click', openRevendeur);
+document.getElementById('closeRevendeur')?.addEventListener('click', closeRevendeur);
+rvModal?.addEventListener('click', e => { if (e.target === rvModal) closeRevendeur(); });
+
+if (rvForm) {
+  $$('input, textarea', rvForm).forEach(inp => inp.addEventListener('blur', () => validateField(inp)));
+  rvForm.addEventListener('submit', e => {
+    e.preventDefault();
+    let valid = true;
+    $$('input[required]', rvForm).forEach(inp => { if (!validateField(inp)) valid = false; });
+    if (!valid) return;
+    const btn = rvForm.querySelector('.btn-submit');
+    btn.textContent = 'Envoi en cours…'; btn.disabled = true;
+    setTimeout(() => {
+      if (rvOk) rvOk.textContent = '✓ Demande reçue ! Nous vous contacterons rapidement. 🍎';
+      rvForm.reset();
+      btn.innerHTML = '<span>Envoyer ma demande</span><span aria-hidden="true">→</span>';
+      btn.disabled = false;
+    }, 1200);
+  });
+}
+
+/* ── Année footer ── */
 const yr = document.getElementById('year');
 if (yr) yr.textContent = new Date().getFullYear();

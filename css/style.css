@@ -177,18 +177,26 @@ button { cursor:pointer; }
   background:var(--cream); overflow:hidden;
 }
 .hero-decos { position:absolute; inset:0; pointer-events:none; z-index:1; user-select:none; }
-.hero-decos .d { position:absolute; line-height:1; }
-.hd-1  { top:6%;    left:3%;   font-size:clamp(48px,7vw,76px);  opacity:.75; transform:rotate(-18deg); }
-.hd-2  { top:8%;    right:4%;  font-size:clamp(38px,5.5vw,58px); opacity:.70; transform:rotate(15deg); }
-.hd-3  { top:30%;   left:1%;   font-size:clamp(32px,4.5vw,46px); opacity:.62; transform:rotate(8deg); }
-.hd-4  { top:54%;   left:4%;   font-size:clamp(28px,4vw,40px);  opacity:.68; }
-.hd-5  { bottom:12%;left:2%;   font-size:clamp(40px,6vw,60px);  opacity:.62; transform:rotate(-22deg); }
-.hd-6  { top:16%;   right:2%;  font-size:clamp(34px,5vw,48px);  opacity:.60; transform:rotate(12deg); }
-.hd-7  { top:42%;   right:3%;  font-size:clamp(26px,3.5vw,38px);opacity:.55; transform:rotate(-18deg); }
-.hd-8  { bottom:16%;right:4%;  font-size:clamp(40px,6vw,62px);  opacity:.65; transform:rotate(-8deg); }
-.hd-9  { bottom:4%; right:8%;  font-size:clamp(24px,3vw,36px);  opacity:.52; transform:rotate(24deg); }
-.hd-10 { top:3%;    left:40%;  font-size:clamp(34px,5vw,52px);  opacity:.48; transform:rotate(6deg); }
-.hd-11 { bottom:25%;left:33%;  font-size:clamp(20px,2.5vw,30px);opacity:.40; transform:rotate(-12deg); }
+/* ── Hero bottles ── */
+.hbottle { position:absolute; pointer-events:none; z-index:1; filter:drop-shadow(0 6px 18px rgba(8,94,84,.15)); }
+.hb1 { left:3%; top:10%; width:clamp(52px,6.5vw,100px); animation:hbFloat 6s ease-in-out infinite; }
+.hb2 { right:4%; top:14%; width:clamp(44px,5.5vw,84px); animation:hbFloat 7s ease-in-out infinite .9s; }
+.hb3 { right:7%; bottom:14%; width:clamp(48px,6vw,92px); animation:hbFloat 5.5s ease-in-out infinite 1.8s; }
+.hb1 svg { transform:rotate(-14deg); }
+.hb2 svg { transform:rotate(12deg); }
+.hb3 svg { transform:rotate(-8deg); }
+@keyframes hbFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+/* ── Hero shapes ── */
+.hshape { position:absolute; pointer-events:none; z-index:1; }
+.hs-ring { width:clamp(90px,14vw,220px); height:clamp(90px,14vw,220px); border-radius:50%; border:2px solid rgba(8,94,84,.1); top:-6%; left:-4%; animation:spinRing 28s linear infinite; }
+.hs-blob { width:clamp(60px,9vw,140px); height:clamp(60px,9vw,140px); border-radius:50%; background:radial-gradient(circle,rgba(145,207,92,.14),transparent 70%); bottom:8%; left:5%; }
+@keyframes spinRing { to { transform:rotate(360deg); } }
+.hs-leaf1 { top:5%; right:12%; width:clamp(42px,5.5vw,86px); opacity:.7; }
+.hs-leaf2 { bottom:20%; left:12%; width:clamp(34px,4.5vw,68px); opacity:.6; }
+.hs-apple { top:38%; left:5%; width:clamp(38px,5vw,72px); opacity:.7; }
+.hs-dot1 { width:9px; height:9px; border-radius:50%; background:var(--yellow); opacity:.5; top:22%; left:19%; animation:dotPulse 3s ease-in-out infinite; }
+.hs-dot2 { width:6px; height:6px; border-radius:50%; background:var(--violet); opacity:.4; bottom:34%; right:20%; animation:dotPulse 4s ease-in-out infinite .5s; }
+@keyframes dotPulse { 0%,100%{transform:scale(1);opacity:.4;} 50%{transform:scale(1.8);opacity:.75;} }
 
 .hero-inner {
   position:relative; z-index:2;
@@ -285,8 +293,14 @@ button { cursor:pointer; }
 .juice-card-overlay p { color:var(--white); font-size:14px; line-height:1.65; text-align:center; }
 .juice-card-body { padding:16px 20px 20px; }
 .juice-card-body h3 { font-family:var(--ft); font-weight:700; font-size:24px; color:var(--teal); margin-bottom:4px; line-height:1.1; }
+.juice-card-body h3 strong { font-weight:800; }
 .juice-vol { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray-light); font-weight:700; }
 .juice-price { display:inline-block; background:var(--green); color:var(--white); font-size:12px; font-weight:800; padding:3px 10px; border-radius:50px; margin-top:8px; }
+/* ── Juice ingredient badges ── */
+.juice-ings { display:flex; gap:7px; flex-wrap:wrap; margin:9px 0 4px; }
+.ji { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:var(--cream); border:1.5px solid rgba(8,94,84,.13); box-shadow:0 2px 8px rgba(8,94,84,.07); transition:transform var(--tr); cursor:default; }
+.ji:hover { transform:scale(1.2); }
+.ji svg { width:20px; height:20px; }
 
 /* ── Augustin ──────────────────── */
 .augustin-section { background:var(--cream-mid); }
@@ -577,11 +591,57 @@ button { cursor:pointer; }
 .footer-note { text-align:center; font-size:10px; color:rgba(255,255,255,.18); margin-top:12px; max-width:var(--wrap); margin-left:auto; margin-right:auto; }
 
 /* ── Reveal ────────────────────── */
-.reveal { opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+.reveal { opacity:1; transform:none; }
 .reveal.visible { opacity:1; transform:none; }
-.reveal-delay-1 { transition-delay:.1s; }
-.reveal-delay-2 { transition-delay:.2s; }
-.reveal-delay-3 { transition-delay:.3s; }
+.reveal-delay-1 {}
+.reveal-delay-2 {}
+.reveal-delay-3 {}
+
+
+/* ═══ INGRÉDIENTS ═══ */
+.ingredients-section { background:var(--cream-mid); }
+.ing-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr)); gap:clamp(16px,3vw,28px); }
+.ing-card { display:flex; gap:20px; align-items:flex-start; background:var(--white); border-radius:20px; padding:24px 22px; box-shadow:0 4px 20px rgba(8,94,84,.07); border:2px solid transparent; transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr); }
+.ing-card:hover { transform:translateY(-5px); box-shadow:var(--sh-h); border-color:var(--green); }
+.ing-icon-wrap { width:70px; min-width:70px; height:70px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ing-icon-wrap svg { width:48px; height:48px; }
+.ing-pomme    { background:linear-gradient(135deg,#FFFDE8,#CCEEAA); }
+.ing-hibiscus { background:linear-gradient(135deg,#FDE8F3,#EDAFD0); }
+.ing-noisette { background:linear-gradient(135deg,#FFF4E0,#E0B870); }
+.ing-miel     { background:linear-gradient(135deg,#FFFBD0,#FCCF00); }
+.ing-gingembre{ background:linear-gradient(135deg,#FFF8E8,#EDBF91); }
+.ing-body h3 { font-family:var(--ft); font-size:26px; font-weight:700; color:var(--teal); margin-bottom:6px; }
+.ing-body p { font-size:13px; color:var(--gray); line-height:1.65; margin-bottom:10px; }
+.ing-badge { display:inline-block; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--teal); background:rgba(8,94,84,.08); border-radius:50px; padding:3px 12px; }
+
+/* ═══ CONTRE-ÉTIQUETTE ═══ */
+.contre-etiquette { margin-top:clamp(36px,6vw,60px); background:var(--white); border-radius:22px; border:2px solid rgba(8,94,84,.12); box-shadow:0 8px 40px rgba(8,94,84,.1); padding:clamp(22px,4vw,40px); }
+.ce-header { display:flex; align-items:center; gap:14px; margin-bottom:26px; padding-bottom:18px; border-bottom:2px dashed rgba(8,94,84,.15); }
+.ce-apple { width:44px; height:44px; flex-shrink:0; }
+.ce-eyebrow { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gray-light); font-weight:700; margin-bottom:3px; }
+.ce-title { font-family:var(--ft); font-size:clamp(22px,3.5vw,36px); font-weight:700; color:var(--teal); line-height:1; }
+.ce-steps { list-style:none; display:grid; grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr)); gap:clamp(10px,2vw,18px); margin-bottom:22px; }
+.ce-step { display:flex; gap:12px; align-items:flex-start; background:var(--cream); border-radius:12px; padding:14px 16px; border-left:4px solid var(--teal); }
+.ce-num { width:26px; min-width:26px; height:26px; background:var(--teal); color:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--ft); font-size:16px; font-weight:700; flex-shrink:0; }
+.ce-step strong { display:block; font-size:13px; font-weight:800; color:var(--dark); margin-bottom:3px; }
+.ce-step p { font-size:12px; color:var(--gray); line-height:1.55; margin:0; }
+.ce-footer { display:flex; flex-wrap:wrap; gap:9px; padding-top:16px; border-top:2px dashed rgba(8,94,84,.15); }
+.ce-footer span { font-size:12px; font-weight:700; color:var(--teal); background:rgba(8,94,84,.07); border-radius:50px; padding:5px 14px; }
+
+/* ═══ BOUTON REVENDEUR ═══ */
+.btn-revendeur { display:inline-flex; align-items:center; gap:10px; background:var(--violet); color:var(--white); padding:13px 26px; border-radius:50px; border:none; font-family:var(--fb); font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; transition:all var(--tr); box-shadow:0 4px 18px rgba(173,28,105,.28); cursor:pointer; }
+.btn-revendeur:hover { background:#8e1456; transform:translateY(-2px); box-shadow:0 8px 28px rgba(173,28,105,.38); }
+
+/* ═══ MODAL REVENDEUR ═══ */
+.modal-overlay { position:fixed; inset:0; z-index:980; background:rgba(8,30,18,.6); backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; padding:var(--gap); opacity:0; pointer-events:none; transition:opacity .3s ease; }
+.modal-overlay.active { opacity:1; pointer-events:auto; }
+.modal-box { background:var(--white); border-radius:22px; padding:clamp(20px,5vw,40px); max-width:520px; width:100%; max-height:90vh; overflow-y:auto; position:relative; box-shadow:0 20px 70px rgba(8,30,18,.2); transform:translateY(22px); transition:transform .3s ease; }
+.modal-overlay.active .modal-box { transform:translateY(0); }
+.modal-close { position:absolute; top:14px; right:14px; width:36px; height:36px; border-radius:50%; background:var(--cream); border:none; font-size:16px; color:var(--gray); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background var(--tr),color var(--tr); }
+.modal-close:hover { background:var(--teal); color:var(--white); }
+.modal-hd { margin-bottom:20px; padding-right:28px; }
+.modal-hd h2 { font-family:var(--ft); font-size:clamp(24px,4vw,38px); font-weight:700; color:var(--teal); margin-bottom:5px; }
+.modal-hd p { font-size:14px; color:var(--gray); line-height:1.6; }
 
 /* ── Responsive ────────────────── */
 @media (max-width:900px) {
