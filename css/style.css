@@ -9,6 +9,7 @@
    Font corps  : Nunito (≈ Avenir)
 ============================== */
 
+/* Police chargée localement — TTF à mettre dans le dossier css/ */
 @font-face {
   font-family: 'Amatic SC';
   src: url('AmaticSC-Bold.ttf') format('truetype');
@@ -33,7 +34,7 @@
   --gray-light: #8A9280;
   --white:      #FFFFFF;
 
-  --ft: 'Amatic SC', cursive;
+  --ft: 'Amatic SC', cursive; /* locale css/AmaticSC-Bold.ttf + Google Fonts fallback */
   --fb: 'Nunito', 'Avenir', sans-serif;
 
   --r: 16px;
