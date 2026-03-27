@@ -9,22 +9,33 @@ window.addEventListener('scroll', () => {
   topbar.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-/* ── Menu overlay ── */
+/* ══════════════════════════════
+   MENU OVERLAY
+   La croix (#closeMenu) est en position:fixed z-index:1001
+   Elle est donc TOUJOURS accessible, indépendamment
+   du stacking context du menu-overlay.
+══════════════════════════════ */
 const menu     = $('#menu');
 const openBtn  = $('#openMenu');
 const closeBtn = $('#closeMenu');
 const appleCtx = $('#fallingApples');
-const EMOJIS   = ['🍎','🍏','🍋','🌺','🌿','🍎','🍏','🍋'];
+const EMOJIS   = ['🍎','🍏','🍋','🌺','🌿','🍎'];
 
 function createApples() {
   if (!appleCtx) return;
   appleCtx.innerHTML = '';
-  const n = window.innerWidth < 600 ? 10 : 20;
+  const n = window.innerWidth < 600 ? 8 : 14;
   for (let i = 0; i < n; i++) {
-    const el = document.createElement('div');
+    const el = document.createElement('span');
     el.classList.add('apple-fall');
-    const size = 22 + Math.random() * 30;
-    el.style.cssText = `left:${Math.random()*102-1}vw;font-size:${size}px;animation-duration:${3+Math.random()*3}s;animation-delay:${Math.random()*2}s;`;
+    el.setAttribute('aria-hidden', 'true');
+    el.style.cssText = [
+      `left:${Math.random() * 100}vw`,
+      `font-size:${18 + Math.random() * 24}px`,
+      `animation-duration:${3.5 + Math.random() * 3}s`,
+      `animation-delay:${Math.random() * 1.8}s`,
+      'pointer-events:none'
+    ].join(';');
     el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
     appleCtx.appendChild(el);
   }
@@ -36,7 +47,9 @@ function openMenu() {
   openBtn.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
   createApples();
-  closeBtn.focus();
+  /* La croix est en position:fixed, elle est toujours dans le DOM
+     et accessible — on lui donne juste le focus */
+  setTimeout(() => closeBtn && closeBtn.focus(), 60);
 }
 
 function closeMenu() {
@@ -44,15 +57,33 @@ function closeMenu() {
   menu.setAttribute('aria-hidden', 'true');
   openBtn.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
-  openBtn.focus();
+  openBtn && openBtn.focus();
 }
 
-openBtn.addEventListener('click', openMenu);
-closeBtn.addEventListener('click', closeMenu);
+/* Ouverture */
+openBtn && openBtn.addEventListener('click', openMenu);
+
+/* Fermeture — listener direct sur la croix */
+closeBtn && closeBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+  closeMenu();
+});
+
+/* Fermeture — clic sur les liens du menu */
 $$('.menu-links a').forEach(a => a.addEventListener('click', closeMenu));
 
+/* Touche Échap */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (menu && menu.classList.contains('active')) closeMenu();
+    if (lightbox && lightbox.classList.contains('active')) closeLightbox();
+    const rv = document.getElementById('revendeurModal');
+    if (rv && rv.classList.contains('active')) closeRevendeur();
+  }
+});
+
 /* ── Lightbox ── */
-/* IMPORTANT: déclaré avant le listener keydown */
 const lightbox    = $('#lightbox');
 const lightboxImg = $('#lightboxImg');
 const lightboxCap = $('#lightboxCaption');
@@ -66,7 +97,8 @@ function openLightbox(index) {
   lightbox.classList.add('active');
   lightbox.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
-  $('#lightboxClose').focus();
+  const lbClose = $('#lightboxClose');
+  lbClose && lbClose.focus();
 }
 
 function closeLightbox() {
@@ -83,39 +115,34 @@ function updateLightbox() {
   if (lightboxCap) lightboxCap.textContent = item.dataset.caption || '';
 }
 
-function prevPhoto() { currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length; updateLightbox(); }
-function nextPhoto() { currentIndex = (currentIndex + 1) % galleryItems.length; updateLightbox(); }
+const prevPhoto = () => { currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length; updateLightbox(); };
+const nextPhoto = () => { currentIndex = (currentIndex + 1) % galleryItems.length; updateLightbox(); };
 
 $$('.gallery-item[data-src]').forEach((item, i) => {
   item.addEventListener('click', () => openLightbox(i));
-  item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); } });
+  item.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
+  });
 });
 
-$('#lightboxClose')?.addEventListener('click', closeLightbox);
-$('#lightboxPrev')?.addEventListener('click', prevPhoto);
-$('#lightboxNext')?.addEventListener('click', nextPhoto);
-lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+$('#lightboxClose') && $('#lightboxClose').addEventListener('click', closeLightbox);
+$('#lightboxPrev')  && $('#lightboxPrev').addEventListener('click', prevPhoto);
+$('#lightboxNext')  && $('#lightboxNext').addEventListener('click', nextPhoto);
+lightbox && lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 
 let touchStartX = 0;
-lightbox?.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
-lightbox?.addEventListener('touchend', e => {
-  const diff = touchStartX - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 50) diff > 0 ? nextPhoto() : prevPhoto();
-});
-
-/* ── Escape global (après lightbox) ── */
-document.addEventListener('keydown', e => {
-  if (e.key !== 'Escape') return;
-  if (menu.classList.contains('active')) closeMenu();
-  if (lightbox.classList.contains('active')) closeLightbox();
-  const rv = document.getElementById('revendeurModal');
-  if (rv?.classList.contains('active')) closeRevendeur();
-});
+if (lightbox) {
+  lightbox.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+  lightbox.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) diff > 0 ? nextPhoto() : prevPhoto();
+  });
+}
 
 /* ── Validation champ ── */
 function validateField(input) {
   const field = input.closest('.field');
-  const err   = field?.querySelector('.field-error');
+  const err   = field && field.querySelector('.field-error');
   if (!err) return true;
   err.textContent = '';
   if (input.required && !input.value.trim()) { err.textContent = 'Ce champ est requis.'; return false; }
@@ -154,20 +181,20 @@ function openRevendeur() {
   rvModal.classList.add('active');
   rvModal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
-  document.getElementById('closeRevendeur')?.focus();
+  const closeRv = document.getElementById('closeRevendeur');
+  closeRv && closeRv.focus();
 }
-
 function closeRevendeur() {
   if (!rvModal) return;
   rvModal.classList.remove('active');
   rvModal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-  document.getElementById('openRevendeur')?.focus();
+  document.getElementById('openRevendeur') && document.getElementById('openRevendeur').focus();
 }
 
-document.getElementById('openRevendeur')?.addEventListener('click', openRevendeur);
-document.getElementById('closeRevendeur')?.addEventListener('click', closeRevendeur);
-rvModal?.addEventListener('click', e => { if (e.target === rvModal) closeRevendeur(); });
+document.getElementById('openRevendeur')  && document.getElementById('openRevendeur').addEventListener('click', openRevendeur);
+document.getElementById('closeRevendeur') && document.getElementById('closeRevendeur').addEventListener('click', closeRevendeur);
+rvModal && rvModal.addEventListener('click', e => { if (e.target === rvModal) closeRevendeur(); });
 
 if (rvForm) {
   $$('input, textarea', rvForm).forEach(inp => inp.addEventListener('blur', () => validateField(inp)));
