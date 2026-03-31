@@ -11,9 +11,6 @@ window.addEventListener('scroll', () => {
 
 /* ══════════════════════════════
    MENU OVERLAY
-   La croix (#closeMenu) est en position:fixed z-index:1001
-   Elle est donc TOUJOURS accessible, indépendamment
-   du stacking context du menu-overlay.
 ══════════════════════════════ */
 const menu     = $('#menu');
 const openBtn  = $('#openMenu');
@@ -47,8 +44,6 @@ function openMenu() {
   openBtn.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
   createApples();
-  /* La croix est en position:fixed, elle est toujours dans le DOM
-     et accessible — on lui donne juste le focus */
   setTimeout(() => closeBtn && closeBtn.focus(), 60);
 }
 
@@ -60,20 +55,16 @@ function closeMenu() {
   openBtn && openBtn.focus();
 }
 
-/* Ouverture */
 openBtn && openBtn.addEventListener('click', openMenu);
 
-/* Fermeture — listener direct sur la croix */
 closeBtn && closeBtn.addEventListener('click', function (e) {
   e.preventDefault();
   e.stopPropagation();
   closeMenu();
 });
 
-/* Fermeture — clic sur les liens du menu */
 $$('.menu-links a').forEach(a => a.addEventListener('click', closeMenu));
 
-/* Touche Échap */
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     if (menu && menu.classList.contains('active')) closeMenu();
