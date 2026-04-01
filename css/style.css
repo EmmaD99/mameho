@@ -136,7 +136,7 @@ button { cursor:pointer; }
 .menu-content {
   position:absolute; inset:0; z-index:3;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
-  padding:100px var(--gap) 60px; pointer-events:none;
+  padding:70px var(--gap) 40px; pointer-events:none;
 }
 .menu-content > * { pointer-events:auto; }
 
@@ -156,13 +156,13 @@ button { cursor:pointer; }
 
 .menu-links {
   display:flex; flex-direction:column; align-items:center;
-  gap:8px; text-align:center; margin-bottom:28px;
+  gap:clamp(2px, 1.2vh, 10px); text-align:center; margin-bottom:20px;
 }
 .menu-links li { overflow:hidden; }
 .menu-links a {
   display:inline-block; color:var(--white); font-family:var(--ft);
-  font-size:clamp(38px, 7vw, 66px); font-weight:700;
-  line-height:1.15; letter-spacing:.5px; transition:color .25s, transform .25s;
+  font-size:clamp(32px, 6.5vw, 66px); font-weight:700;
+  line-height:1.1; letter-spacing:.5px; transition:color .25s, transform .25s;
 }
 .menu-links a:hover { color:var(--yellow); transform:translateX(10px); }
 
