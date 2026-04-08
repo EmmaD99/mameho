@@ -26,6 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/css_additions.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -71,12 +72,22 @@
   </a>
   <nav class="topbar-nav" aria-label="Navigation principale">
     <a href="#jus">Nos Jus</a>
-    <a href="#ingredients">Ingrédients</a>
-    <a href="#augustin">Histoire</a>
+    <a href="#augustin">Augustin</a>
     <a href="#galerie">Galerie</a>
     <a href="#fabrication">Fabrication</a>
     <a href="#trouver">Nous Goûter</a>
-    <a href="#contact" class="btn-cta">Contact</a>
+    <a href="#revendeur">Revendeurs</a>
+    <!-- Contact dropdown -->
+    <div class="nav-dropdown" id="contactDropdown">
+      <button class="nav-dropdown-btn btn-cta" aria-expanded="false" aria-haspopup="true" id="contactDropBtn">
+        Contact <span class="dropdown-arrow" aria-hidden="true">▾</span>
+      </button>
+      <ul class="nav-dropdown-menu" role="menu" aria-label="Options de contact">
+        <li role="menuitem"><a href="#contact" data-contact-type="revendeur" class="dropdown-link">🤝 Devenir revendeur</a></li>
+        <li role="menuitem"><a href="#contact" data-contact-type="prix" class="dropdown-link">💰 Demander nos prix</a></li>
+        <li role="menuitem"><a href="#contact" data-contact-type="info" class="dropdown-link">✉️ Renseignements</a></li>
+      </ul>
+    </div>
   </nav>
 </header>
 
@@ -88,11 +99,11 @@
     <ul class="menu-links">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#jus">Nos Jus</a></li>
-      <li><a href="#ingredients">Ingrédients</a></li>
-      <li><a href="#augustin">Notre Histoire</a></li>
+      <li><a href="#augustin">Augustin</a></li>
       <li><a href="#galerie">Mameho en images</a></li>
       <li><a href="#fabrication">Fabrication</a></li>
       <li><a href="#trouver">Nous Goûter</a></li>
+      <li><a href="#revendeur">Devenir Revendeur</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <p class="menu-tagline">100% naturel · Pressé à la ferme · Aube, France</p>
@@ -104,18 +115,21 @@
 <!-- ═══ HERO ═══ -->
 <section id="accueil" class="hero" aria-labelledby="hero-title">
   <div class="hero-decos" aria-hidden="true">
+    <!-- Geometric brand shapes: rainbow arc, diamond, heart -->
+    <div class="hshape hs-rainbow"></div>
+    <div class="hshape hs-diamond"></div>
+    <div class="hshape hs-heart"></div>
     <div class="hshape hs-ring"></div>
     <div class="hshape hs-ring2"></div>
     <div class="hshape hs-ring3"></div>
     <div class="hshape hs-blob"></div>
     <div class="hshape hs-blob2"></div>
     <div class="hshape hs-blob3"></div>
-    <div class="hshape hs-dot1"></div>
-    <div class="hshape hs-dot2"></div>
-    <div class="hshape hs-dot3"></div>
-    <div class="hshape hs-dot4"></div>
-    <div class="hshape hs-dot5"></div>
-    <div class="hshape hs-dot6"></div>
+    <!-- Ingredient pictos -->
+    <div class="hshape hs-picto hs-picto-apple">🍎</div>
+    <div class="hshape hs-picto hs-picto-hibiscus">🌺</div>
+    <div class="hshape hs-picto hs-picto-ginger">🫚</div>
+    <!-- Bottles with parallax scroll -->
     <div class="hbottle hb1"><img src="pictures/packshots/big-apple-juice.png" alt="Jus de pommes 1L Mameho" loading="lazy"></div>
     <div class="hbottle hb6"><img src="pictures/packshots/small-apple-hazelnut-honey.png" alt="Jus Pommes Noisettes Miel Mameho" loading="lazy"></div>
     <div class="hbottle hb7"><img src="pictures/packshots/small-apple-juice.png" alt="Jus de pommes 33cl Mameho" loading="lazy"></div>
@@ -129,9 +143,15 @@
     <p class="hero-tagline">Le <span class="jus">jus</span> qui fait<br><span class="fruit">fruitcher</span>* vos journées !</p>
     <p class="hero-wavy">~ ~ ~ ~ ~</p>
     <p class="hero-desc">Jus de fruits artisanaux · 100% naturels · Sans conservateurs</p>
+    <!-- Prestations highlight in banner -->
+    <div class="hero-prestations" aria-label="Nos prestations">
+      <span class="hero-presta-pill">🍎 Vente directe</span>
+      <span class="hero-presta-pill">🍏 Pressage à façon</span>
+      <span class="hero-presta-pill">🤝 Revendeurs</span>
+    </div>
     <div class="hero-cta">
       <a href="#jus" class="btn-primary">Découvrir nos jus</a>
-      <a href="#augustin" class="btn-secondary">Notre histoire</a>
+      <a href="#augustin" class="btn-secondary">Mot d'Augustin</a>
     </div>
     <p class="hero-note">*Fruitcher : apporter une explosion de saveurs fruitées et de fraîcheur.</p>
   </div>
@@ -154,13 +174,13 @@
   </div>
 </div>
 
-<!-- ═══ NOS JUS ═══ -->
+<!-- ═══ NOS JUS (ingrédients intégrés) ═══ -->
 <section id="jus" class="section jus-section" aria-labelledby="jus-title">
   <div class="section-wrap">
     <div class="section-hd">
       <span class="section-label">Notre Gamme</span>
-      <h2 id="jus-title">Nos Jus <span class="heart" aria-hidden="true">♥</span></h2>
-      <p>Passez sur une bouteille pour découvrir le descriptif de chaque jus.</p>
+      <h2 id="jus-title">Nos Jus <span class="brand-diamond" aria-hidden="true">◆</span></h2>
+      <p>Passez sur une bouteille pour découvrir le descriptif et les ingrédients de chaque jus.</p>
     </div>
     <div class="jus-grid">
 
@@ -175,8 +195,19 @@
         <div class="juice-card-body">
           <h3><strong>Pommes</strong></h3>
           <span class="juice-vol">33cl · 100% Pur Jus</span>
-          <div class="juice-ings">
-            <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+          <!-- Ingrédients intégrés directement -->
+          <div class="juice-ingredients-inline">
+            <span class="ji-label">Ingrédients :</span>
+            <div class="ji-list">
+              <span class="ji-item">
+                <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+                Pomme (Aube)
+              </span>
+            </div>
+          </div>
+          <div class="juice-tags-row">
+            <span class="juice-badge">100% Naturel</span>
+            <span class="juice-badge">Sans conservateurs</span>
           </div>
         </div>
       </article>
@@ -192,8 +223,18 @@
         <div class="juice-card-body">
           <h3><strong>Pommes</strong></h3>
           <span class="juice-vol">1L · 100% Pur Jus</span>
-          <div class="juice-ings">
-            <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+          <div class="juice-ingredients-inline">
+            <span class="ji-label">Ingrédients :</span>
+            <div class="ji-list">
+              <span class="ji-item">
+                <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+                Pomme (Aube)
+              </span>
+            </div>
+          </div>
+          <div class="juice-tags-row">
+            <span class="juice-badge">100% Naturel</span>
+            <span class="juice-badge">Format famille</span>
           </div>
         </div>
       </article>
@@ -209,10 +250,26 @@
         <div class="juice-card-body">
           <h3><strong>Pomme · Gingembre · Hibiscus</strong></h3>
           <span class="juice-vol">33cl · 100% Vitalité</span>
-          <div class="juice-ings">
-            <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
-            <span class="ji" title="Hibiscus"><svg viewBox="0 0 36 36" fill="none"><path d="M18 6Q22 2 25 6Q29 3 30 9Q34 10 33 15Q36 19 31 20Q32 25 26 25Q24 30 19 28Q18 33 16 28Q11 30 9 25Q3 24 5 19Q1 16 4 11Q3 6 7 7Q8 3 12 7Z" fill="#AD1C69" opacity=".85"/><circle cx="18" cy="16" r="3.5" fill="#FCCF00"/></svg></span>
-            <span class="ji" title="Gingembre"><svg viewBox="0 0 36 36" fill="none"><ellipse cx="18" cy="20" rx="12" ry="8" fill="#EDBF91"/><ellipse cx="9" cy="14" rx="5.5" ry="4.5" fill="#EDBF91"/><ellipse cx="27" cy="13" rx="4.5" ry="3.5" fill="#EDBF91"/><ellipse cx="18" cy="20" rx="12" ry="8" fill="none" stroke="#C89A60" stroke-width="1.2"/></svg></span>
+          <div class="juice-ingredients-inline">
+            <span class="ji-label">Ingrédients :</span>
+            <div class="ji-list">
+              <span class="ji-item">
+                <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+                Pomme
+              </span>
+              <span class="ji-item">
+                <span class="ji" title="Hibiscus"><svg viewBox="0 0 36 36" fill="none"><path d="M18 6Q22 2 25 6Q29 3 30 9Q34 10 33 15Q36 19 31 20Q32 25 26 25Q24 30 19 28Q18 33 16 28Q11 30 9 25Q3 24 5 19Q1 16 4 11Q3 6 7 7Q8 3 12 7Z" fill="#AD1C69" opacity=".85"/><circle cx="18" cy="16" r="3.5" fill="#FCCF00"/></svg></span>
+                Hibiscus
+              </span>
+              <span class="ji-item">
+                <span class="ji" title="Gingembre"><svg viewBox="0 0 36 36" fill="none"><ellipse cx="18" cy="20" rx="12" ry="8" fill="#EDBF91"/><ellipse cx="9" cy="14" rx="5.5" ry="4.5" fill="#EDBF91"/><ellipse cx="27" cy="13" rx="4.5" ry="3.5" fill="#EDBF91"/><ellipse cx="18" cy="20" rx="12" ry="8" fill="none" stroke="#C89A60" stroke-width="1.2"/></svg></span>
+                Gingembre
+              </span>
+            </div>
+          </div>
+          <div class="juice-tags-row">
+            <span class="juice-badge juice-badge--spicy">Tonique</span>
+            <span class="juice-badge">Vitalité</span>
           </div>
         </div>
       </article>
@@ -228,10 +285,26 @@
         <div class="juice-card-body">
           <h3><strong>Pomme · Gingembre · Hibiscus</strong></h3>
           <span class="juice-vol">1L · 100% Vitalité</span>
-          <div class="juice-ings">
-            <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
-            <span class="ji" title="Hibiscus"><svg viewBox="0 0 36 36" fill="none"><path d="M18 6Q22 2 25 6Q29 3 30 9Q34 10 33 15Q36 19 31 20Q32 25 26 25Q24 30 19 28Q18 33 16 28Q11 30 9 25Q3 24 5 19Q1 16 4 11Q3 6 7 7Q8 3 12 7Z" fill="#AD1C69" opacity=".85"/><circle cx="18" cy="16" r="3.5" fill="#FCCF00"/></svg></span>
-            <span class="ji" title="Gingembre"><svg viewBox="0 0 36 36" fill="none"><ellipse cx="18" cy="20" rx="12" ry="8" fill="#EDBF91"/><ellipse cx="9" cy="14" rx="5.5" ry="4.5" fill="#EDBF91"/><ellipse cx="27" cy="13" rx="4.5" ry="3.5" fill="#EDBF91"/><ellipse cx="18" cy="20" rx="12" ry="8" fill="none" stroke="#C89A60" stroke-width="1.2"/></svg></span>
+          <div class="juice-ingredients-inline">
+            <span class="ji-label">Ingrédients :</span>
+            <div class="ji-list">
+              <span class="ji-item">
+                <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+                Pomme
+              </span>
+              <span class="ji-item">
+                <span class="ji" title="Hibiscus"><svg viewBox="0 0 36 36" fill="none"><path d="M18 6Q22 2 25 6Q29 3 30 9Q34 10 33 15Q36 19 31 20Q32 25 26 25Q24 30 19 28Q18 33 16 28Q11 30 9 25Q3 24 5 19Q1 16 4 11Q3 6 7 7Q8 3 12 7Z" fill="#AD1C69" opacity=".85"/><circle cx="18" cy="16" r="3.5" fill="#FCCF00"/></svg></span>
+                Hibiscus
+              </span>
+              <span class="ji-item">
+                <span class="ji" title="Gingembre"><svg viewBox="0 0 36 36" fill="none"><ellipse cx="18" cy="20" rx="12" ry="8" fill="#EDBF91"/><ellipse cx="9" cy="14" rx="5.5" ry="4.5" fill="#EDBF91"/><ellipse cx="27" cy="13" rx="4.5" ry="3.5" fill="#EDBF91"/><ellipse cx="18" cy="20" rx="12" ry="8" fill="none" stroke="#C89A60" stroke-width="1.2"/></svg></span>
+                Gingembre
+              </span>
+            </div>
+          </div>
+          <div class="juice-tags-row">
+            <span class="juice-badge juice-badge--spicy">Tonique</span>
+            <span class="juice-badge">Format famille</span>
           </div>
         </div>
       </article>
@@ -241,16 +314,32 @@
           <img class="juice-bottle-img" src="pictures/packshots/small-apple-hazelnut-honey.png" alt="Jus Pommes Noisettes Miel 33cl Mameho">
           <div class="juice-card-overlay" aria-hidden="true">
             <span class="tag">Gourmand</span>
-            <p>Une recette réconfortante aux notes grillées de noisette et au fil doré du miel de producteur local. Doux, rond et chaleureux — parfait pour bien commencer la journée ou se faire plaisir.</p>
+            <p>Un assemblage gourmand et réconfortant. La pomme pressée rencontre le croquant de la noisette et la douceur du miel local. Une tasse de tendresse en bouteille.</p>
           </div>
         </div>
         <div class="juice-card-body">
           <h3><strong>Pommes · Noisettes · Miel</strong></h3>
-          <span class="juice-vol">33cl · 100% Réconfortant</span>
-          <div class="juice-ings">
-            <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
-            <span class="ji" title="Noisette"><svg viewBox="0 0 36 36" fill="none"><ellipse cx="18" cy="22" rx="10" ry="9" fill="#C89A60"/><path d="M12 22Q18 9 24 22" fill="#A07840"/><circle cx="18" cy="12" r="3" fill="#5A7A30"/></svg></span>
-            <span class="ji" title="Miel"><svg viewBox="0 0 36 36" fill="none"><path d="M18 5L25 12L25 24L18 31L11 24L11 12Z" fill="#FCCF00"/><path d="M18 5L25 12L25 24L18 31L11 24L11 12Z" fill="none" stroke="#C8A000" stroke-width="1.2"/></svg></span>
+          <span class="juice-vol">33cl · 100% Gourmand</span>
+          <div class="juice-ingredients-inline">
+            <span class="ji-label">Ingrédients :</span>
+            <div class="ji-list">
+              <span class="ji-item">
+                <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+                Pomme
+              </span>
+              <span class="ji-item">
+                <span class="ji" title="Miel"><svg viewBox="0 0 36 36" fill="none"><path d="M18 5L27 12L27 24L18 31L9 24L9 12Z" fill="#FCCF00"/><path d="M18 5L27 12L27 24L18 31L9 24L9 12Z" fill="none" stroke="#C8A000" stroke-width="1.2"/></svg></span>
+                Miel local
+              </span>
+              <span class="ji-item">
+                <span class="ji" title="Noisette"><svg viewBox="0 0 36 36" fill="none"><ellipse cx="18" cy="22" rx="10" ry="9" fill="#C89A60"/><path d="M12 22Q18 9 24 22" fill="#A07840"/><circle cx="18" cy="12" r="3" fill="#5A7A30"/></svg></span>
+                Noisette
+              </span>
+            </div>
+          </div>
+          <div class="juice-tags-row">
+            <span class="juice-badge juice-badge--sweet">Gourmand</span>
+            <span class="juice-badge">Local</span>
           </div>
         </div>
       </article>
@@ -259,34 +348,25 @@
         <div class="juice-card-img juice-card-img--photo">
           <img class="juice-bottle-img" src="pictures/packshots/bisap.png" alt="Bissap 33cl Mameho">
           <div class="juice-card-overlay" aria-hidden="true">
-            <span class="tag">Nouveauté</span>
-            <p>Boisson à base de fleurs d'hibiscus séchées, acidulée et intensément désaltérante. Une robe rouge profonde, un goût unique et exotique — idéale bien glacée, un vrai voyage en verre.</p>
+            <span class="tag">Rafraîchissant</span>
+            <p>Notre boisson Bissap à base d'hibiscus séché, acidulée, florale, idéale bien fraîche. Une invitation au voyage et à la fraîcheur, directement depuis nos vergers d'Aube.</p>
           </div>
         </div>
         <div class="juice-card-body">
           <h3><strong>Bissap</strong></h3>
-          <span class="juice-vol">33cl · 100% Bien-être</span>
-          <div class="juice-ings">
-            <span class="ji" title="Hibiscus"><svg viewBox="0 0 36 36" fill="none"><path d="M18 6Q22 2 25 6Q29 3 30 9Q34 10 33 15Q36 19 31 20Q32 25 26 25Q24 30 19 28Q18 33 16 28Q11 30 9 25Q3 24 5 19Q1 16 4 11Q3 6 7 7Q8 3 12 7Z" fill="#AD1C69" opacity=".85"/><circle cx="18" cy="16" r="3.5" fill="#FCCF00"/></svg></span>
+          <span class="juice-vol">33cl · Boisson florale</span>
+          <div class="juice-ingredients-inline">
+            <span class="ji-label">Ingrédients :</span>
+            <div class="ji-list">
+              <span class="ji-item">
+                <span class="ji" title="Hibiscus"><svg viewBox="0 0 36 36" fill="none"><path d="M18 6Q22 2 25 6Q29 3 30 9Q34 10 33 15Q36 19 31 20Q32 25 26 25Q24 30 19 28Q18 33 16 28Q11 30 9 25Q3 24 5 19Q1 16 4 11Q3 6 7 7Q8 3 12 7Z" fill="#AD1C69" opacity=".85"/><circle cx="18" cy="16" r="3.5" fill="#FCCF00"/></svg></span>
+                Hibiscus séché
+              </span>
+            </div>
           </div>
-        </div>
-      </article>
-
-      <article class="juice-card" data-f="trio">
-        <div class="juice-card-img juice-card-img--photo">
-          <img class="juice-bottle-img" src="pictures/packshots/trio.png" alt="Trio Mameho 3x33cl">
-          <div class="juice-card-overlay" aria-hidden="true">
-            <span class="tag">Coffret Découverte</span>
-            <p>Nos trois jus signature réunis dans un coffret idéal pour offrir ou se faire plaisir. Pommes, Pomme·Gingembre·Hibiscus et Pommes·Noisettes·Miel — la gamme complète à savourer.</p>
-          </div>
-        </div>
-        <div class="juice-card-body">
-          <h3><strong>Le Trio Mameho</strong></h3>
-          <span class="juice-vol">3 × 33cl · L'essentiel de la gamme</span>
-          <div class="juice-ings">
-            <span class="ji" title="Pomme"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4Q8 2 6 13Q3 24 9 30Q13 34 18 33Q23 34 27 30Q33 24 30 13Q28 2 18 4Z" fill="#91CF5C"/><path d="M18 4Q20 0 25 1" stroke="#5A7A30" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
-            <span class="ji" title="Hibiscus"><svg viewBox="0 0 36 36" fill="none"><path d="M18 6Q22 2 25 6Q29 3 30 9Q34 10 33 15Q36 19 31 20Q32 25 26 25Q24 30 19 28Q18 33 16 28Q11 30 9 25Q3 24 5 19Q1 16 4 11Q3 6 7 7Q8 3 12 7Z" fill="#AD1C69" opacity=".85"/><circle cx="18" cy="16" r="3.5" fill="#FCCF00"/></svg></span>
-            <span class="ji" title="Noisette"><svg viewBox="0 0 36 36" fill="none"><ellipse cx="18" cy="22" rx="10" ry="9" fill="#C89A60"/><path d="M12 22Q18 9 24 22" fill="#A07840"/><circle cx="18" cy="12" r="3" fill="#5A7A30"/></svg></span>
+          <div class="juice-tags-row">
+            <span class="juice-badge juice-badge--floral">Floral</span>
+            <span class="juice-badge">Acidulé</span>
           </div>
         </div>
       </article>
@@ -295,70 +375,7 @@
   </div>
 </section>
 
-<!-- ═══ INGRÉDIENTS ═══ -->
-<section id="ingredients" class="section ingredients-section" aria-labelledby="ing-title">
-  <div class="section-wrap">
-    <div class="section-hd">
-      <span class="section-label">Nos Matières Premières</span>
-      <h2 id="ing-title">Nos Ingrédients <span class="heart" aria-hidden="true">♥</span></h2>
-      <p>Des ingrédients soigneusement sélectionnés pour des saveurs authentiques et 100% naturelles.</p>
-    </div>
-    <div class="ing-grid">
-      <article class="ing-card">
-        <div class="ing-icon-wrap ing-pomme">
-          <svg viewBox="0 0 72 72" fill="none"><path d="M36 9Q16 4 12 25Q6 48 18 60Q26 70 36 68Q46 70 54 60Q66 48 60 25Q56 4 36 9Z" fill="#91CF5C"/><path d="M36 9Q39 2 48 4" stroke="#5A7A30" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M36 28Q27 34 25 46" stroke="#5A7A30" stroke-width="1.5" fill="none" opacity=".35" stroke-linecap="round"/></svg>
-        </div>
-        <div class="ing-body">
-          <h3>Pomme</h3>
-          <p>Cœur de notre gamme, nos pommes auboises sont récoltées à parfaite maturité. Elles apportent douceur, fruité et une belle robe ambrée à chaque cuvée.</p>
-          <span class="ing-badge">Vergers de l'Aube</span>
-        </div>
-      </article>
-      <article class="ing-card">
-        <div class="ing-icon-wrap ing-hibiscus">
-          <svg viewBox="0 0 72 72" fill="none"><path d="M36 14Q43 5 50 14Q59 7 61 18Q70 22 67 31Q72 40 63 42Q65 51 54 51Q51 61 40 57Q36 68 32 57Q21 61 18 51Q7 49 9 40Q0 32 5 23Q3 12 13 14Q15 5 25 14Z" fill="#AD1C69" opacity=".88"/><circle cx="36" cy="33" r="7" fill="#FCCF00"/><circle cx="36" cy="33" r="3.5" fill="#C8A000"/></svg>
-        </div>
-        <div class="ing-body">
-          <h3>Hibiscus</h3>
-          <p>Fleur aux notes acidulées et florales, l'hibiscus apporte une belle couleur rubis et une fraîcheur unique à nos jus. Naturellement riche en antioxydants.</p>
-          <span class="ing-badge">Fleur séchée</span>
-        </div>
-      </article>
-      <article class="ing-card">
-        <div class="ing-icon-wrap ing-noisette">
-          <svg viewBox="0 0 72 72" fill="none"><ellipse cx="36" cy="44" rx="20" ry="18" fill="#C89A60"/><path d="M25 44Q36 18 47 44" fill="#A07840"/><ellipse cx="36" cy="44" rx="20" ry="18" fill="none" stroke="#8A6030" stroke-width="2"/><circle cx="36" cy="26" r="6" fill="#5A7A30"/><path d="M32 23Q36 20 40 23" stroke="#5A7A30" stroke-width="1.5" fill="none"/></svg>
-        </div>
-        <div class="ing-body">
-          <h3>Noisette</h3>
-          <p>Nos noisettes locales apportent une touche gourmande et torréfiée à notre jus Pommes-Noisettes-Miel. Un accord chaleureux et réconfortant.</p>
-          <span class="ing-badge">Locale &amp; artisanale</span>
-        </div>
-      </article>
-      <article class="ing-card">
-        <div class="ing-icon-wrap ing-miel">
-          <svg viewBox="0 0 72 72" fill="none"><path d="M36 10L52 24L52 48L36 62L20 48L20 24Z" fill="#FCCF00"/><path d="M36 10L52 24L52 48L36 62L20 48L20 24Z" fill="none" stroke="#C8A000" stroke-width="2"/><path d="M28 34Q36 42 44 34" stroke="#C8A000" stroke-width="2" fill="none"/><path d="M30 26Q36 32 42 26" stroke="#C8A000" stroke-width="1.5" fill="none" opacity=".5"/></svg>
-        </div>
-        <div class="ing-body">
-          <h3>Miel</h3>
-          <p>Sélectionné auprès de producteurs locaux, notre miel aux notes florales adoucit nos jus et leur confère une rondeur et une longueur en bouche incomparables.</p>
-          <span class="ing-badge">Producteur local</span>
-        </div>
-      </article>
-      <article class="ing-card">
-        <div class="ing-icon-wrap ing-gingembre">
-          <svg viewBox="0 0 72 72" fill="none"><ellipse cx="36" cy="40" rx="24" ry="16" fill="#EDBF91"/><ellipse cx="18" cy="29" rx="11" ry="9" fill="#EDBF91"/><ellipse cx="54" cy="27" rx="9" ry="7" fill="#EDBF91"/><ellipse cx="33" cy="18" rx="7" ry="7" fill="#EDBF91"/><ellipse cx="36" cy="40" rx="24" ry="16" fill="none" stroke="#C89A60" stroke-width="2"/><ellipse cx="18" cy="29" rx="11" ry="9" fill="none" stroke="#C89A60" stroke-width="1.5"/><ellipse cx="54" cy="27" rx="9" ry="7" fill="none" stroke="#C89A60" stroke-width="1.5"/></svg>
-        </div>
-        <div class="ing-body">
-          <h3>Gingembre</h3>
-          <p>Racine épicée et tonique, le gingembre apporte chaleur et caractère à notre jus Pomme-Hibiscus-Gingembre. Une note piquante qui réveille les papilles.</p>
-          <span class="ing-badge">Racine fraîche</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ AUGUSTIN ═══ -->
+<!-- ═══ AUGUSTIN (Mot d'Augustin uniquement, sans "Notre Histoire") ═══ -->
 <section id="augustin" class="section augustin-section" aria-labelledby="augustin-title">
   <div class="section-wrap">
     <div class="augustin-inner">
@@ -366,11 +383,18 @@
         <div class="photo-blob">
           <img src="pictures/general/augustin.jpg" alt="Augustin, fondateur de Mameho, dans les vergers à Marcilly-le-Hayer" width="600" height="750" loading="lazy" onerror="this.style.display='none'; this.parentElement.textContent='🧑‍🌾';">
         </div>
-        <div class="aug-badge" aria-hidden="true">🍎</div>
+        <!-- Brand shape badge au lieu d'un emoji simple -->
+        <div class="aug-badge aug-badge--brand" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 5Q12 2 9 18Q5 36 14 45Q20 52 24 50Q28 52 34 45Q43 36 39 18Q36 2 24 5Z" fill="#91CF5C"/>
+            <path d="M24 5Q26 0 32 2" stroke="#5A7A30" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
       </div>
       <div class="augustin-text">
-        <span class="section-label">Notre Histoire</span>
-        <h2 id="augustin-title">Le petit mot d'Augustin</h2>
+        <!-- Section label sans "Notre Histoire" -->
+        <span class="section-label">Fondateur de Mameho</span>
+        <h2 id="augustin-title">Le mot d'Augustin <span class="brand-rainbow" aria-hidden="true">🌈</span></h2>
         <p class="aug-wavy" aria-hidden="true">~ ~ ~ ~ ~</p>
         <p class="aug-lead">Mameho, ce sont des fruits choisis et transformés avec soin.</p>
         <p>Issu du monde agricole, j'ai créé Mameho avec une conviction simple : la qualité de nos jus repose sur le choix des produits et sur un travail exigeant, mené avec soin à chaque étape.</p>
@@ -381,89 +405,18 @@
   </div>
 </section>
 
-<!-- ═══ À DÉCOUVRIR ═══ -->
-<section id="decouvrir" class="section discover-section" aria-labelledby="decouvrir-title">
-  <div class="section-wrap">
-    <div class="section-hd">
-      <div class="made-badge" role="img" aria-label="Fabriqué en France, dans l'Aube">🇫🇷 Made in Aube</div>
-      <h2 id="decouvrir-title">Nos jus à découvrir <span class="heart" aria-hidden="true">♥</span></h2>
-    </div>
-    <p class="discover-intro">Mameho propose une gamme de jus élaborés avec les fruits de nos vergers aubois. Des recettes maison, naturelles, avec une pointe d'originalité.</p>
-    <div class="discover-grid">
-      <!--<div class="discover-item" data-di="pomme">
-        <div class="di-img" aria-hidden="true">🍾</div>
-        <div class="di-text">
-          <h3>Pommes</h3>
-          <span class="di-vol">33cl ou 1L</span>
-          <p>Le goût pur de la pomme fraîchement pressée, à boire à tout moment de la journée.</p>
-          <p class="di-price">2,00 € · 3,50 €</p>
-        </div>
-      </div>
-      <div class="discover-item" data-di="miel">
-        <div class="di-img" aria-hidden="true">🍯</div>
-        <div class="di-text">
-          <h3>Pommes, Noisettes et Miel</h3>
-          <span class="di-vol">33cl</span>
-          <p>Une recette gourmande et réconfortante, aux notes de noisettes et de miel.</p>
-          <p class="di-price">3,00 €</p>
-        </div>
-      </div>
-      <div class="discover-item" data-di="hibiscus">
-        <div class="di-img" aria-hidden="true">🌺</div>
-        <div class="di-text">
-          <h3>Pomme, Hibiscus et Gingembre</h3>
-          <span class="di-vol">33cl ou 1L</span>
-          <p>Une alliance de pomme, fleur d'hibiscus et gingembre pour un jus parfumé et tonique.</p>
-          <p class="di-price">2,50 € · 4,00 €</p>
-        </div>
-      </div>
-      <div class="discover-item" data-di="bissap">
-        <div class="di-img" aria-hidden="true">🫶</div>
-        <div class="di-text">
-          <h3>Bissap</h3>
-          <span class="di-vol">33cl</span>
-          <p>Boisson à base d'hibiscus, acidulée, idéale bien glacée.</p>
-          <p class="di-price">2,50 €</p>
-        </div>
-      </div>
-    </div>-->
-    </div>
-    <div class="savourer-box">
-      <h3>✨ Comment les savourer ?</h3>
-      <div class="savourer-pills">
-        <span class="savourer-pill">🌅 Au petit-déjeuner</span>
-        <span class="savourer-pill">🥂 À l'apéritif</span>
-        <span class="savourer-pill">🍹 En cocktails</span>
-        <span class="savourer-pill">🧺 Paniers gourmands</span>
-        <span class="savourer-pill">🎁 Coffrets cadeaux</span>
-      </div>
-    </div>
-    <div class="cocktail-box">
-      <h3>🍹 Idée cocktail</h3>
-      <p class="cocktail-name">Le Red Pulse :</p>
-      <ul>
-        <li>12 cl de jus Pomme – Hibiscus – Gingembre Mameho</li>
-        <li>4 cl d'eau pétillante bien fraîche</li>
-        <li>1 trait de jus de citron vert</li>
-        <li>Glaçons · Quelques feuilles de menthe</li>
-        <li>1 fine lamelle de pomme pour la décoration</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ GALERIE ═══ -->
 <section id="galerie" class="section galerie-section" aria-labelledby="galerie-title">
   <div class="section-wrap">
     <div class="section-hd">
       <span class="section-label">Photos</span>
-      <h2 id="galerie-title">Mameho en Images <span class="heart" aria-hidden="true">♥</span></h2>
+      <h2 id="galerie-title">Mameho en Images <span class="brand-heart" aria-hidden="true">♥</span></h2>
       <p>Nos vergers, notre savoir-faire et nos jus — au fil des saisons.</p>
     </div>
     <div class="gallery-grid" role="list">
       <div class="gallery-item tall" role="listitem" tabindex="0" data-src="pictures/general/breakfast.jpg" data-caption="Petit déjeuner Mameho" aria-label="Voir la photo : Petit déjeuner">
         <img src="pictures/general/breakfast.jpg" alt="Petit déjeuner Mameho" loading="lazy" width="600" height="900" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🍎</span><span>Nos pommes</span></div>'">
-        <div class="gallery-label">Petit déjeuné</div>
+        <div class="gallery-label">Petit déjeuner</div>
       </div>
       <div class="gallery-item" role="listitem" tabindex="0" data-src="pictures/general/orchard.jpg" data-caption="Le verger Mameho" aria-label="Voir la photo : Le verger">
         <img src="pictures/general/orchard.jpg" alt="Le verger Mameho" loading="lazy" width="600" height="400" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🌺</span><span>Le verger</span></div>'">
@@ -479,7 +432,7 @@
       </div>
       <div class="gallery-item" role="listitem" tabindex="0" data-src="pictures/general/breakfast-1.jpg" data-caption="Petit déjeuner Mameho" aria-label="Voir la photo : Petit déjeuner">
         <img src="pictures/general/breakfast-1.jpg" alt="Petit déjeuner Mameho" loading="lazy" width="600" height="400" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>⚙️</span><span>Petit déjeuner</span></div>'">
-        <div class="gallery-label">Petit déjeuné</div>
+        <div class="gallery-label">Petit déjeuner</div>
       </div>
       <div class="gallery-item" role="listitem" tabindex="0" data-src="pictures/general/apples-1.jpg" data-caption="Nos pommes Mameho" aria-label="Voir la photo : Nos pommes">
         <img src="pictures/general/apples-1.jpg" alt="Nos pommes Mameho" loading="lazy" width="600" height="400" onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><span class=\'ph-icon\'>🍎</span><span>Nos pommes</span></div>'">
@@ -501,44 +454,102 @@
   </div>
 </section>
 
-<!-- ═══ FABRICATION ═══ -->
+<!-- ═══ FABRICATION (fusionnée avec Secret de Fabrication + timeline avec pictos) ═══ -->
 <section id="fabrication" class="section fabrication-section" aria-labelledby="fab-title">
   <div class="section-wrap">
     <div class="section-hd">
       <span class="section-label">Savoir-faire artisanal</span>
-      <h2 id="fab-title">La Fabrication</h2>
+      <h2 id="fab-title">De la pomme <span class="brand-diamond" aria-hidden="true">◆</span> à la bouteille</h2>
       <p>De la récolte à la bouteille, chaque étape est réalisée avec soin dans notre atelier à Marcilly-le-Hayer.</p>
     </div>
-    <div class="fab-grid">
-      <div class="fab-card">
-        <div class="fab-img"><img src="pictures/workers/workers-1.jpg" alt="Récolte des pommes à la main" loading="lazy" width="600" height="450" onerror="this.style.display='none'; this.parentElement.textContent='🍎';"></div>
-        <div class="fab-text"><span class="fab-num" aria-hidden="true">01</span><h3>La Récolte</h3><p>Nos pommes sont soigneusement cueillies à parfaite maturité dans nos vergers aubois, garantissant une qualité optimale à chaque cuvée.</p></div>
-      </div>
-      <div class="fab-card">
-        <div class="fab-img"><img src="pictures/workers/workers-2.jpg" alt="Pressoir hydraulique artisanal" loading="lazy" width="600" height="450" onerror="this.style.display='none'; this.parentElement.textContent='🍏';"></div>
-        <div class="fab-text"><span class="fab-num" aria-hidden="true">02</span><h3>La Presse</h3><p>Nos pommes sont pressées selon les méthodes traditionnelles dans notre pressoir hydraulique, pour une extraction optimale sans dégradation thermique.</p></div>
-      </div>
-      <div class="fab-card">
-        <div class="fab-img"><img src="pictures/workers/plate-heat-exchanger.jpg" alt="Contrôle qualité et mise en bouteille" loading="lazy" width="600" height="450" onerror="this.style.display='none'; this.parentElement.textContent='✨';"></div>
-        <div class="fab-text"><span class="fab-num" aria-hidden="true">03</span><h3>La Qualité</h3><p>Chaque lot est contrôlé rigoureusement avant mise en bouteille. Aucun conservateur, aucun arôme artificiel : juste le fruit dans toute sa pureté.</p></div>
-      </div>
-    </div>
-    <div class="contre-etiquette">
-      <div class="ce-header">
-        <svg class="ce-apple" viewBox="0 0 50 50" fill="none"><path d="M25 4Q12 1 9 18Q5 36 14 45Q20 52 25 50Q30 52 36 45Q45 36 41 18Q38 1 25 4Z" fill="#FCCF00" opacity=".9"/><path d="M25 4Q27 0 34 2" stroke="#C8A000" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
-        <div>
-          <p class="ce-eyebrow">Secret de fabrication</p>
-          <h3 class="ce-title">De la pomme à la bouteille</h3>
+
+    <!-- Layout 2 colonnes : photos gauche + timeline droite -->
+    <div class="fab-layout">
+
+      <!-- Colonne gauche : photos empilées -->
+      <div class="fab-photos-col">
+        <div class="fab-photo-item">
+          <img src="pictures/workers/workers-1.jpg" alt="Récolte des pommes à la main" loading="lazy" width="600" height="450" onerror="this.style.display='none';">
+          <span class="fab-photo-label">01 · La Récolte</span>
+        </div>
+        <div class="fab-photo-item">
+          <img src="pictures/workers/workers-2.jpg" alt="Pressoir hydraulique artisanal" loading="lazy" width="600" height="450" onerror="this.style.display='none';">
+          <span class="fab-photo-label">02 · La Presse</span>
+        </div>
+        <div class="fab-photo-item">
+          <img src="pictures/workers/plate-heat-exchanger.jpg" alt="Contrôle qualité" loading="lazy" width="600" height="450" onerror="this.style.display='none';">
+          <span class="fab-photo-label">03 · La Qualité</span>
         </div>
       </div>
-      <ol class="ce-steps">
-        <li class="ce-step"><span class="ce-num">1</span><div><strong>Cueillette des pommes</strong><p>Nos pommes auboises sont soigneusement cueillies à parfaite maturité dans nos vergers.</p></div></li>
-        <li class="ce-step"><span class="ce-num">2</span><div><strong>Tri &amp; lavage</strong><p>Chaque fruit est trié à la main et soigneusement lavé avant transformation.</p></div></li>
-        <li class="ce-step"><span class="ce-num">3</span><div><strong>Broyage &amp; pressage</strong><p>Les fruits sont broyés puis pressés dans notre pressoir hydraulique artisanal.</p></div></li>
-        <li class="ce-step"><span class="ce-num">4</span><div><strong>Clarification</strong><p>Le jus est clarifié pour obtenir une belle robe claire, sans ajout de sucre ni d'additifs.</p></div></li>
-        <li class="ce-step"><span class="ce-num">5</span><div><strong>Pasteurisation (70°C)</strong><p>Flash-pasteurisé à 70°C pour conserver les arômes et garantir la sécurité alimentaire.</p></div></li>
-        <li class="ce-step"><span class="ce-num">6</span><div><strong>Mise en bouteille</strong><p>Conditionné en bouteille verre 33cl ou 1L, ou poche BIB 3L. Chaque bouteille est étiquetée à la main.</p></div></li>
-        <li class="ce-step"><span class="ce-num">7</span><div><strong>Dégustation</strong><p>Il ne reste plus qu'à savourer ! 🍎</p></div></li>
+
+      <!-- Colonne droite : timeline -->
+      <div class="fab-timeline" aria-label="Étapes de fabrication">
+      <div class="fab-timeline-header">
+        <div class="fab-timeline-icon" aria-hidden="true">
+          <svg viewBox="0 0 50 50" fill="none"><path d="M25 4Q12 1 9 18Q5 36 14 45Q20 52 25 50Q30 52 36 45Q45 36 41 18Q38 1 25 4Z" fill="#91CF5C" opacity=".9"/><path d="M25 4Q27 0 34 2" stroke="#5A7A30" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <p class="ce-eyebrow">Secret de fabrication</p>
+          <h3 class="ce-title">Notre process artisanal</h3>
+        </div>
+      </div>
+      <ol class="fab-timeline-steps">
+        <li class="fab-tl-step">
+          <div class="fab-tl-picto fab-tl-picto--illus" aria-hidden="true"><img src="pictures/general/tree.png" alt=""></div>
+          <div class="fab-tl-connector"></div>
+          <div class="fab-tl-content">
+            <strong>Cueillette des pommes</strong>
+            <p>Nos pommes auboises sont soigneusement cueillies à parfaite maturité dans nos vergers.</p>
+          </div>
+        </li>
+        <li class="fab-tl-step">
+          <div class="fab-tl-picto" aria-hidden="true">✋</div>
+          <div class="fab-tl-connector"></div>
+          <div class="fab-tl-content">
+            <strong>Tri &amp; lavage</strong>
+            <p>Chaque fruit est trié à la main et soigneusement lavé avant transformation.</p>
+          </div>
+        </li>
+        <li class="fab-tl-step">
+          <div class="fab-tl-picto fab-tl-picto--illus" aria-hidden="true"><img src="pictures/general/machine.png" alt=""></div>
+          <div class="fab-tl-connector"></div>
+          <div class="fab-tl-content">
+            <strong>Broyage &amp; pressage</strong>
+            <p>Les fruits sont broyés puis pressés dans notre pressoir hydraulique artisanal.</p>
+          </div>
+        </li>
+        <li class="fab-tl-step">
+          <div class="fab-tl-picto" aria-hidden="true">✨</div>
+          <div class="fab-tl-connector"></div>
+          <div class="fab-tl-content">
+            <strong>Clarification</strong>
+            <p>Le jus est clarifié pour obtenir une belle robe claire, sans ajout de sucre ni d'additifs.</p>
+          </div>
+        </li>
+        <li class="fab-tl-step">
+          <div class="fab-tl-picto" aria-hidden="true">🌡️</div>
+          <div class="fab-tl-connector"></div>
+          <div class="fab-tl-content">
+            <strong>Pasteurisation (70°C)</strong>
+            <p>Flash-pasteurisé à 70°C pour conserver les arômes et garantir la sécurité alimentaire.</p>
+          </div>
+        </li>
+        <li class="fab-tl-step">
+          <div class="fab-tl-picto fab-tl-picto--illus" aria-hidden="true"><img src="pictures/general/tractor.png" alt=""></div>
+          <div class="fab-tl-connector"></div>
+          <div class="fab-tl-content">
+            <strong>Mise en bouteille</strong>
+            <p>Conditionné en bouteille verre 33cl ou 1L, ou poche BIB 3L. Chaque bouteille est étiquetée à la main.</p>
+          </div>
+        </li>
+        <li class="fab-tl-step fab-tl-step--last">
+          <div class="fab-tl-picto fab-tl-picto--final" aria-hidden="true">🥂</div>
+          <div class="fab-tl-connector"></div>
+          <div class="fab-tl-content">
+            <strong>Dégustation</strong>
+            <p>Il ne reste plus qu'à savourer ! 🍎</p>
+          </div>
+        </li>
       </ol>
       <div class="ce-footer">
         <span>🍎 100% Naturel</span>
@@ -547,10 +558,12 @@
         <span>🇫🇷 Produit en France</span>
       </div>
     </div>
+      </div><!-- end fab-timeline -->
+    </div><!-- end fab-layout -->
   </div>
 </section>
 
-<!-- ═══ OÙ NOUS GOÛTER ═══ -->
+<!-- ═══ OÙ NOUS GOÛTER (avec liste revendeurs + carte) ═══ -->
 <section id="trouver" class="section trouver-section" aria-labelledby="trouver-title">
   <div class="section-wrap">
     <div class="section-hd">
@@ -564,7 +577,7 @@
           <address class="trouver-panel-address">3 rue de la Haute Roue<br>10290 Marcilly-le-Hayer</address>
         </div>
         <div class="trouver-panel-section">
-          <p class="trouver-panel-label">Horaires de vente directe</p>
+          <p class="trouver-panel-label">Vente directe</p>
           <div class="trouver-horaire-grid">
             <div class="trouver-horaire-item">
               <span class="thi-days">À la ferme</span>
@@ -572,15 +585,35 @@
             </div>
           </div>
         </div>
+        <!-- Liste des revendeurs -->
         <div class="trouver-panel-section">
-          <p class="trouver-panel-label">Autres points de vente</p>
-          <div class="trouver-tags">
-            <span class="trouver-tag">🏪 Épiceries fines</span>
-            <span class="trouver-tag">🧺 Marchés de producteurs</span>
-          </div>
+          <p class="trouver-panel-label">🏪 Nos revendeurs</p>
+          <ul class="revendeurs-list">
+            <li class="revendeur-item">
+              <span class="revendeur-icon">🏪</span>
+              <div>
+                <strong>Épiceries fines de la région</strong>
+                <span class="revendeur-lieu">Aube &amp; alentours</span>
+              </div>
+            </li>
+            <li class="revendeur-item">
+              <span class="revendeur-icon">🧺</span>
+              <div>
+                <strong>Marchés de producteurs</strong>
+                <span class="revendeur-lieu">Marchés locaux</span>
+              </div>
+            </li>
+            <li class="revendeur-item revendeur-item--cta">
+              <span class="revendeur-icon">➕</span>
+              <div>
+                <strong>Vous souhaitez distribuer Mameho ?</strong>
+                <a href="#revendeur" class="revendeur-link">Devenir revendeur →</a>
+              </div>
+            </li>
+          </ul>
         </div>
         <div class="trouver-panel-section trouver-panel-contacts">
-          <a href="/cdn-cgi/l/email-protection#ef8ec1828e9d9c8e9a97af828e828a8780c1899d" class="trouver-contact-btn">✉️ <span class="__cf_email__" data-cfemail="e081ce8d819293819598a08d818d85888fce8692">[email&#160;protected]</span></a>
+          <a href="mailto:a.marsaux@mameho.fr" class="trouver-contact-btn">✉️ a.marsaux@mameho.fr</a>
           <a href="tel:+33630626307" class="trouver-contact-btn">📱 06 30 62 63 07</a>
           <div class="social-pills" style="margin-top:4px;">
             <a href="https://instagram.com/mameho_fruits" class="social-pill" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> @mameho_fruits</a>
@@ -592,6 +625,7 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.04!2d3.5972!3d48.3505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ee82c9f3c5b2d5%3A0x99e12a04e0b44b5f!2s3%20Rue%20de%20la%20Haute%20Roue%2C%2010290%20Marcilly-le-Hayer!5e0!3m2!1sfr!2sfr!4v1700000000001" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Carte Ferme Mameho"></iframe>
       </div>
     </div>
+    <!-- Prestations de pressage -->
     <div class="prestations-full">
       <div class="prestations-full-header">
         <div>
@@ -619,20 +653,74 @@
   </div>
 </section>
 
-<!-- ═══ CONTACT ═══ -->
-<section id="contact" class="section contact-section" aria-labelledby="contact-title">
+<!-- ═══ DEVENIR REVENDEUR (section dédiée) ═══ -->
+<section id="revendeur" class="section revendeur-section" aria-labelledby="revendeur-title">
+  <div class="section-wrap">
+    <div class="revendeur-inner">
+      <div class="revendeur-text">
+        <span class="section-label">Partenariat</span>
+        <h2 id="revendeur-title">Devenir revendeur <span class="brand-diamond" aria-hidden="true">◆</span></h2>
+        <p class="revendeur-lead">Vous êtes épicier, restaurateur, caviste ou gérez un marché ? Proposez Mameho à vos clients et rejoignez notre réseau de revendeurs passionnés.</p>
+        <ul class="revendeur-avantages">
+          <li>
+            <span class="rv-icon" aria-hidden="true">🍎</span>
+            <div>
+              <strong>Produits 100% artisanaux</strong>
+              <p>Des jus pressés à la ferme, sans conservateurs, qui séduisent les consommateurs exigeants.</p>
+            </div>
+          </li>
+          <li>
+            <span class="rv-icon" aria-hidden="true">🏡</span>
+            <div>
+              <strong>Ancrage local fort</strong>
+              <p>Mameho, c'est un producteur aubois avec une histoire authentique à raconter.</p>
+            </div>
+          </li>
+          <li>
+            <span class="rv-icon" aria-hidden="true">🤝</span>
+            <div>
+              <strong>Accompagnement personnalisé</strong>
+              <p>Tarifs adaptés, livraison et suivi : nous construisons une vraie relation de partenariat.</p>
+            </div>
+          </li>
+          <li>
+            <span class="rv-icon" aria-hidden="true">🌈</span>
+            <div>
+              <strong>Une gamme variée</strong>
+              <p>Pomme, Hibiscus-Gingembre, Noisette-Miel, Bissap — des saveurs pour tous les profils.</p>
+            </div>
+          </li>
+        </ul>
+        <button class="btn-primary" id="openRevendeurSection" style="margin-top:28px;">
+          <span>Nous contacter</span><span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT (avec sous-types) ═══ -->
+<section id="contact" class="section contact-section" style="position:relative;z-index:2" aria-labelledby="contact-title">
   <div class="section-wrap">
     <div class="section-hd">
       <span class="section-label">Nous écrire</span>
-      <h2 id="contact-title">Contactez-nous <span class="heart" aria-hidden="true">♥</span></h2>
+      <h2 id="contact-title">Contactez-nous <span class="brand-heart" aria-hidden="true">♥</span></h2>
       <p>Mameho, des jus de fruits faits avec soin, à partager avec ceux que vous aimez.</p>
     </div>
+
+    <!-- Sélecteur de type de contact -->
+    <div class="contact-type-selector" role="group" aria-label="Type de demande">
+      <button class="contact-type-btn active" data-type="info">✉️ Renseignements</button>
+      <button class="contact-type-btn" data-type="prix">💰 Demander nos prix</button>
+      <button class="contact-type-btn" data-type="revendeur">🤝 Devenir revendeur</button>
+    </div>
+
     <div class="contact-wrap">
       <div class="contact-info">
         <h3>Mameho</h3>
         <address class="contact-address">3 rue de la Haute Roue<br>10290 Marcilly-le-Hayer<br>France</address>
         <div class="contact-links">
-          <a href="/cdn-cgi/l/email-protection#7c1d52111d0e0f1d09043c111d11191413521a0e"><span aria-hidden="true">✉️</span> <span class="__cf_email__" data-cfemail="cdace3a0acbfbeacb8b58da0aca0a8a5a2e3abbf">[email&#160;protected]</span></a>
+          <a href="mailto:a.marsaux@mameho.fr"><span aria-hidden="true">✉️</span> a.marsaux@mameho.fr</a>
           <a href="tel:+33630626307"><span aria-hidden="true">📱</span> 06 30 62 63 07</a>
         </div>
         <div class="social-pills" style="margin-top:20px;">
@@ -641,9 +729,13 @@
         </div>
       </div>
       <form id="contactForm" novalidate aria-label="Formulaire de contact Mameho">
+        <input type="hidden" id="contactTypeHidden" name="type" value="info">
+        <div class="contact-form-type-label" id="contactFormTypeLabel">Demande de renseignements</div>
         <div class="field"><input type="text" id="nom" name="nom" required placeholder=" " autocomplete="name"><label for="nom">Nom complet</label><span class="field-error" aria-live="polite"></span></div>
         <div class="field"><input type="email" id="email" name="email" required placeholder=" " autocomplete="email"><label for="email">Adresse email</label><span class="field-error" aria-live="polite"></span></div>
         <div class="field"><input type="tel" id="tel" name="tel" placeholder=" " autocomplete="tel"><label for="tel">Téléphone (optionnel)</label></div>
+        <!-- Champ entreprise (affiché si revendeur) -->
+        <div class="field field--conditional" id="fieldEntreprise" style="display:none;"><input type="text" id="entreprise" name="entreprise" placeholder=" " autocomplete="organization"><label for="entreprise">Entreprise / Enseigne</label></div>
         <div class="field"><textarea id="message" name="message" rows="5" required placeholder=" "></textarea><label for="message">Votre message</label><span class="field-error" aria-live="polite"></span></div>
         <button type="submit" class="btn-submit"><span>Envoyer le message</span><span aria-hidden="true">→</span></button>
         <p class="form-success" id="formSuccess" aria-live="polite" role="status"></p>
@@ -699,11 +791,11 @@
     <nav class="footer-nav" aria-label="Navigation secondaire">
       <a href="#accueil">Accueil</a>
       <a href="#jus">Nos Jus</a>
-      <a href="#ingredients">Ingrédients</a>
-      <a href="#augustin">Histoire</a>
+      <a href="#augustin">Augustin</a>
       <a href="#galerie">Galerie</a>
       <a href="#fabrication">Fabrication</a>
       <a href="#trouver">Nous Goûter</a>
+      <a href="#revendeur">Revendeurs</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="footer-social">
@@ -717,7 +809,7 @@
   </div>
   <div class="footer-bottom">
     <p>© <span id="year"></span> Mameho · 3 rue de la Haute Roue, 10290 Marcilly-le-Hayer</p>
-    <p><a href="mailto:a.marsaux@mameho.fr">a.marsaux@mameho.fr</a></p>
+    <p><a href="mailto:a.marsaux@mameho.fr">a.marsaux@mameho.fr</a> · <a href="tel:+33630626307">06 30 62 63 07</a></p>
   </div>
 </footer>
 

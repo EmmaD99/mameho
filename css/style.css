@@ -538,3 +538,789 @@ button { cursor:pointer; }
 @media (prefers-reduced-motion:reduce) {
   *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
 }
+/* ═══ ADDITIONS V2 ═══ */
+/* ══════════════════════════════════════════════
+   MAMEHO — AMÉLIORATIONS v2
+   À ajouter à la fin de css/style.css
+   (ou inclure comme feuille séparée après style.css)
+══════════════════════════════════════════════ */
+
+/* ── 1. ÉLÉMENTS GRAPHIQUES DE CHARTE ── */
+
+/* Arc-en-ciel SVG en décoration hero */
+.hs-rainbow {
+  position: absolute;
+  width: clamp(120px, 18vw, 260px);
+  height: clamp(60px, 9vw, 130px);
+  bottom: 20%;
+  left: 20%;
+  background: conic-gradient(
+    from 180deg at 50% 100%,
+    #AD1C69 0deg 30deg,
+    #FCCF00 30deg 60deg,
+    #91CF5C 60deg 90deg,
+    #085E54 90deg 120deg,
+    #0A7A6C 120deg 150deg,
+    #EDBF91 150deg 180deg
+  );
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  opacity: 0.14;
+  animation: spinRing 40s linear infinite;
+}
+
+/* Losange géométrique */
+.hs-diamond {
+  position: absolute;
+  width: clamp(30px, 4vw, 60px);
+  height: clamp(30px, 4vw, 60px);
+  background: var(--yellow);
+  transform: rotate(45deg);
+  top: 25%;
+  right: 28%;
+  opacity: 0.28;
+  animation: dotPulse 5s ease-in-out infinite 1.2s;
+}
+
+/* Cœur SVG décoratif */
+.hs-heart {
+  position: absolute;
+  width: clamp(24px, 3vw, 46px);
+  height: clamp(24px, 3vw, 46px);
+  background: var(--violet);
+  clip-path: path("M12,21.593c-5.63-5.539-11-10.297-11-14.402c0-3.791,3.068-5.191,5.281-5.191c1.312,0,4.151,1.018,5.719,4.955c1.358-3.7,3.886-5.137,5.726-5.137c2.203,0,5.274,1.387,5.274,5.395c0,4.09-5.365,8.877-11,14.38z");
+  top: 70%;
+  left: 32%;
+  opacity: 0.2;
+  animation: dotPulse 4.5s ease-in-out infinite 0.3s;
+  transform: scale(1.5);
+}
+
+/* Pictos ingrédients dans le hero */
+.hs-picto {
+  position: absolute;
+  font-size: clamp(22px, 3vw, 40px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+  animation: dotPulse 5s ease-in-out infinite;
+  user-select: none;
+}
+.hs-picto-apple  { top: 42%; left: 22%; animation-delay: 0.5s; }
+.hs-picto-hibiscus { bottom: 35%; right: 22%; animation-delay: 1.5s; }
+.hs-picto-ginger { top: 28%; right: 30%; animation-delay: 2.5s; }
+
+/* Éléments graphiques dans les titres de section */
+.brand-diamond {
+  color: var(--yellow);
+  font-size: 0.7em;
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 4px;
+}
+.brand-heart { color: var(--violet); }
+.brand-rainbow {
+  font-size: 0.75em;
+  vertical-align: middle;
+}
+
+/* ── 2. BOUTEILLES PARALLAX ── */
+.hbottle {
+  will-change: auto;
+  transition: none;
+}
+/* Clip strict du hero pour que rien ne déborde */
+.hero { overflow: hidden !important; }
+.hero-decos { overflow: hidden !important; }
+
+/* ── 3. HERO PRESTATIONS ── */
+.hero-prestations {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+.hero-presta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(8, 94, 84, 0.09);
+  color: var(--teal);
+  border: 1.5px solid rgba(8, 94, 84, 0.18);
+  border-radius: 50px;
+  padding: 7px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: var(--fb);
+  text-transform: uppercase;
+  transition: all var(--tr);
+}
+.hero-presta-pill:hover {
+  background: var(--teal);
+  color: var(--white);
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+
+/* ── 4. INGRÉDIENTS INTÉGRÉS DANS LES FICHES PRODUITS ── */
+.juice-ingredients-inline {
+  margin: 10px 0 8px;
+  padding: 10px 12px;
+  background: var(--cream);
+  border-radius: 10px;
+  border: 1px solid rgba(8, 94, 84, 0.1);
+}
+.ji-label {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  margin-bottom: 7px;
+  font-family: var(--fb);
+}
+.ji-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ji-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--teal);
+  font-family: var(--fb);
+}
+.ji-item .ji {
+  width: 26px;
+  height: 26px;
+}
+.juice-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.juice-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 50px;
+  background: rgba(8, 94, 84, 0.09);
+  color: var(--teal);
+  font-family: var(--fb);
+}
+.juice-badge--spicy { background: rgba(173, 28, 105, 0.1); color: var(--violet); }
+.juice-badge--sweet { background: rgba(252, 207, 0, 0.18); color: #7a6000; }
+.juice-badge--floral { background: rgba(173, 28, 105, 0.1); color: var(--violet); }
+
+/* ── 5. DROPDOWN CONTACT DANS LA NAV ── */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown-btn {
+  background: var(--teal);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-family: var(--fb);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all var(--tr);
+  border: 2px solid var(--teal);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-dropdown-btn:hover,
+.nav-dropdown-btn[aria-expanded="true"] {
+  background: var(--teal-dark);
+}
+.dropdown-arrow {
+  font-size: 10px;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.nav-dropdown-btn[aria-expanded="true"] .dropdown-arrow {
+  transform: rotate(180deg);
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(8, 94, 84, 0.18);
+  border: 1.5px solid rgba(8, 94, 84, 0.1);
+  padding: 8px;
+  min-width: 210px;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.22s ease;
+  z-index: 200;
+  list-style: none;
+}
+.nav-dropdown-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-dropdown-menu li { list-style: none; }
+.dropdown-link {
+  display: block;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark);
+  font-family: var(--fb);
+  border-radius: 9px;
+  transition: background var(--tr), color var(--tr);
+  letter-spacing: 0.3px;
+}
+.dropdown-link:hover {
+  background: var(--cream);
+  color: var(--teal);
+}
+
+/* ── 6. SECTION AUGUSTIN — badge marque ── */
+.aug-badge--brand {
+  background: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 86px;
+  height: 86px;
+  overflow: hidden;
+}
+.aug-badge--brand svg {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+/* ── 7. FABRICATION — TIMELINE ── */
+.fab-timeline {
+  margin-top: clamp(40px, 6vw, 60px);
+  background: var(--white);
+  border-radius: 24px;
+  padding: clamp(28px, 5vw, 48px);
+  box-shadow: var(--sh);
+  border: 2px solid rgba(8, 94, 84, 0.08);
+}
+.fab-timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid rgba(8, 94, 84, 0.08);
+}
+.fab-timeline-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFFDE8, #CCEEAA);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.fab-timeline-icon svg { width: 36px; height: 36px; }
+.ce-eyebrow {
+  font-size: 9px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  font-weight: 700;
+  font-family: var(--fb);
+  margin-bottom: 2px;
+}
+.ce-title {
+  font-family: var(--ft);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1.1;
+}
+.fab-timeline-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+}
+.fab-tl-step {
+  display: grid;
+  grid-template-columns: 48px 2px 1fr;
+  gap: 0 16px;
+  align-items: start;
+  padding-bottom: 24px;
+}
+.fab-tl-step--last { padding-bottom: 0; }
+.fab-tl-picto {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid rgba(8, 94, 84, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  z-index: 1;
+  transition: transform var(--tr), box-shadow var(--tr);
+}
+.fab-tl-step:hover .fab-tl-picto {
+  transform: scale(1.12);
+  box-shadow: 0 4px 16px rgba(8, 94, 84, 0.15);
+}
+.fab-tl-picto--final {
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  border-color: var(--teal);
+  font-size: 22px;
+}
+.fab-tl-connector {
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(8, 94, 84, 0.2), rgba(8, 94, 84, 0.06));
+  margin: 0 auto;
+  height: 100%;
+  min-height: 24px;
+}
+.fab-tl-step--last .fab-tl-connector { display: none; }
+.fab-tl-content {
+  padding-top: 10px;
+  padding-bottom: 0;
+}
+.fab-tl-content strong {
+  display: block;
+  font-family: var(--fb);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+.fab-tl-content p {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.6;
+  font-family: var(--fb);
+  font-weight: 400;
+}
+
+/* ── 8. REVENDEURS LIST DANS "OÙ NOUS GOÛTER" ── */
+.revendeurs-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+.revendeur-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--cream);
+  border-radius: 12px;
+  border: 1.5px solid rgba(8, 94, 84, 0.09);
+  transition: border-color var(--tr), transform var(--tr);
+}
+.revendeur-item:hover {
+  border-color: var(--green);
+  transform: translateX(3px);
+}
+.revendeur-item--cta {
+  background: rgba(8, 94, 84, 0.04);
+  border-color: rgba(8, 94, 84, 0.18);
+}
+.revendeur-icon { font-size: 20px; flex-shrink: 0; }
+.revendeur-item strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teal);
+  font-family: var(--fb);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+.revendeur-lieu {
+  display: block;
+  font-size: 11px;
+  color: var(--gray-light);
+  font-family: var(--fb);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.revendeur-link {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--violet);
+  font-family: var(--fb);
+  text-decoration: underline;
+  transition: color var(--tr);
+}
+.revendeur-link:hover { color: var(--teal); }
+
+/* ── 9. SECTION REVENDEUR DÉDIÉE ── */
+.revendeur-section {
+  background: linear-gradient(160deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: var(--white);
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+.revendeur-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(30px, 5vw, 50px);
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+.revendeur-text .section-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+.revendeur-text h2 {
+  font-family: var(--ft);
+  font-size: clamp(38px, 5.5vw, 62px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.05;
+}
+.revendeur-lead {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-family: var(--fb);
+  font-weight: 400;
+}
+.revendeur-avantages {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.revendeur-avantages li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.rv-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  min-width: 44px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  line-height: 1;
+}
+.revendeur-avantages strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  font-family: var(--fb);
+  margin-bottom: 2px;
+}
+.revendeur-avantages p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.55;
+  font-family: var(--fb);
+  font-weight: 400;
+}
+/* Visual côté droit */
+.revendeur-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rv-deco-box {
+  position: relative;
+  width: clamp(200px, 28vw, 340px);
+  height: clamp(200px, 28vw, 340px);
+  flex-shrink: 0;
+}
+.rv-deco-rainbow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(173, 28, 105, 0.4),
+    rgba(252, 207, 0, 0.4),
+    rgba(145, 207, 92, 0.4),
+    rgba(10, 122, 108, 0.4),
+    rgba(173, 28, 105, 0.4)
+  );
+  animation: spinRing 18s linear infinite;
+  opacity: 0.5;
+}
+.rv-bottles {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  padding-bottom: 12px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.rv-bottle {
+  height: clamp(130px, 18vw, 240px);
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.3));
+}
+.rv-bottle-1 { transform: rotate(-10deg); }
+.rv-bottle-2 { transform: rotate(0deg); z-index: 1; }
+.rv-bottle-3 { transform: rotate(10deg); }
+
+/* ── 10. SÉLECTEUR TYPE DE CONTACT ── */
+.contact-type-selector {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+.contact-type-btn {
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 2px solid rgba(8, 94, 84, 0.2);
+  background: transparent;
+  color: var(--gray);
+  font-family: var(--fb);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all var(--tr);
+}
+.contact-type-btn:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.contact-type-btn.active {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(8, 94, 84, 0.22);
+}
+.contact-form-type-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 18px;
+  font-family: var(--fb);
+  padding: 7px 14px;
+  background: rgba(8, 94, 84, 0.07);
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* ── 11. RESPONSIVE POUR LES NOUVELLES SECTIONS ── */
+@media (max-width: 900px) {
+  .revendeur-inner { grid-template-columns: 1fr; }
+  .revendeur-visual { display: none; }
+  .nav-dropdown { display: none; } /* Géré par le menu burger sur mobile */
+  .fab-tl-step { grid-template-columns: 40px 2px 1fr; gap: 0 12px; }
+}
+@media (max-width: 600px) {
+  .contact-type-selector { flex-direction: column; align-items: stretch; }
+  .contact-type-btn { text-align: center; }
+  .hero-prestations { gap: 7px; }
+  .hero-presta-pill { font-size: 10px; padding: 6px 13px; }
+  .fab-timeline { padding: 20px 16px; }
+  .revendeurs-list { gap: 8px; }
+  .juice-ingredients-inline { padding: 8px 10px; }
+}
+
+/* ── 12. ANIMATION ENTRÉE TIMELINE ── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fab-tl-step {
+  animation: fadeSlideUp 0.5s ease both;
+}
+.fab-tl-step:nth-child(1) { animation-delay: 0.05s; }
+.fab-tl-step:nth-child(2) { animation-delay: 0.12s; }
+.fab-tl-step:nth-child(3) { animation-delay: 0.19s; }
+.fab-tl-step:nth-child(4) { animation-delay: 0.26s; }
+.fab-tl-step:nth-child(5) { animation-delay: 0.33s; }
+.fab-tl-step:nth-child(6) { animation-delay: 0.40s; }
+.fab-tl-step:nth-child(7) { animation-delay: 0.47s; }
+
+/* ── CRITICAL: Bouteilles hero confinées ── */
+.hero { overflow: hidden !important; position: relative; }
+.hero-decos { overflow: hidden !important; }
+.hbottle { position: absolute !important; pointer-events: none !important; z-index: 1 !important; }
+.hbottle img { max-width: 100% !important; display: block !important; }
+
+/* ── FABRICATION 2 COLONNES ── */
+.fab-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+  margin-top: clamp(36px, 5vw, 56px);
+}
+.fab-photos-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 80px;
+}
+.fab-photo-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,.18);
+}
+.fab-photo-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+.fab-photo-item:hover img { transform: scale(1.04); }
+.fab-photo-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(8,94,84,.85), transparent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 20px 14px 10px;
+  font-family: var(--fb);
+}
+/* Timeline dans le layout */
+.fab-layout .fab-timeline {
+  margin-top: 0;
+}
+@media (max-width: 900px) {
+  .fab-layout { grid-template-columns: 1fr; }
+  .fab-photos-col { position: static; flex-direction: row; overflow-x: auto; gap: 12px; }
+  .fab-photo-item { min-width: 220px; flex-shrink: 0; }
+  .fab-photo-item img { height: 160px; }
+}
+
+/* ── ILLUSTRATIONS DANS LA TIMELINE ── */
+.fab-tl-picto--illus {
+  background: #fff;
+  border: 2px solid rgba(8, 94, 84, 0.15);
+  padding: 4px;
+  overflow: hidden;
+}
+.fab-tl-picto--illus img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;
+}
+
+/* Rendre la timeline plus aérée et pro */
+.fab-tl-content strong {
+  font-size: 15px !important;
+  color: var(--teal) !important;
+  letter-spacing: 0.3px;
+}
+.fab-tl-content p {
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+  color: #4a5c4a !important;
+}
+.fab-tl-step {
+  padding-bottom: 28px !important;
+}
+.fab-tl-picto {
+  background: var(--cream) !important;
+  border: 2px solid rgba(8, 94, 84, 0.12) !important;
+  box-shadow: 0 2px 10px rgba(8,94,84,.08);
+}
+
+/* Photos col : rendre plus pro */
+.fab-photo-item {
+  border-radius: 18px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.22) !important;
+}
+.fab-photo-item img {
+  height: 210px !important;
+  filter: brightness(0.92) contrast(1.05);
+}
+.fab-photo-label {
+  font-size: 11px !important;
+  letter-spacing: 2px !important;
+  padding: 24px 16px 12px !important;
+}
+
+/* Timeline header plus compact */
+.fab-timeline-header {
+  margin-bottom: 28px !important;
+}
+
+/* ── Fix texte dégustation en ligne ── */
+.fab-tl-content p,
+.fab-tl-step--last .fab-tl-content p {
+  word-break: normal !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  white-space: normal !important;
+  width: auto !important;
+  min-width: 0;
+  display: block !important;
+}
+
+/* ── FORCE fix dernière étape timeline ── */
+.fab-tl-step--last {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 16px !important;
+  align-items: flex-start !important;
+}
+.fab-tl-step--last .fab-tl-connector {
+  display: none !important;
+}
+.fab-tl-step--last .fab-tl-content {
+  flex: 1 !important;
+  min-width: 0 !important;
+  padding-top: 10px !important;
+}
+.fab-tl-step--last .fab-tl-content p {
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+}

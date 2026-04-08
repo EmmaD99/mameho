@@ -9,6 +9,24 @@ window.addEventListener('scroll', () => {
   topbar.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
+/* ── Parallax bouteilles hero — désactivé, reset au scroll ── */
+const bottles = $$('.hbottle[data-parallax]');
+const heroSection = document.getElementById('accueil');
+if (bottles.length && heroSection) {
+  window.addEventListener('scroll', () => {
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+    bottles.forEach(b => {
+      // Reset transform quand on sort du hero pour éviter tout débordement
+      if (heroBottom <= 0) {
+        b.style.transform = '';
+        b.style.visibility = 'hidden';
+      } else {
+        b.style.visibility = 'visible';
+      }
+    });
+  }, { passive: true });
+}
+
 /* ══════════════════════════════
    MENU OVERLAY
 ══════════════════════════════ */
@@ -71,7 +89,52 @@ document.addEventListener('keydown', e => {
     if (lightbox && lightbox.classList.contains('active')) closeLightbox();
     const rv = document.getElementById('revendeurModal');
     if (rv && rv.classList.contains('active')) closeRevendeur();
+    closeContactDropdown();
   }
+});
+
+/* ── Dropdown Contact dans la nav ── */
+const contactDropBtn  = $('#contactDropBtn');
+const contactDropMenu = $('.nav-dropdown-menu');
+
+function openContactDropdown() {
+  if (!contactDropBtn || !contactDropMenu) return;
+  contactDropMenu.classList.add('open');
+  contactDropBtn.setAttribute('aria-expanded', 'true');
+}
+function closeContactDropdown() {
+  if (!contactDropBtn || !contactDropMenu) return;
+  contactDropMenu.classList.remove('open');
+  contactDropBtn.setAttribute('aria-expanded', 'false');
+}
+function toggleContactDropdown() {
+  if (contactDropMenu && contactDropMenu.classList.contains('open')) {
+    closeContactDropdown();
+  } else {
+    openContactDropdown();
+  }
+}
+
+contactDropBtn && contactDropBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  toggleContactDropdown();
+});
+document.addEventListener('click', (e) => {
+  if (contactDropBtn && !contactDropBtn.closest('.nav-dropdown').contains(e.target)) {
+    closeContactDropdown();
+  }
+});
+
+/* Liens dropdown : pré-sélectionner le type de contact et naviguer */
+$$('.dropdown-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    closeContactDropdown();
+    const type = link.dataset.contactType;
+    if (type) {
+      // Activer le bon onglet de contact après navigation
+      setTimeout(() => activateContactType(type), 350);
+    }
+  });
 });
 
 /* ── Lightbox ── */
@@ -141,6 +204,36 @@ function validateField(input) {
   return true;
 }
 
+/* ── Sélecteur type de contact ── */
+const contactTypeBtns = $$('.contact-type-btn');
+const contactTypeHidden = $('#contactTypeHidden');
+const contactFormTypeLabel = $('#contactFormTypeLabel');
+const fieldEntreprise = $('#fieldEntreprise');
+
+const typeLabels = {
+  info: 'Demande de renseignements',
+  prix: 'Demande de tarifs',
+  revendeur: 'Demande partenariat revendeur'
+};
+
+function activateContactType(type) {
+  contactTypeBtns.forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.type === type);
+  });
+  if (contactTypeHidden) contactTypeHidden.value = type;
+  if (contactFormTypeLabel) contactFormTypeLabel.textContent = typeLabels[type] || '';
+  // Afficher/masquer le champ entreprise pour les revendeurs
+  if (fieldEntreprise) {
+    fieldEntreprise.style.display = type === 'revendeur' ? 'block' : 'none';
+    const inp = fieldEntreprise.querySelector('input');
+    if (inp) inp.required = type === 'revendeur';
+  }
+}
+
+contactTypeBtns.forEach(btn => {
+  btn.addEventListener('click', () => activateContactType(btn.dataset.type));
+});
+
 /* ── Formulaire contact ── */
 const cf  = $('#contactForm');
 const fOk = $('#formSuccess');
@@ -183,9 +276,13 @@ function closeRevendeur() {
   document.getElementById('openRevendeur') && document.getElementById('openRevendeur').focus();
 }
 
-document.getElementById('openRevendeur')  && document.getElementById('openRevendeur').addEventListener('click', openRevendeur);
+$$('[id^="openRevendeur"]').forEach(el => el.addEventListener('click', openRevendeur));
 document.getElementById('closeRevendeur') && document.getElementById('closeRevendeur').addEventListener('click', closeRevendeur);
 rvModal && rvModal.addEventListener('click', e => { if (e.target === rvModal) closeRevendeur(); });
+
+/* Bouton section revendeur → ouvre la modal */
+const openRvSection = $('#openRevendeurSection');
+openRvSection && openRvSection.addEventListener('click', openRevendeur);
 
 if (rvForm) {
   $$('input, textarea', rvForm).forEach(inp => inp.addEventListener('blur', () => validateField(inp)));
