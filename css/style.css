@@ -1324,3 +1324,6 @@ button { cursor:pointer; }
   word-break: normal !important;
   overflow-wrap: anywhere !important;
 }
+
+/* ── Trio card background ── */
+.juice-card[data-f="trio"] .juice-card-img--photo { background-color: #FFF3E8; }
