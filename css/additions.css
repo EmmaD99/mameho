@@ -622,7 +622,93 @@
   .juice-ingredients-inline { padding: 8px 10px; }
 }
 
-/* ── 12. ANIMATION ENTRÉE TIMELINE ── */
+/* ── 12. CONTACT GAUCHE — infos + carte ── */
+
+/* Layout 2 colonnes : infos+carte | formulaire */
+.contact-wrap--2col {
+  grid-template-columns: 1fr 1.5fr;
+  gap: clamp(28px, 4vw, 52px);
+  align-items: start;
+}
+
+/* Adresse et liens côte à côte avec trait séparateur */
+.contact-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.contact-address {
+  flex: 1;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--dark);
+  font-family: var(--fb);
+  padding-right: 16px;
+}
+.contact-info-divider {
+  width: 1.5px;
+  background: rgba(8, 94, 84, 0.15);
+  align-self: stretch;
+  border-radius: 2px;
+  flex-shrink: 0;
+  margin: 4px 0;
+}
+.contact-links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 16px;
+}
+
+/* Carte : prend toute la largeur dispo sous les infos */
+.contact-map-col {
+  margin-top: 20px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid rgba(8, 94, 84, 0.12);
+  box-shadow: 0 4px 16px rgba(8, 94, 84, 0.07);
+  background: var(--white);
+}
+.contact-map-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-family: var(--fb);
+  padding: 9px 14px 7px;
+  border-bottom: 1px solid rgba(8, 94, 84, 0.07);
+}
+.contact-map-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 220px;
+  padding: 6px;
+}
+.contact-map-wrap { display: none; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-wrap--2col { grid-template-columns: 1fr; }
+  .contact-map-img { max-height: 180px; }
+}
+@media (max-width: 600px) {
+  .contact-info-row { flex-direction: column; gap: 12px; }
+  .contact-info-divider { width: 100%; height: 1.5px; align-self: auto; margin: 0; }
+  .contact-links { padding-left: 0; }
+  .contact-address { padding-right: 0; }
+}
+
+/* ── 13. ANIMATION ENTRÉE TIMELINE ── */
 @keyframes fadeSlideUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }

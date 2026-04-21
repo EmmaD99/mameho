@@ -789,17 +789,34 @@
       <button class="contact-type-btn" data-type="revendeur">🤝 Devenir revendeur</button>
     </div>
 
-    <div class="contact-wrap">
+    <div class="contact-wrap contact-wrap--2col">
+      <!-- Colonne gauche : infos + carte -->
       <div class="contact-info">
         <h3>Mameho</h3>
-        <address class="contact-address">3 rue de la Haute Roue<br>10290 Marcilly-le-Hayer<br>France</address>
-        <div class="contact-links">
-          <a href="mailto:a.marsaux@mameho.fr"><span aria-hidden="true">✉️</span> a.marsaux@mameho.fr</a>
-          <a href="tel:+33630626307"><span aria-hidden="true">📱</span> 06 30 62 63 07</a>
+        <!-- Adresse + contacts côte à côte avec séparation -->
+        <div class="contact-info-row">
+          <address class="contact-address">3 rue de la Haute Roue<br>10290 Marcilly-le-Hayer<br>France</address>
+          <div class="contact-info-divider" aria-hidden="true"></div>
+          <div class="contact-links">
+            <a href="mailto:a.marsaux@mameho.fr"><span aria-hidden="true">✉️</span> a.marsaux@mameho.fr</a>
+            <a href="tel:+33630626307"><span aria-hidden="true">📱</span> 06 30 62 63 07</a>
+          </div>
         </div>
-        <div class="social-pills" style="margin-top:20px;">
+        <div class="social-pills" style="margin-top:16px;">
           <a href="https://instagram.com/mameho_fruits" class="social-pill" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> @mameho_fruits</a>
           <a href="https://www.facebook.com/p/Mameho-61572808791613/" class="social-pill" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg> Facebook</a>
+        </div>
+        <!-- Carte illustrée sous les infos, alignée sur le formulaire -->
+        <div class="contact-map-col" aria-label="Carte de localisation Mameho">
+          <div class="contact-map-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Nous trouver
+          </div>
+          <img
+            src="pictures/general/map.png"
+            alt="Carte illustrée de l'Aube avec Marcilly-le-Hayer mis en avant"
+            class="contact-map-img"
+            loading="lazy">
         </div>
       </div>
       <form id="contactForm" novalidate aria-label="Formulaire de contact Mameho">
@@ -815,6 +832,9 @@
         <p class="form-success" id="formSuccess" aria-live="polite" role="status"></p>
       </form>
     </div>
+
+
+
   </div>
 </section>
 
