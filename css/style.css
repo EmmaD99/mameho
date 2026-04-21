@@ -315,7 +315,7 @@ button { cursor:pointer; }
 .ing-badge { display:inline-block; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--teal); background:rgba(8,94,84,.08); border-radius:50px; padding:3px 12px; font-family:var(--fb); }
 
 /* ── Augustin ── */
-.augustin-section { background:var(--cream-mid); }
+.augustin-section { background:var(--teal); color:var(--white); }
 .augustin-inner { display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,8vw,80px); align-items:center; }
 .augustin-photo { position:relative; }
 .photo-blob { width:100%; aspect-ratio:4/5; border-radius:60% 40% 52% 48% / 48% 60% 40% 52%; overflow:hidden; background:linear-gradient(145deg,#91CF5C,#5A9A30); display:flex; align-items:center; justify-content:center; font-size:100px; }
@@ -358,7 +358,7 @@ button { cursor:pointer; }
 .cocktail-box li::before { content:'›'; color:var(--violet); font-weight:800; }
 
 /* ── Galerie ── */
-.galerie-section { background:var(--cream-mid); }
+.galerie-section { background:var(--cream); }
 .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:220px; gap:clamp(8px,1.5vw,14px); }
 .gallery-item { border-radius:14px; overflow:hidden; position:relative; cursor:pointer; background:var(--cream); box-shadow:0 4px 20px rgba(8,94,84,.08); transition:transform var(--tr), box-shadow var(--tr); }
 .gallery-item:hover { transform:scale(1.025); box-shadow:var(--sh-h); z-index:2; }
@@ -462,7 +462,7 @@ button { cursor:pointer; }
 .btn-revendeur:hover { background:#8e1456; transform:translateY(-2px); box-shadow:0 8px 28px rgba(173,28,105,.38); }
 
 /* ── Contact ── */
-.contact-section { background:var(--cream-mid); }
+.contact-section { background:var(--cream); }
 .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,7vw,70px); align-items:start; }
 .contact-info h3 { font-family:var(--ft); font-size:34px; font-weight:700; color:var(--teal); margin-bottom:14px; }
 .contact-address { font-size:15px; color:var(--dark); line-height:1.8; margin-bottom:16px; font-family:var(--fb); font-weight:400; }
@@ -1327,3 +1327,9 @@ button { cursor:pointer; }
 
 /* ── Trio card background ── */
 .juice-card[data-f="trio"] .juice-card-img--photo { background-color: #FFF3E8; }
+.augustin-section .section-label { color:rgba(255,255,255,.6); }
+.augustin-section h2 { color:var(--yellow) !important; }
+.augustin-section .aug-lead { color:rgba(255,255,255,.9); }
+.augustin-section p { color:rgba(255,255,255,.75); }
+.augustin-section .aug-sig { color:var(--yellow); }
+.augustin-section .aug-wavy { color:rgba(255,255,255,.3); }
