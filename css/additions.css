@@ -7,7 +7,7 @@
 /* ── 1. ÉLÉMENTS GRAPHIQUES DE CHARTE ── */
 
 /* Arc-en-ciel SVG en décoration hero */
-.hs-rainbow {
+.hs-OFF {
   position: absolute;
   width: clamp(120px, 18vw, 260px);
   height: clamp(60px, 9vw, 130px);
@@ -28,7 +28,7 @@
 }
 
 /* Losange géométrique */
-.hs-diamond {
+.hs-OFF {
   position: absolute;
   width: clamp(30px, 4vw, 60px);
   height: clamp(30px, 4vw, 60px);
@@ -41,7 +41,7 @@
 }
 
 /* Cœur SVG décoratif */
-.hs-heart {
+.hs-OFF {
   position: absolute;
   width: clamp(24px, 3vw, 46px);
   height: clamp(24px, 3vw, 46px);
@@ -55,7 +55,7 @@
 }
 
 /* Pictos ingrédients dans le hero */
-.hs-picto {
+.hs-OFF {
   position: absolute;
   font-size: clamp(22px, 3vw, 40px);
   opacity: 0.18;
@@ -64,9 +64,9 @@
   animation: dotPulse 5s ease-in-out infinite;
   user-select: none;
 }
-.hs-picto-apple  { top: 42%; left: 22%; animation-delay: 0.5s; }
-.hs-picto-hibiscus { bottom: 35%; right: 22%; animation-delay: 1.5s; }
-.hs-picto-ginger { top: 28%; right: 30%; animation-delay: 2.5s; }
+.hs-OFF  { top: 42%; left: 22%; animation-delay: 0.5s; }
+.hs-OFF { bottom: 35%; right: 22%; animation-delay: 1.5s; }
+.hs-OFF { top: 28%; right: 30%; animation-delay: 2.5s; }
 
 /* Éléments graphiques dans les titres de section */
 .brand-diamond {
@@ -83,7 +83,7 @@
 }
 
 /* ── 2. BOUTEILLES PARALLAX ── */
-.hbottle {
+.hbottle-OFF { display:none !important;
   will-change: auto;
   transition: none;
 }
