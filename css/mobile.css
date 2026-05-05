@@ -501,24 +501,21 @@
 
 
 /* ─────────────────────────────────────────────
-   15. TOUCH — AMÉLIORATIONS TACTILES
+   15. TOUCH — OVERLAY JUS AU TAP
 ───────────────────────────────────────────── */
 @media (hover: none) and (pointer: coarse) {
-  /* Overlay jus visible au tap (pas hover) */
+
+  /* L'overlay s'affiche au tap via :focus-within sur la carte */
+  .juice-card:focus-within .juice-card-overlay {
+    opacity: 1 !important;
+  }
+
+  /* La carte elle-même : retirer le flash bleu natif au tap */
   .juice-card {
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Supprimer les pseudo-hover qui ne s'activent jamais */
-  .juice-card:hover {
-    transform: none;
-    box-shadow: 0 4px 18px rgba(8,94,84,.07);
-  }
-  .juice-card:hover .juice-card-overlay {
-    opacity: 0;
-  }
-
-  /* Boutons : zone de tap confortable */
+  /* Boutons : retirer le flash bleu natif au tap */
   .btn, .hero-pill, .contact-type-btn, .fab-badge {
     -webkit-tap-highlight-color: transparent;
   }
