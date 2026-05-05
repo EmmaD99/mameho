@@ -43,12 +43,12 @@
     transform: none !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 70px 24px 48px !important;
+    padding: 90px 20px 52px !important; /* plus d'espace en haut pour centrer comme bureau */
     margin: 0 auto !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 10px !important;
+    gap: 8px !important;
     z-index: 10 !important;
     box-sizing: border-box !important;
     text-align: center !important;
@@ -56,33 +56,43 @@
 
   /* Logo principal : bien proportionné dans l'arche */
   .hero-logo {
-    font-size: clamp(64px, 20vw, 96px) !important;
+    font-size: clamp(60px, 18vw, 88px) !important;
     line-height: 0.88 !important;
-    margin: 0 0 10px !important;
+    margin: 0 0 12px !important;
     letter-spacing: -1px !important;
   }
 
   /* Tagline lisible et élégante */
   .hero-tagline {
-    font-size: clamp(20px, 6vw, 28px) !important;
+    font-size: clamp(18px, 5.5vw, 26px) !important;
     line-height: 1.2 !important;
-    margin: 0 0 8px !important;
+    margin: 0 0 10px !important;
   }
 
-  /* Eyebrow compact mais lisible */
+  /* Eyebrow : une seule ligne — taille réduite + pas de retour à la ligne */
   .hero-eyebrow {
-    font-size: 10px !important;
-    letter-spacing: 2.5px !important;
+    font-size: 8px !important;
+    letter-spacing: 1.8px !important;
     margin: 0 !important;
     line-height: 1.4 !important;
+    white-space: nowrap !important;   /* force une seule ligne */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
-  /* Description */
+  /* Description : deux lignes propres comme sur bureau.
+     Ligne 1 : "Jus de fruits artisanaux · 100% naturels"
+     Ligne 2 : "Sans conservateurs"
+     On réduit la taille pour que ligne 1 tienne en une seule ligne. */
   .hero-desc {
-    font-size: 10px !important;
-    letter-spacing: 1.8px !important;
-    margin: 0 0 8px !important;
-    line-height: 1.5 !important;
+    font-size: 8px !important;
+    letter-spacing: 1.4px !important;
+    margin: 0 0 10px !important;
+    line-height: 2 !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+    /* Le · final avant "Sans conservateurs" provoque le retour à la ligne
+       car letter-spacing + 8px = ~25 chars par ligne ≈ parfait */
   }
 
   /* Pills en ligne avec retour à la ligne */
