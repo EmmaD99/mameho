@@ -27,6 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/additions.css">
+  <link rel="stylesheet" href="css/mobile.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -898,11 +899,21 @@ window.addEventListener('load', function(){
       canvas.width = W; canvas.height = H;
       var ctx = canvas.getContext('2d');
 
-      var archW  = Math.min(W * 0.38, 520);
-      var radius = archW / 2;
-      var archY  = H * 0.14;
+      var isMobile = W < 600;
+
+      /* ── Dimensions de l'arche ── */
+      var archW, archY, archX;
+      if (isMobile) {
+        /* Sur mobile : arche large centrée qui prend ~82% de la largeur */
+        archW  = Math.min(W * 0.82, 400);
+        archY  = H * 0.06;             /* part plus haut */
+      } else {
+        archW  = Math.min(W * 0.38, 520);
+        archY  = H * 0.14;
+      }
+      var radius  = archW / 2;
       var archBot = H;
-      var archX  = (W - archW) / 2;
+      archX = (W - archW) / 2;
 
       // 1. Photo plein canvas
       var sc = Math.max(W/img.naturalWidth, H/img.naturalHeight)*1.05;
@@ -933,18 +944,36 @@ window.addEventListener('load', function(){
       ctx.stroke();
       ctx.restore();
 
-      // 4. Position inner — top juste sous le demi-cercle, centré X
-      var cx      = archX + archW/2;
-      var topY    = archY + radius + 20; // 20px sous le demi-cercle
-
-      inner.style.position  = 'absolute';
-      inner.style.left      = cx + 'px';
-      inner.style.top       = topY + 'px';
-      inner.style.transform = 'translateX(-50%)';
-      inner.style.width     = (archW * 0.86) + 'px';
-      inner.style.zIndex    = '10';
-      inner.style.textAlign = 'center';
-      inner.style.padding   = '0';
+      // 4. Position inner
+      if (isMobile) {
+        /* Sur mobile : laisser le CSS gérer le positionnement (relatif, centré) */
+        inner.style.position  = 'relative';
+        inner.style.left      = 'auto';
+        inner.style.top       = 'auto';
+        inner.style.transform = 'none';
+        inner.style.width     = '100%';
+        inner.style.maxWidth  = '100%';
+        inner.style.zIndex    = '10';
+        inner.style.textAlign = 'center';
+        inner.style.padding   = '55px 20px 36px';
+        inner.style.margin    = 'auto';
+        inner.style.boxSizing = 'border-box';
+      } else {
+        /* Desktop : positionnement précis dans l'arche */
+        var cx   = archX + archW/2;
+        var topY = archY + radius + 20;
+        inner.style.position  = 'absolute';
+        inner.style.left      = cx + 'px';
+        inner.style.top       = topY + 'px';
+        inner.style.transform = 'translateX(-50%)';
+        inner.style.width     = (archW * 0.86) + 'px';
+        inner.style.maxWidth  = '';
+        inner.style.zIndex    = '10';
+        inner.style.textAlign = 'center';
+        inner.style.padding   = '0';
+        inner.style.margin    = '';
+        inner.style.boxSizing = '';
+      }
     }
     draw();
     window.addEventListener('resize', draw);
