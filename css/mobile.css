@@ -1,38 +1,41 @@
 /* ══════════════════════════════════════════════
-   MAMEHO — CORRECTIFS RESPONSIVE MOBILE
-   À ajouter à la toute fin de css/additions.css
-   (ou inclure comme 3e feuille après additions.css)
+   MAMEHO — MOBILE RESPONSIVE v3
+   Remplace css/mobile.css
+   Objectif : rendu mobile = qualité bureau
 ══════════════════════════════════════════════ */
 
 
 /* ─────────────────────────────────────────────
-   1. HERO — ARCHE + CONTENU RESPONSIVE MOBILE
-   Le canvas JS injecte style="left/top/width" en inline.
-   On surcharge uniquement sur mobile pour rendre l'arche
-   pleine largeur et le contenu scrollable.
+   1. HERO — ARCHE + CONTENU
+   Le canvas JS dessine l'arche. Sur mobile on laisse
+   le hero s'agrandir naturellement (auto height) pour
+   que tout le contenu soit dans l'arche visible.
 ───────────────────────────────────────────── */
 @media (max-width: 600px) {
 
-  /* L'arche occupe toute la largeur sur petit écran */
+  /* Hero : hauteur auto pour contenir tout le texte */
   #accueil.hero {
     min-height: 100svh;
+    height: auto !important;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     overflow: hidden;
+    padding: 0;
   }
 
-  /* Canvas plein écran (déjà OK, on s'assure) */
+  /* Canvas en fond absolu, suit la hauteur du hero */
   #heroArcCanvas {
     position: absolute !important;
-    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
+    object-fit: cover;
   }
 
-  /* Annule le positionnement JS inline sur mobile :
-     on force un layout flex centré et on laisse le canvas en fond */
+  /* Contenu hero : positionné par-dessus le canvas */
   .hero-inner {
     position: relative !important;
     left: auto !important;
@@ -40,93 +43,196 @@
     transform: none !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 60px 20px 40px !important;
-    margin: auto !important;
+    padding: 70px 24px 48px !important;
+    margin: 0 auto !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: 10px !important;
     z-index: 10 !important;
     box-sizing: border-box !important;
+    text-align: center !important;
   }
 
-  /* Logo bien dimensionné */
+  /* Logo principal : bien proportionné dans l'arche */
   .hero-logo {
-    font-size: clamp(54px, 18vw, 80px) !important;
-    line-height: 0.85 !important;
+    font-size: clamp(64px, 20vw, 96px) !important;
+    line-height: 0.88 !important;
+    margin: 0 0 10px !important;
+    letter-spacing: -1px !important;
+  }
+
+  /* Tagline lisible et élégante */
+  .hero-tagline {
+    font-size: clamp(20px, 6vw, 28px) !important;
+    line-height: 1.2 !important;
     margin: 0 0 8px !important;
   }
 
-  /* Tagline lisible */
-  .hero-tagline {
-    font-size: clamp(16px, 5vw, 22px) !important;
-    line-height: 1.25 !important;
-    margin: 0 0 6px !important;
-  }
-
-  /* Eyebrow & desc plus compacts */
+  /* Eyebrow compact mais lisible */
   .hero-eyebrow {
-    font-size: 9px !important;
-    letter-spacing: 2px !important;
+    font-size: 10px !important;
+    letter-spacing: 2.5px !important;
     margin: 0 !important;
-  }
-  .hero-desc {
-    font-size: 9px !important;
-    letter-spacing: 1.5px !important;
-    margin: 0 0 6px !important;
+    line-height: 1.4 !important;
   }
 
-  /* Pills en ligne mais wrap */
+  /* Description */
+  .hero-desc {
+    font-size: 10px !important;
+    letter-spacing: 1.8px !important;
+    margin: 0 0 8px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Pills en ligne avec retour à la ligne */
   .hero-pills {
+    display: flex !important;
     flex-wrap: wrap !important;
-    gap: 5px !important;
+    gap: 6px !important;
     justify-content: center !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 12px !important;
   }
   .hero-pill {
-    font-size: 9px !important;
-    padding: 4px 11px !important;
+    font-size: 10px !important;
+    padding: 5px 13px !important;
     white-space: nowrap !important;
   }
 
-  /* CTAs empilés */
+  /* CTAs : bouton principal pleine largeur, secondaire outline */
   .hero-ctas {
     flex-direction: column !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: 10px !important;
     width: 100% !important;
+    margin-top: 4px !important;
   }
   .hero-ctas .btn {
-    width: 82% !important;
-    padding: 11px 20px !important;
-    font-size: 11px !important;
+    width: 84% !important;
+    padding: 13px 20px !important;
+    font-size: 12px !important;
     text-align: center !important;
     justify-content: center !important;
+    letter-spacing: 1.5px !important;
   }
 
-  /* Note en bas */
+  /* Note italique en bas */
   .hero-note {
-    font-size: 8px !important;
-    margin: 0 !important;
+    font-size: 9px !important;
+    margin: 2px 0 0 !important;
     text-align: center !important;
+    opacity: 0.8;
+  }
+
+  /* Masquer les éléments déco inutiles sur mobile */
+  .hbottle, .hshape,
+  .hs-ring, .hs-ring2, .hs-ring3,
+  .hs-blob, .hs-blob2, .hs-blob3,
+  .hs-dot1, .hs-dot2, .hs-dot3, .hs-dot4, .hs-dot5, .hs-dot6,
+  .hero-scroll {
+    display: none !important;
   }
 }
 
 
 /* ─────────────────────────────────────────────
-   2. FABRICATION SNAKE — IMAGES COMPLÈTES SUR MOBILE
-   Les cartes empilées en colonne : les images étaient
-   tronquées car height trop faible. On les agrandit.
+   2. TOPBAR MOBILE
 ───────────────────────────────────────────── */
 @media (max-width: 768px) {
 
-  /* Centrer le snake-wrap sur mobile */
-  .snake-wrap {
-    padding: 0 16px;
-    gap: 16px;
+  /* Masquer la nav desktop — le menu burger la remplace */
+  .topbar-nav {
+    display: none !important;
   }
 
-  /* Les rangées deviennent colonne et centrent les cartes */
+  /* Logo image bien dimensionné */
+  .logo-img {
+    height: 46px !important;
+  }
+
+  .topbar {
+    padding: 0 16px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────────
+   3. VALUES BAND
+───────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .values-band {
+    padding: 14px 16px !important;
+  }
+  .values-inner {
+    gap: 8px 16px !important;
+    justify-content: center !important;
+  }
+  .value-sep {
+    display: none !important;
+  }
+  .value-item {
+    font-size: 9px !important;
+    letter-spacing: 1.5px !important;
+    gap: 5px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────────
+   4. SECTIONS — PADDING RÉDUIT
+───────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .section {
+    padding: clamp(40px, 8vw, 64px) 18px !important;
+  }
+
+  /* Titres de section */
+  .section-hd h2 {
+    font-size: clamp(38px, 11vw, 58px) !important;
+  }
+  .section-hd p {
+    font-size: 14px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────────
+   5. NOS JUS — GRILLE 1 COLONNE MOBILE
+───────────────────────────────────────────── */
+@media (max-width: 500px) {
+  .jus-grid {
+    grid-template-columns: 1fr !important;
+  }
+  /* Afficher l'overlay en tap sur mobile */
+  .juice-card-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .juice-card:active .juice-card-overlay,
+  .juice-card:focus-within .juice-card-overlay {
+    opacity: 1;
+  }
+}
+
+
+/* ─────────────────────────────────────────────
+   6. FABRICATION SNAKE — COLONNE MOBILE
+   Images complètes + cards bien proportionnées
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  .fabrication-section {
+    padding: 50px 0 40px !important;
+  }
+
+  /* Wrap centré */
+  .snake-wrap {
+    padding: 0 18px !important;
+    gap: 0 !important;
+    margin-top: 40px !important;
+  }
+
+  /* Rangées en colonne centrée */
   .snake-row,
   .snake-rtl {
     flex-direction: column !important;
@@ -134,94 +240,276 @@
     gap: 0 !important;
   }
 
-  /* Chaque carte prend toute la largeur dispo */
+  /* Chaque carte : pleine largeur, max 420px */
   .snake-card {
     width: 100% !important;
     max-width: 420px !important;
-    margin-bottom: 0 !important;
+    margin: 0 auto 0 !important;
   }
 
-  /* ↑ C'est ici le fix principal : on agrandit l'image
-     pour qu'elle soit visible en entier */
+  /* Image agrandie et complète */
   .snake-img {
-    height: 200px !important;      /* était 130px → trop petit */
-    object-fit: contain !important; /* contient toute l'image */
-    background: rgba(255,255,255,0.18);
-    padding: 12px;
-  }
-
-  /* Les images "cover" restent en cover mais plus hautes */
-  .snake-img:not(.snake-img--contain) {
+    height: 180px !important;
     object-fit: cover !important;
-    padding: 0 !important;
-    background: none !important;
   }
 
-  /* Numéro fantôme : adapter la taille */
+  /* Images "contain" : encore plus hautes pour voir le contenu */
+  .snake-img--contain {
+    height: 180px !important;
+    object-fit: contain !important;
+    padding: 16px !important;
+    background: rgba(255,255,255,0.2) !important;
+  }
+
+  /* Numéro fantôme adapté */
   .snake-num {
-    font-size: 36px;
-    top: 6px;
-    left: 8px;
+    font-size: 40px !important;
+    top: 6px !important;
+    left: 10px !important;
   }
 
-  /* Flèches rotées en bas */
+  /* Flèches rotées */
   .snake-arrow {
     transform: rotate(90deg) !important;
     width: auto !important;
-    height: 28px !important;
-    font-size: 18px !important;
+    height: 32px !important;
+    font-size: 20px !important;
+    padding: 4px 0 !important;
   }
 
-  /* Cacher les virages (turns) inutiles en colonne */
+  /* Cacher les virages de rangée */
   .snake-turn {
     display: none !important;
   }
 
-  /* Texte des cartes légèrement agrandi */
+  /* Texte des cartes */
   .snake-body strong {
-    font-size: clamp(14px, 4vw, 18px) !important;
+    font-size: clamp(15px, 4.5vw, 19px) !important;
   }
   .snake-body p {
     font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Badges en bas */
+  .fab-badges {
+    margin-top: 36px !important;
+    gap: 8px !important;
+    padding: 0 18px !important;
+  }
+  .fab-badge {
+    font-size: 11px !important;
+    padding: 8px 16px !important;
   }
 }
 
 
 /* ─────────────────────────────────────────────
-   3. PETITS AJUSTEMENTS GLOBAUX MOBILE
+   7. GALERIE — 2 COLONNES SUR MOBILE
 ───────────────────────────────────────────── */
-@media (max-width: 480px) {
-
-  /* Grille jus : 1 colonne sur très petit écran */
-  .jus-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Galerie : 2 colonnes max sur mobile */
+@media (max-width: 500px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    grid-auto-rows: 140px !important;
+    grid-auto-rows: 130px !important;
+    gap: 6px !important;
   }
-  /* Désactiver les spans larges/hauts sur mobile */
+  /* Désactiver les spans complexes */
   .gallery-item.tall  { grid-row: span 1 !important; }
   .gallery-item.wide  { grid-column: span 2 !important; }
   .gallery-item.big   { grid-row: span 1 !important; grid-column: span 2 !important; }
+}
 
-  /* Values band : wrap proprement */
-  .values-inner {
-    gap: 10px 18px !important;
+
+/* ─────────────────────────────────────────────
+   8. AUGUSTIN — SECTION BIO
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Layout colonne */
+  .aug-wrap {
+    grid-template-columns: 1fr !important;
   }
-  .value-sep {
+  /* Photo centrée */
+  .aug-photo-col {
+    display: flex !important;
+    justify-content: center !important;
+  }
+  .aug-photo {
+    max-width: 260px !important;
+    width: 100% !important;
+  }
+  .aug-badges {
+    justify-content: center !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────────
+   9. SECTION REVENDEUR
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .revendeur-inner {
+    grid-template-columns: 1fr !important;
+  }
+  .revendeur-visual {
     display: none !important;
   }
+  .revendeur-text h2 {
+    font-size: clamp(32px, 9vw, 50px) !important;
+  }
+}
 
-  /* Section padding réduit */
-  .section {
-    padding: clamp(40px, 8vw, 70px) 16px !important;
+
+/* ─────────────────────────────────────────────
+   10. SECTION TROUVER / LOCALISATION
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Grille localisation → colonne */
+  .trouver-grid {
+    grid-template-columns: 1fr !important;
+  }
+  /* Liste revendeurs compacte */
+  .revendeurs-list {
+    gap: 8px !important;
+  }
+  .revendeur-item {
+    padding: 12px 14px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────────
+   11. CONTACT — FORMULAIRE
+───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .contact-wrap--2col {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-map-img {
+    max-height: 180px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Sélecteur type de contact */
+  .contact-type-selector {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .contact-type-btn {
+    text-align: center !important;
+    padding: 11px 16px !important;
   }
 
-  /* Fabrication padding */
-  .fabrication-section {
-    padding: 50px 0 40px !important;
+  /* Adresse et liens en colonne */
+  .contact-info-row {
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  .contact-info-divider {
+    width: 100% !important;
+    height: 1.5px !important;
+    align-self: auto !important;
+    margin: 0 !important;
+  }
+  .contact-links {
+    padding-left: 0 !important;
+  }
+  .contact-address {
+    padding-right: 0 !important;
+  }
+
+  /* Formulaire bubble */
+  .contact-form-bubble {
+    padding: 22px 16px !important;
+    border-radius: 18px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────────
+   12. FOOTER MOBILE
+───────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
+  .footer-nav {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px 16px !important;
+  }
+  .footer-nav a {
+    font-size: 12px !important;
+  }
+  .footer-bottom {
+    text-align: center !important;
+    padding: 14px 16px !important;
+    font-size: 11px !important;
+  }
+  .footer-logo-img {
+    margin: 0 auto !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────────
+   13. MODAL REVENDEUR MOBILE
+───────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .rv-modal-box {
+    border-radius: 18px !important;
+    padding: 28px 18px 24px !important;
+    margin: 12px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────────
+   14. TIMELINE FABRICATION MOBILE
+───────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .fab-timeline {
+    padding: 18px 14px !important;
+    border-radius: 16px !important;
+  }
+  .fab-tl-step {
+    grid-template-columns: 38px 2px 1fr !important;
+    gap: 0 10px !important;
+  }
+  .fab-timeline-header {
+    gap: 12px !important;
+    margin-bottom: 24px !important;
+  }
+  .ce-title {
+    font-size: 22px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────────
+   15. TOUCH — AMÉLIORATIONS TACTILES
+───────────────────────────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  /* Overlay jus visible au tap (pas hover) */
+  .juice-card {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Supprimer les pseudo-hover qui ne s'activent jamais */
+  .juice-card:hover {
+    transform: none;
+    box-shadow: 0 4px 18px rgba(8,94,84,.07);
+  }
+  .juice-card:hover .juice-card-overlay {
+    opacity: 0;
+  }
+
+  /* Boutons : zone de tap confortable */
+  .btn, .hero-pill, .contact-type-btn, .fab-badge {
+    -webkit-tap-highlight-color: transparent;
   }
 }
