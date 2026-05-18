@@ -116,21 +116,16 @@
 <!-- ═══ HERO ═══ -->
 <section id="accueil" class="hero" aria-labelledby="hero-title">
   <div class="hero-decos" aria-hidden="true"><canvas id="heroArcCanvas"></canvas></div>
-  <div class="hero-inner">
-    <h1 class="hero-logo" id="hero-title">MA<br>MÉ<span class="ho">ho</span></h1>
-    <p class="hero-tagline">Le <span class="jus">jus</span> qui fait<br><span class="fruit">fruitcher</span>* vos journées !</p>
-    <p class="hero-eyebrow">Ferme de Marcilly-le-Hayer · Aube, France</p>
-    <p class="hero-desc">Jus de fruits artisanaux · 100% naturels<br>Sans conservateurs</p>
+  <div class="hero-inner hero-inner--bottom">
     <div class="hero-pills">
       <span class="hero-pill">🍏 Vente directe</span>
       <span class="hero-pill">🍏 Pressage à façon</span>
       <span class="hero-pill">🤝 Revendeurs</span>
     </div>
     <div class="hero-ctas">
-      <a href="#jus" class="btn btn-primary"><span>Découvrir nos jus</span></a>
-      <a href="#augustin" class="btn btn-outline"><span>Mot d'Augustin</span></a>
+      <a href="#jus" class="btn btn-primary btn-hero"><span>Découvrir nos jus</span></a>
+      <a href="#augustin" class="btn btn-primary btn-hero"><span>Mot d'Augustin</span></a>
     </div>
-    <p class="hero-note"><em>*Fruitcher : apporter une explosion de saveurs fruitées et de fraîcheur.</em></p>
   </div>
   </section>
 
@@ -890,96 +885,109 @@ window.addEventListener('load', function(){
   var inner = hero && hero.querySelector('.hero-inner');
   if(!hero||!inner) return;
 
-  var img = new Image();
-  img.onload = function(){
-    function draw(){
-      var W = hero.offsetWidth;
-      var H = hero.offsetHeight;
-      if(!W||!H) return;
-      canvas.width = W; canvas.height = H;
-      var ctx = canvas.getContext('2d');
+  var imgBg    = new Image();
+  var imgRound = new Image();
+  var bgLoaded    = false;
+  var roundLoaded = false;
 
-      var isMobile = W < 600;
+  function archPath(ctx, archX, archY, archW, radius, archBot) {
+    ctx.beginPath();
+    ctx.moveTo(archX, archBot);
+    ctx.lineTo(archX, archY + radius);
+    ctx.arc(archX + archW/2, archY + radius, radius, Math.PI, 0, false);
+    ctx.lineTo(archX + archW, archBot);
+    ctx.closePath();
+  }
 
-      /* ── Dimensions de l'arche ── */
-      var archW, archY, archX;
-      if (isMobile) {
-        /* Sur mobile : arche large centrée qui prend ~82% de la largeur */
-        archW  = Math.min(W * 0.82, 400);
-        archY  = H * 0.06;             /* part plus haut */
-      } else {
-        archW  = Math.min(W * 0.38, 520);
-        archY  = H * 0.14;
-      }
-      var radius  = archW / 2;
-      var archBot = H;
-      archX = (W - archW) / 2;
+  function draw(){
+    var W = hero.offsetWidth;
+    var H = hero.offsetHeight;
+    if(!W||!H) return;
+    canvas.width = W; canvas.height = H;
+    var ctx = canvas.getContext('2d');
 
-      // 1. Photo plein canvas
-      var sc = Math.max(W/img.naturalWidth, H/img.naturalHeight)*1.05;
-      var iw = img.naturalWidth*sc, ih = img.naturalHeight*sc;
-      ctx.drawImage(img,(W-iw)/2,(H-ih)/2,iw,ih);
+    var isMobile = W < 600;
 
-      // 2. Arche blanche
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(archX, archBot);
-      ctx.lineTo(archX, archY + radius);
-      ctx.arc(archX + archW/2, archY + radius, radius, Math.PI, 0, false);
-      ctx.lineTo(archX + archW, archBot);
-      ctx.closePath();
+    var archW, archY;
+    if (isMobile) {
+      archW = Math.min(W * 0.82, 400);
+      archY = H * 0.06;
+    } else {
+      archW = Math.min(W * 0.38, 520);
+      archY = H * 0.14;
+    }
+    var radius  = archW / 2;
+    var archBot = H;
+    var archX   = (W - archW) / 2;
+
+    // 1. Photo de fond plein canvas
+    if (bgLoaded) {
+      var sc = Math.max(W/imgBg.naturalWidth, H/imgBg.naturalHeight) * 1.05;
+      var iw = imgBg.naturalWidth * sc, ih = imgBg.naturalHeight * sc;
+      ctx.drawImage(imgBg, (W-iw)/2, (H-ih)/2, iw, ih);
+    } else {
+      ctx.fillStyle = '#e8e4d0';
+      ctx.fillRect(0, 0, W, H);
+    }
+
+    // 2. Intérieur de l'arche : round.png ou crème
+    ctx.save();
+    archPath(ctx, archX, archY, archW, radius, archBot);
+    if (roundLoaded) {
+      ctx.clip();
+      var archH = archBot - archY;
+      var rsc = Math.max(archW / imgRound.naturalWidth, archH / imgRound.naturalHeight);
+      var rw = imgRound.naturalWidth * rsc;
+      var rh = imgRound.naturalHeight * rsc;
+      ctx.drawImage(imgRound, archX + (archW - rw)/2, archY + (archH - rh)/2, rw, rh);
+    } else {
       ctx.fillStyle = '#FAF7E8';
       ctx.fill();
-      ctx.restore();
-
-      // 3. Bordure
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(archX, archBot);
-      ctx.lineTo(archX, archY + radius);
-      ctx.arc(archX + archW/2, archY + radius, radius, Math.PI, 0, false);
-      ctx.lineTo(archX + archW, archBot);
-      ctx.strokeStyle = 'rgba(8,94,84,0.3)';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-      ctx.restore();
-
-      // 4. Position inner
-      if (isMobile) {
-        /* Sur mobile : laisser le CSS gérer le positionnement (relatif, centré) */
-        inner.style.position  = 'relative';
-        inner.style.left      = 'auto';
-        inner.style.top       = 'auto';
-        inner.style.transform = 'none';
-        inner.style.width     = '100%';
-        inner.style.maxWidth  = '100%';
-        inner.style.zIndex    = '10';
-        inner.style.textAlign = 'center';
-        inner.style.padding   = '80px 20px 48px';
-        inner.style.margin    = 'auto';
-        inner.style.boxSizing = 'border-box';
-      } else {
-        /* Desktop : positionnement précis dans l'arche */
-        var cx   = archX + archW/2;
-        var topY = archY + radius + 20;
-        inner.style.position  = 'absolute';
-        inner.style.left      = cx + 'px';
-        inner.style.top       = topY + 'px';
-        inner.style.transform = 'translateX(-50%)';
-        inner.style.width     = (archW * 0.86) + 'px';
-        inner.style.maxWidth  = '';
-        inner.style.zIndex    = '10';
-        inner.style.textAlign = 'center';
-        inner.style.padding   = '0';
-        inner.style.margin    = '';
-        inner.style.boxSizing = '';
-      }
     }
-    draw();
-    window.addEventListener('resize', draw);
-  };
-  img.src = 'pictures/general/test2.png';
-});
-</script>
+    ctx.restore();
+
+    // 3. Bordure de l'arche — supprimée
+
+    // 4. Position du hero-inner
+    if (isMobile) {
+      inner.style.position  = 'absolute';
+      inner.style.left      = '50%';
+      inner.style.bottom    = '32px';
+      inner.style.top       = 'auto';
+      inner.style.transform = 'translateX(-50%)';
+      inner.style.width     = (archW * 0.92) + 'px';
+      inner.style.maxWidth  = '';
+      inner.style.zIndex    = '10';
+      inner.style.textAlign = 'center';
+      inner.style.padding   = '0';
+      inner.style.margin    = '';
+      inner.style.boxSizing = 'border-box';
+    } else {
+      var cx   = archX + archW/2;
+      inner.style.position  = 'absolute';
+      inner.style.left      = cx + 'px';
+      inner.style.bottom    = '40px';
+      inner.style.top       = 'auto';
+      inner.style.transform = 'translateX(-50%)';
+      inner.style.width     = (archW * 0.86) + 'px';
+      inner.style.maxWidth  = '';
+      inner.style.zIndex    = '10';
+      inner.style.textAlign = 'center';
+      inner.style.padding   = '0';
+      inner.style.margin    = '';
+      inner.style.boxSizing = '';
+    }
+  }
+
+  imgBg.onload = function() { bgLoaded = true; draw(); };
+  imgBg.onerror = function() { bgLoaded = false; draw(); };
+  imgRound.onload = function() { roundLoaded = true; draw(); };
+  imgRound.onerror = function() { roundLoaded = false; draw(); };
+
+  window.addEventListener('resize', draw);
+
+  imgBg.src    = 'pictures/general/test2.png';
+  imgRound.src = 'pictures/general/round.png';
+});</script>
 </body>
 </html>
