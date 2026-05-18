@@ -116,15 +116,15 @@
 <!-- ═══ HERO ═══ -->
 <section id="accueil" class="hero" aria-labelledby="hero-title">
   <div class="hero-decos" aria-hidden="true"><canvas id="heroArcCanvas"></canvas></div>
-  <div class="hero-inner hero-inner--bottom">
+  <div class="hero-inner">
     <div class="hero-pills">
       <span class="hero-pill">🍏 Vente directe</span>
       <span class="hero-pill">🍏 Pressage à façon</span>
       <span class="hero-pill">🤝 Revendeurs</span>
     </div>
     <div class="hero-ctas">
-      <a href="#jus" class="btn btn-primary btn-hero"><span>Découvrir nos jus</span></a>
-      <a href="#augustin" class="btn btn-primary btn-hero"><span>Mot d'Augustin</span></a>
+      <a href="#jus" class="btn btn-primary"><span>Découvrir nos jus</span></a>
+      <a href="#augustin" class="btn btn-primary"><span>Mot d'Augustin</span></a>
     </div>
   </div>
   </section>
@@ -946,37 +946,41 @@ window.addEventListener('load', function(){
     }
     ctx.restore();
 
-    // 3. Bordure de l'arche — supprimée
 
-    // 4. Position du hero-inner
-    if (isMobile) {
-      inner.style.position  = 'absolute';
-      inner.style.left      = '50%';
-      inner.style.bottom    = '32px';
-      inner.style.top       = 'auto';
-      inner.style.transform = 'translateX(-50%)';
-      inner.style.width     = (archW * 0.92) + 'px';
-      inner.style.maxWidth  = '';
-      inner.style.zIndex    = '10';
-      inner.style.textAlign = 'center';
-      inner.style.padding   = '0';
-      inner.style.margin    = '';
-      inner.style.boxSizing = 'border-box';
-    } else {
-      var cx   = archX + archW/2;
-      inner.style.position  = 'absolute';
-      inner.style.left      = cx + 'px';
-      inner.style.bottom    = '40px';
-      inner.style.top       = 'auto';
-      inner.style.transform = 'translateX(-50%)';
-      inner.style.width     = (archW * 0.86) + 'px';
-      inner.style.maxWidth  = '';
-      inner.style.zIndex    = '10';
-      inner.style.textAlign = 'center';
-      inner.style.padding   = '0';
-      inner.style.margin    = '';
-      inner.style.boxSizing = '';
+
+    // 4. Position du hero-inner — bas de l'arche, tous devices
+    var ov = document.getElementById('heroOv');
+    if (!ov) {
+      ov = document.createElement('div');
+      ov.id = 'heroOv';
+      hero.appendChild(ov);
+      ov.appendChild(inner);
     }
+    // L'overlay recouvre exactement l'arche
+    ov.style.cssText = [
+      'position:absolute',
+      'left:'  + archX + 'px',
+      'top:'   + archY + 'px',
+      'width:' + archW + 'px',
+      'height:'+ (archBot - archY) + 'px',
+      'display:flex',
+      'flex-direction:column',
+      'justify-content:flex-end',
+      'align-items:center',
+      'padding-bottom:24px',
+      'box-sizing:border-box',
+      'z-index:10',
+      'pointer-events:none'
+    ].join(';');
+    // Le inner prend toute la largeur
+    inner.style.cssText = [
+      'width:86%',
+      'display:flex',
+      'flex-direction:column',
+      'align-items:center',
+      'gap:8px',
+      'pointer-events:auto'
+    ].join(';');
   }
 
   imgBg.onload = function() { bgLoaded = true; draw(); };
