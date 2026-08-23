@@ -55,12 +55,8 @@
 
 /* ── Mobile ── */
 @media (max-width: 600px) {
-  #accueil.hero { min-height: 100svh; height: auto; }
-  .flyer-header { padding: calc(var(--topbar-h) + 14px) 16px 12px; }
-  .flyer-logo { height: 40px; }
-  .flyer-year { font-size: 15px; }
-  .flyer-banner { padding: 26px 16px 30px; }
-  .flyer-phone { margin-bottom: 20px; }
+  #accueil.hero { min-height: clamp(440px, 72vh, 640px); height: auto; }
+  .flyer-banner { padding: 22px 16px 26px; }
 
   .values-band { padding: 14px 16px; }
   .values-inner { gap: 8px 16px; justify-content: center; }
@@ -115,8 +111,6 @@
 
 /* ── Très petit mobile ── */
 @media (max-width: 380px) {
-  .flyer-ctas { flex-direction: column; width: 100%; }
-  .flyer-ctas .btn { width: 100%; }
   .value-item { font-size: 8px; }
   .presta-volumes { grid-template-columns: 1fr 1fr; }
 }

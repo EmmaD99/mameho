@@ -175,59 +175,50 @@ section[id] { scroll-margin-top: var(--topbar-h); }
 .hero { position:relative; overflow:hidden; background:var(--cream); }
 .hero--flyer {
   display:flex;
-  min-height:100svh;
-  padding:0;
+  min-height:clamp(600px, 96vh, 940px);
+  padding-top:var(--topbar-h);
 }
 
-/* Le "flyer" occupe toute la page d'accueil */
+/* Le "flyer" occupe toute la largeur de la page d'accueil */
 .flyer-frame {
   position:relative;
   width:100%;
   display:flex; flex-direction:column;
 }
 
-.flyer-header {
-  display:flex; flex-direction:column; align-items:center; gap:6px;
-  padding:calc(var(--topbar-h) + 22px) var(--gap) 16px; text-align:center;
-}
-.flyer-logo { height:58px; width:auto; object-fit:contain; }
-.flyer-year { font-family:var(--ft); font-size:20px; font-weight:700; letter-spacing:3px; color:var(--teal); }
-
-/* Bloc photo : verger qui enchaîne sur la caisse de pommes, fondu vers le bandeau texte */
+/* Bloc photo : une tranche de verger (peu de ciel), qui bascule sur un aplat vert où le texte est centré */
 .flyer-photos {
   position:relative;
-  display:flex; flex-direction:column;
   flex:1;
   min-height:0;
   overflow:hidden;
+  background:var(--teal-dark);
 }
-.flyer-photo { width:100%; object-fit:cover; display:block; }
-.flyer-photo--top { flex:1.15; }
-.flyer-photo--bottom { flex:0.85; }
+.flyer-photo {
+  position:absolute; top:0; left:0; right:0;
+  width:100%; height:78%;
+  object-fit:cover; object-position:center 100%;
+  display:block;
+}
 
 .flyer-scrim {
-  position:absolute; inset:0; top:auto; height:64%;
-  background:linear-gradient(to top, var(--teal-dark) 40%, rgba(8,94,84,.6) 70%, transparent 100%);
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, transparent 0%, transparent 55%, var(--teal-dark) 74%, var(--teal-dark) 100%);
   pointer-events:none;
 }
 
 .flyer-banner {
-  position:absolute; left:0; right:0; bottom:0; z-index:2;
-  display:flex; flex-direction:column; align-items:center; text-align:center;
-  padding:clamp(30px,7vw,48px) var(--gap) clamp(34px,6vw,54px);
+  position:absolute; left:0; right:0; top:68%; bottom:0; z-index:2;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  padding:0 var(--gap);
 }
-.flyer-title { font-family:var(--ft); font-weight:700; font-size:clamp(32px,7.5vw,54px); line-height:1.12; color:var(--cream); margin-bottom:14px; }
+.flyer-title { font-family:var(--ft); font-weight:700; font-size:clamp(30px,6.5vw,46px); line-height:1.12; color:var(--cream); margin-bottom:12px; }
 .flyer-title .amp { color:var(--beige); font-family:var(--fb); font-style:italic; font-weight:700; font-size:.55em; }
 .flyer-title .accent { color:var(--yellow); }
-.flyer-vente { font-family:var(--ft); font-size:22px; letter-spacing:3px; color:var(--white); margin-bottom:14px; }
-.flyer-phone { display:inline-flex; align-items:center; gap:8px; font-weight:700; color:var(--beige); font-size:15px; margin-bottom:22px; transition:color var(--tr); }
+.flyer-vente { font-family:var(--ft); font-size:20px; letter-spacing:3px; color:var(--white); margin-bottom:12px; }
+.flyer-phone { display:inline-flex; align-items:center; gap:8px; font-weight:700; color:var(--beige); font-size:15px; transition:color var(--tr); }
 .flyer-phone:hover { color:var(--yellow); }
-.flyer-ctas { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-.flyer-btn { white-space:nowrap; }
-.flyer-banner .btn-primary { background:var(--cream); color:var(--teal-dark); border-color:var(--cream); }
-.flyer-banner .btn-primary:hover { background:var(--white); }
-.flyer-banner .btn-secondary { color:var(--white); border-color:rgba(255,255,255,.65); }
-.flyer-banner .btn-secondary:hover { background:rgba(255,255,255,.15); color:var(--white); border-color:var(--white); }
 
 /* ══════════════════════════════
    VALUES BAND
