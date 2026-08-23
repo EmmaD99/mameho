@@ -116,15 +116,11 @@
 <!-- ═══ HERO ═══ -->
 <section id="accueil" class="hero" aria-labelledby="hero-title">
   <div class="hero-decos" aria-hidden="true"><canvas id="heroArcCanvas"></canvas></div>
-  <div class="hero-inner">
-    <div class="hero-pills">
-      <span class="hero-pill">🍏 Vente directe</span>
-      <span class="hero-pill">🍏 Pressage à façon</span>
-      <span class="hero-pill">🤝 Revendeurs</span>
-    </div>
-    <div class="hero-ctas">
-      <a href="#jus" class="btn btn-primary"><span>Découvrir nos jus</span></a>
-      <a href="#augustin" class="btn btn-primary"><span>Mot d'Augustin</span></a>
+    <div class="hero-inner">
+      <div class="hero-ctas">
+        <a href="#jus" class="btn btn-primary"><span>Découvrir nos jus</span></a>
+        <a href="#augustin" class="btn btn-primary"><span>Mot d'Augustin</span></a>
+      </div>
     </div>
   </div>
   </section>
@@ -885,20 +881,6 @@ window.addEventListener('load', function(){
   var inner = hero && hero.querySelector('.hero-inner');
   if(!hero||!inner) return;
 
-  var imgBg    = new Image();
-  var imgRound = new Image();
-  var bgLoaded    = false;
-  var roundLoaded = false;
-
-  function archPath(ctx, archX, archY, archW, radius, archBot) {
-    ctx.beginPath();
-    ctx.moveTo(archX, archBot);
-    ctx.lineTo(archX, archY + radius);
-    ctx.arc(archX + archW/2, archY + radius, radius, Math.PI, 0, false);
-    ctx.lineTo(archX + archW, archBot);
-    ctx.closePath();
-  }
-
   function draw(){
     var W = hero.offsetWidth;
     var H = hero.offsetHeight;
@@ -906,92 +888,28 @@ window.addEventListener('load', function(){
     canvas.width = W; canvas.height = H;
     var ctx = canvas.getContext('2d');
 
-    var isMobile = W < 600;
+    // Fond uni sur tout le hero, plus d'arche
+    ctx.fillStyle = '#FAF7E8';
+    ctx.fillRect(0, 0, W, H);
 
-    var archW, archY;
-    if (isMobile) {
-      archW = Math.min(W * 0.82, 400);
-      archY = H * 0.06;
-    } else {
-      archW = Math.min(W * 0.38, 520);
-      archY = H * 0.14;
-    }
-    var radius  = archW / 2;
-    var archBot = H;
-    var archX   = (W - archW) / 2;
-
-    // 1. Photo de fond plein canvas
-    if (bgLoaded) {
-      var sc = Math.max(W/imgBg.naturalWidth, H/imgBg.naturalHeight) * 1.05;
-      var iw = imgBg.naturalWidth * sc, ih = imgBg.naturalHeight * sc;
-      ctx.drawImage(imgBg, (W-iw)/2, (H-ih)/2, iw, ih);
-    } else {
-      ctx.fillStyle = '#e8e4d0';
-      ctx.fillRect(0, 0, W, H);
-    }
-
-    // 2. Intérieur de l'arche : round.png ou crème
-    ctx.save();
-    archPath(ctx, archX, archY, archW, radius, archBot);
-    if (roundLoaded) {
-      ctx.clip();
-      var archH = archBot - archY;
-      var rsc = Math.max(archW / imgRound.naturalWidth, archH / imgRound.naturalHeight);
-      var rw = imgRound.naturalWidth * rsc;
-      var rh = imgRound.naturalHeight * rsc;
-      ctx.drawImage(imgRound, archX + (archW - rw)/2, archY + (archH - rh)/2, rw, rh);
-    } else {
-      ctx.fillStyle = '#FAF7E8';
-      ctx.fill();
-    }
-    ctx.restore();
-
-
-
-    // 4. Position du hero-inner — bas de l'arche, tous devices
     var ov = document.getElementById('heroOv');
-    if (!ov) {
-      ov = document.createElement('div');
-      ov.id = 'heroOv';
-      hero.appendChild(ov);
-      ov.appendChild(inner);
-    }
-    // L'overlay recouvre exactement l'arche
+    if (!ov) { ov = document.createElement('div'); ov.id = 'heroOv'; hero.appendChild(ov); ov.appendChild(inner); }
     ov.style.cssText = [
-      'position:absolute',
-      'left:'  + archX + 'px',
-      'top:'   + archY + 'px',
-      'width:' + archW + 'px',
-      'height:'+ (archBot - archY) + 'px',
-      'display:flex',
-      'flex-direction:column',
-      'justify-content:flex-end',
-      'align-items:center',
-      'padding-bottom:24px',
-      'box-sizing:border-box',
-      'z-index:10',
-      'pointer-events:none'
+      'position:absolute','left:0','top:0',
+      'width:100%','height:100%',
+      'display:flex','flex-direction:column','justify-content:center',
+      'align-items:center','padding:20px','box-sizing:border-box',
+      'z-index:10','pointer-events:none'
     ].join(';');
-    // Le inner prend toute la largeur
     inner.style.cssText = [
-      'width:86%',
-      'display:flex',
-      'flex-direction:column',
-      'align-items:center',
-      'gap:8px',
-      'pointer-events:auto'
+      'width:86%','max-width:600px','display:flex','flex-direction:column',
+      'align-items:center','gap:8px','pointer-events:auto'
     ].join(';');
   }
 
-  imgBg.onload = function() { bgLoaded = true; draw(); };
-  imgBg.onerror = function() { bgLoaded = false; draw(); };
-  imgRound.onload = function() { roundLoaded = true; draw(); };
-  imgRound.onerror = function() { roundLoaded = false; draw(); };
-
   window.addEventListener('resize', draw);
-
-  imgBg.src    = 'pictures/general/test2.png';
-  imgRound.src = 'pictures/general/round.png';
-});</script>
+  draw();
+});
+</script>
 </body>
 </html>
