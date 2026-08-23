@@ -1,522 +1,129 @@
-/* ══════════════════════════════════════════════
-   MAMEHO — MOBILE RESPONSIVE v3
-   Remplace css/mobile.css
-   Objectif : rendu mobile = qualité bureau
-══════════════════════════════════════════════ */
+/* ══════════════════════════════
+   RESPONSIVE — MAMÉ'HO
+   Breakpoints : 1024 / 900 / 768 / 600 / 500 / 380px
+══════════════════════════════ */
 
-
-/* ─────────────────────────────────────────────
-   1. HERO — ARCHE + CONTENU
-   Le canvas JS dessine l'arche. Sur mobile on laisse
-   le hero s'agrandir naturellement (auto height) pour
-   que tout le contenu soit dans l'arche visible.
-───────────────────────────────────────────── */
-@media (max-width: 600px) {
-
-  /* Hero : hauteur auto pour contenir tout le texte */
-  #accueil.hero {
-    min-height: 100svh;
-    height: auto !important;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    overflow: hidden;
-    padding: 0;
-  }
-
-  /* Canvas en fond absolu, suit la hauteur du hero */
-  #heroArcCanvas {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-  }
-
-  /* Contenu hero : positionné par-dessus le canvas */
-  .hero-inner {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 90px 20px 52px !important; /* plus d'espace en haut pour centrer comme bureau */
-    margin: 0 auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 8px !important;
-    z-index: 10 !important;
-    box-sizing: border-box !important;
-    text-align: center !important;
-  }
-
-  /* Logo principal : bien proportionné dans l'arche */
-  .hero-logo {
-    font-size: clamp(60px, 18vw, 88px) !important;
-    line-height: 0.88 !important;
-    margin: 0 0 12px !important;
-    letter-spacing: -1px !important;
-  }
-
-  /* Tagline lisible et élégante */
-  .hero-tagline {
-    font-size: clamp(18px, 5.5vw, 26px) !important;
-    line-height: 1.2 !important;
-    margin: 0 0 10px !important;
-  }
-
-  /* Eyebrow : une seule ligne — taille réduite + pas de retour à la ligne */
-  .hero-eyebrow {
-    font-size: 8px !important;
-    letter-spacing: 1.8px !important;
-    margin: 0 !important;
-    line-height: 1.4 !important;
-    white-space: nowrap !important;   /* force une seule ligne */
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-
-  /* Description : deux lignes propres comme sur bureau.
-     Ligne 1 : "Jus de fruits artisanaux · 100% naturels"
-     Ligne 2 : "Sans conservateurs"
-     On réduit la taille pour que ligne 1 tienne en une seule ligne. */
-  .hero-desc {
-    font-size: 8px !important;
-    letter-spacing: 1.4px !important;
-    margin: 0 0 10px !important;
-    line-height: 2 !important;
-    white-space: normal !important;
-    max-width: 100% !important;
-    /* Le · final avant "Sans conservateurs" provoque le retour à la ligne
-       car letter-spacing + 8px = ~25 chars par ligne ≈ parfait */
-  }
-
-  /* Pills en ligne avec retour à la ligne */
-  .hero-pills {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 6px !important;
-    justify-content: center !important;
-    margin-bottom: 12px !important;
-  }
-  .hero-pill {
-    font-size: 10px !important;
-    padding: 5px 13px !important;
-    white-space: nowrap !important;
-  }
-
-  /* CTAs : bouton principal pleine largeur, secondaire outline */
-  .hero-ctas {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 10px !important;
-    width: 100% !important;
-    margin-top: 4px !important;
-  }
-  .hero-ctas .btn {
-    width: 84% !important;
-    padding: 13px 20px !important;
-    font-size: 12px !important;
-    text-align: center !important;
-    justify-content: center !important;
-    letter-spacing: 1.5px !important;
-  }
-
-  /* Note italique en bas */
-  .hero-note {
-    font-size: 9px !important;
-    margin: 2px 0 0 !important;
-    text-align: center !important;
-    opacity: 0.8;
-  }
-
-  /* Masquer les éléments déco inutiles sur mobile */
-  .hbottle, .hshape,
-  .hs-ring, .hs-ring2, .hs-ring3,
-  .hs-blob, .hs-blob2, .hs-blob3,
-  .hs-dot1, .hs-dot2, .hs-dot3, .hs-dot4, .hs-dot5, .hs-dot6,
-  .hero-scroll {
-    display: none !important;
-  }
+/* ── Tablette large ── */
+@media (max-width: 1024px) {
+  .augustin-inner, .contact-wrap { grid-template-columns: 1fr; }
+  .trouver-bloc { grid-template-columns: 1fr; }
+  .trouver-map-full { min-height: 320px; }
 }
 
-
-/* ─────────────────────────────────────────────
-   2. TOPBAR MOBILE
-───────────────────────────────────────────── */
-@media (max-width: 768px) {
-
-  /* Masquer la nav desktop — le menu burger la remplace */
-  .topbar-nav {
-    display: none !important;
-  }
-
-  /* Logo image bien dimensionné */
-  .logo-img {
-    height: 46px !important;
-  }
-
-  .topbar {
-    padding: 0 16px !important;
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   3. VALUES BAND
-───────────────────────────────────────────── */
-@media (max-width: 600px) {
-  .values-band {
-    padding: 14px 16px !important;
-  }
-  .values-inner {
-    gap: 8px 16px !important;
-    justify-content: center !important;
-  }
-  .value-sep {
-    display: none !important;
-  }
-  .value-item {
-    font-size: 9px !important;
-    letter-spacing: 1.5px !important;
-    gap: 5px !important;
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   4. SECTIONS — PADDING RÉDUIT
-───────────────────────────────────────────── */
-@media (max-width: 600px) {
-  .section {
-    padding: clamp(40px, 8vw, 64px) 18px !important;
-  }
-
-  /* Titres de section */
-  .section-hd h2 {
-    font-size: clamp(38px, 11vw, 58px) !important;
-  }
-  .section-hd p {
-    font-size: 14px !important;
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   5. NOS JUS — GRILLE 1 COLONNE MOBILE
-───────────────────────────────────────────── */
-@media (max-width: 500px) {
-  .jus-grid {
-    grid-template-columns: 1fr !important;
-  }
-  /* Afficher l'overlay en tap sur mobile */
-  .juice-card-overlay {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  .juice-card:active .juice-card-overlay,
-  .juice-card:focus-within .juice-card-overlay {
-    opacity: 1;
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   6. FABRICATION SNAKE — COLONNE MOBILE
-   Images complètes + cards bien proportionnées
-───────────────────────────────────────────── */
-@media (max-width: 768px) {
-
-  .fabrication-section {
-    padding: 50px 0 40px !important;
-  }
-
-  /* Wrap centré */
-  .snake-wrap {
-    padding: 0 18px !important;
-    gap: 0 !important;
-    margin-top: 40px !important;
-  }
-
-  /* Rangées en colonne centrée */
-  .snake-row,
-  .snake-rtl {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0 !important;
-  }
-
-  /* Chaque carte : pleine largeur, max 420px */
-  .snake-card {
-    width: 100% !important;
-    max-width: 420px !important;
-    margin: 0 auto 0 !important;
-  }
-
-  /* Image agrandie et complète */
-  .snake-img {
-    height: 180px !important;
-    object-fit: cover !important;
-  }
-
-  /* Images "contain" : encore plus hautes pour voir le contenu */
-  .snake-img--contain {
-    height: 180px !important;
-    object-fit: contain !important;
-    padding: 16px !important;
-    background: rgba(255,255,255,0.2) !important;
-  }
-
-  /* Numéro fantôme adapté */
-  .snake-num {
-    font-size: 40px !important;
-    top: 6px !important;
-    left: 10px !important;
-  }
-
-  /* Flèches rotées */
-  .snake-arrow {
-    transform: rotate(90deg) !important;
-    width: auto !important;
-    height: 32px !important;
-    font-size: 20px !important;
-    padding: 4px 0 !important;
-  }
-
-  /* Cacher les virages de rangée */
-  .snake-turn {
-    display: none !important;
-  }
-
-  /* Texte des cartes */
-  .snake-body strong {
-    font-size: clamp(15px, 4.5vw, 19px) !important;
-  }
-  .snake-body p {
-    font-size: 13px !important;
-    line-height: 1.55 !important;
-  }
-
-  /* Badges en bas */
-  .fab-badges {
-    margin-top: 36px !important;
-    gap: 8px !important;
-    padding: 0 18px !important;
-  }
-  .fab-badge {
-    font-size: 11px !important;
-    padding: 8px 16px !important;
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   7. GALERIE — 2 COLONNES SUR MOBILE
-───────────────────────────────────────────── */
-@media (max-width: 500px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-auto-rows: 130px !important;
-    gap: 6px !important;
-  }
-  /* Désactiver les spans complexes */
-  .gallery-item.tall  { grid-row: span 1 !important; }
-  .gallery-item.wide  { grid-column: span 2 !important; }
-  .gallery-item.big   { grid-row: span 1 !important; grid-column: span 2 !important; }
-}
-
-
-/* ─────────────────────────────────────────────
-   8. AUGUSTIN — SECTION BIO
-───────────────────────────────────────────── */
-@media (max-width: 768px) {
-  /* Layout colonne */
-  .aug-wrap {
-    grid-template-columns: 1fr !important;
-  }
-  /* Photo centrée */
-  .aug-photo-col {
-    display: flex !important;
-    justify-content: center !important;
-  }
-  .aug-photo {
-    max-width: 260px !important;
-    width: 100% !important;
-  }
-  .aug-badges {
-    justify-content: center !important;
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   9. SECTION REVENDEUR
-───────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .revendeur-inner {
-    grid-template-columns: 1fr !important;
-  }
-  .revendeur-visual {
-    display: none !important;
-  }
-  .revendeur-text h2 {
-    font-size: clamp(32px, 9vw, 50px) !important;
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   10. SECTION TROUVER / LOCALISATION
-───────────────────────────────────────────── */
-@media (max-width: 768px) {
-  /* Grille localisation → colonne */
-  .trouver-grid {
-    grid-template-columns: 1fr !important;
-  }
-  /* Liste revendeurs compacte */
-  .revendeurs-list {
-    gap: 8px !important;
-  }
-  .revendeur-item {
-    padding: 12px 14px !important;
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   11. CONTACT — FORMULAIRE
-───────────────────────────────────────────── */
+/* ── Tablette ── */
 @media (max-width: 900px) {
-  .contact-wrap--2col {
-    grid-template-columns: 1fr !important;
-  }
-  .contact-map-img {
-    max-height: 180px !important;
-  }
+  .footer-inner { grid-template-columns: 1fr; text-align: center; }
+  .footer-nav, .footer-social { justify-content: center; }
+  .footer-bottom { justify-content: center; text-align: center; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item.wide { grid-column: span 1; grid-row: span 1; }
+  .presta-volumes { grid-template-columns: repeat(3, 1fr); }
+  .presta-vol-card { border-bottom: 1px solid rgba(8,94,84,.08); border-right: 1px solid rgba(8,94,84,.08); }
+  .prestations-full-header { flex-direction: column; align-items: flex-start; }
+  .revendeur-inner { grid-template-columns: 1fr; }
+  .nav-dropdown { display: none; }
+  .contact-wrap--2col { grid-template-columns: 1fr; }
+  .contact-map-img { max-height: 180px; }
 }
 
+/* ── Tablette portrait / grand mobile ── */
+@media (max-width: 768px) {
+  .topbar-nav { display: none; }
+  .logo-img { height: 46px; }
+  .topbar { padding: 0 16px; }
+
+  .flyer-photos { flex: 1; }
+
+  .fabrication-section { padding: 50px 0 40px; }
+  .snake-wrap { padding: 0 18px; gap: 20px; margin-top: 40px; }
+  .snake-row, .snake-rtl { flex-direction: column; align-items: center; gap: 0; }
+  .snake-card { width: 100%; max-width: 420px; margin: 0 auto; }
+  .snake-img { height: 180px; object-fit: cover; }
+  .snake-img--contain { height: 180px; object-fit: contain; padding: 16px; background: rgba(255,255,255,.2); }
+  .snake-num { font-size: 40px; top: 6px; left: 10px; }
+  .snake-arrow { transform: rotate(90deg); width: auto; height: 32px; font-size: 20px; padding: 4px 0; }
+  .snake-turn { display: none; }
+  .snake-body strong { font-size: clamp(15px, 4.5vw, 19px); }
+  .snake-body p { font-size: 13px; line-height: 1.55; }
+  .fab-badges { margin-top: 36px; gap: 8px; padding: 0 18px; }
+  .fab-badge { font-size: 11px; padding: 8px 16px; }
+
+  .revendeur-text h2 { font-size: clamp(32px, 9vw, 50px); }
+  .revendeurs-list { gap: 8px; }
+  .revendeur-item { padding: 12px 14px; }
+}
+
+/* ── Mobile ── */
 @media (max-width: 600px) {
-  /* Sélecteur type de contact */
-  .contact-type-selector {
-    flex-direction: column !important;
-    align-items: stretch !important;
-  }
-  .contact-type-btn {
-    text-align: center !important;
-    padding: 11px 16px !important;
-  }
+  #accueil.hero { min-height: 100svh; height: auto; }
+  .flyer-header { padding: calc(var(--topbar-h) + 14px) 16px 12px; }
+  .flyer-logo { height: 40px; }
+  .flyer-year { font-size: 15px; }
+  .flyer-banner { padding: 26px 16px 30px; }
+  .flyer-phone { margin-bottom: 20px; }
 
-  /* Adresse et liens en colonne */
-  .contact-info-row {
-    flex-direction: column !important;
-    gap: 14px !important;
-  }
-  .contact-info-divider {
-    width: 100% !important;
-    height: 1.5px !important;
-    align-self: auto !important;
-    margin: 0 !important;
-  }
-  .contact-links {
-    padding-left: 0 !important;
-  }
-  .contact-address {
-    padding-right: 0 !important;
-  }
+  .values-band { padding: 14px 16px; }
+  .values-inner { gap: 8px 16px; justify-content: center; }
+  .value-sep { display: none; }
+  .value-item { font-size: 9px; letter-spacing: 1.5px; gap: 5px; }
 
-  /* Formulaire bubble */
-  .contact-form-bubble {
-    padding: 22px 16px !important;
-    border-radius: 18px !important;
-  }
+  .section { padding: clamp(40px, 8vw, 64px) 18px; }
+  .section-hd h2 { font-size: clamp(38px, 11vw, 58px); }
+  .section-hd p { font-size: 14px; }
+
+  .jus-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+  .gallery-item.tall { grid-row: span 1; }
+
+  .footer-inner { gap: 20px; flex-direction: column; align-items: center; text-align: center; }
+  .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; }
+  .footer-nav a { font-size: 12px; }
+  .footer-bottom { text-align: center; padding: 14px 16px; font-size: 11px; }
+  .footer-logo-img { margin: 0 auto; }
+
+  .menu-links a { font-size: clamp(36px, 8vw, 52px); }
+  .menu-links { gap: clamp(6px, 1.5vh, 14px); }
+
+  .presta-volumes { grid-template-columns: repeat(2, 1fr); }
+  .presta-footer { flex-direction: column; align-items: flex-start; }
+  .presta-contact-note { white-space: normal; }
+
+  .contact-type-selector { flex-direction: column; align-items: stretch; }
+  .contact-type-btn { text-align: center; padding: 11px 16px; }
+  .contact-info-row { flex-direction: column; gap: 14px; }
+  .contact-info-divider { width: 100%; height: 1.5px; align-self: auto; margin: 0; }
+  .contact-links { padding-left: 0; }
+  .contact-address { padding-right: 0; }
+  .contact-form-bubble { padding: 22px 16px; border-radius: 18px; }
 }
 
+/* ── Petit mobile ── */
+@media (max-width: 500px) {
+  .jus-grid { grid-template-columns: 1fr; }
+  .juice-card-overlay { opacity: 0; transition: opacity .3s ease; }
+  .juice-card:active .juice-card-overlay,
+  .juice-card:focus-within .juice-card-overlay { opacity: 1; }
 
-/* ─────────────────────────────────────────────
-   12. FOOTER MOBILE
-───────────────────────────────────────────── */
-@media (max-width: 600px) {
-  .footer-inner {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 20px !important;
-    text-align: center !important;
-  }
-  .footer-nav {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 6px 16px !important;
-  }
-  .footer-nav a {
-    font-size: 12px !important;
-  }
-  .footer-bottom {
-    text-align: center !important;
-    padding: 14px 16px !important;
-    font-size: 11px !important;
-  }
-  .footer-logo-img {
-    margin: 0 auto !important;
-  }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 130px; gap: 6px; }
+  .gallery-item.tall { grid-row: span 1; }
+  .gallery-item.wide { grid-column: span 2; }
+
+  .flyer-title { font-size: clamp(28px, 9.5vw, 42px); }
+  .flyer-vente { font-size: 17px; }
 }
 
-
-/* ─────────────────────────────────────────────
-   13. MODAL REVENDEUR MOBILE
-───────────────────────────────────────────── */
-@media (max-width: 600px) {
-  .rv-modal-box {
-    border-radius: 18px !important;
-    padding: 28px 18px 24px !important;
-    margin: 12px !important;
-  }
+/* ── Très petit mobile ── */
+@media (max-width: 380px) {
+  .flyer-ctas { flex-direction: column; width: 100%; }
+  .flyer-ctas .btn { width: 100%; }
+  .value-item { font-size: 8px; }
+  .presta-volumes { grid-template-columns: 1fr 1fr; }
 }
 
-
-/* ─────────────────────────────────────────────
-   14. TIMELINE FABRICATION MOBILE
-───────────────────────────────────────────── */
-@media (max-width: 600px) {
-  .fab-timeline {
-    padding: 18px 14px !important;
-    border-radius: 16px !important;
-  }
-  .fab-tl-step {
-    grid-template-columns: 38px 2px 1fr !important;
-    gap: 0 10px !important;
-  }
-  .fab-timeline-header {
-    gap: 12px !important;
-    margin-bottom: 24px !important;
-  }
-  .ce-title {
-    font-size: 22px !important;
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   15. TOUCH — OVERLAY JUS AU TAP
-───────────────────────────────────────────── */
+/* ── Écrans tactiles : pas d'états :hover collants ── */
 @media (hover: none) and (pointer: coarse) {
-
-  /* L'overlay s'affiche au tap via :focus-within sur la carte */
-  .juice-card:focus-within .juice-card-overlay {
-    opacity: 1 !important;
-  }
-
-  /* La carte elle-même : retirer le flash bleu natif au tap */
-  .juice-card {
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  /* Boutons : retirer le flash bleu natif au tap */
-  .btn, .hero-pill, .contact-type-btn, .fab-badge {
-    -webkit-tap-highlight-color: transparent;
-  }
+  .juice-card:focus-within .juice-card-overlay { opacity: 1; }
+  .juice-card, .contact-type-btn, .fab-badge,
+  .btn-primary, .btn-secondary, .social-pill { -webkit-tap-highlight-color: transparent; }
 }

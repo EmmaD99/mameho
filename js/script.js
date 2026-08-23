@@ -9,24 +9,6 @@ window.addEventListener('scroll', () => {
   topbar.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-/* ── Parallax bouteilles hero — désactivé, reset au scroll ── */
-const bottles = $$('.hbottle[data-parallax]');
-const heroSection = document.getElementById('accueil');
-if (bottles.length && heroSection) {
-  window.addEventListener('scroll', () => {
-    const heroBottom = heroSection.getBoundingClientRect().bottom;
-    bottles.forEach(b => {
-      // Reset transform quand on sort du hero pour éviter tout débordement
-      if (heroBottom <= 0) {
-        b.style.transform = '';
-        b.style.visibility = 'hidden';
-      } else {
-        b.style.visibility = 'visible';
-      }
-    });
-  }, { passive: true });
-}
-
 /* ══════════════════════════════
    MENU OVERLAY
 ══════════════════════════════ */
@@ -127,7 +109,7 @@ document.addEventListener('click', (e) => {
 
 /* Liens dropdown : pré-sélectionner le type de contact et naviguer */
 $$('.dropdown-link').forEach(link => {
-  link.addEventListener('click', (e) => {
+  link.addEventListener('click', () => {
     closeContactDropdown();
     const type = link.dataset.contactType;
     if (type) {
@@ -279,10 +261,6 @@ function closeRevendeur() {
 $$('[id^="openRevendeur"]').forEach(el => el.addEventListener('click', openRevendeur));
 document.getElementById('closeRevendeur') && document.getElementById('closeRevendeur').addEventListener('click', closeRevendeur);
 rvModal && rvModal.addEventListener('click', e => { if (e.target === rvModal) closeRevendeur(); });
-
-/* Bouton section revendeur → ouvre la modal */
-const openRvSection = $('#openRevendeurSection');
-openRvSection && openRvSection.addEventListener('click', openRevendeur);
 
 if (rvForm) {
   $$('input, textarea', rvForm).forEach(inp => inp.addEventListener('blur', () => validateField(inp)));
