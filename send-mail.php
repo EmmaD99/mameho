@@ -11,7 +11,7 @@ header('Content-Type: application/json; charset=utf-8');
 $SMTP_HOST = 'ssl0.ovh.net';
 $SMTP_PORT = 465;                       // 465 = SSL direct (recommandé)
 $SMTP_USER = 'a.marsaux@mameho.fr';     // boîte OVH utilisée pour l'envoi
-$SMTP_PASS = 'METTRE_LE_MOT_DE_PASSE_ICI'; // ⚠️ mot de passe de la boîte mail OVH
+$SMTP_PASS = 'AugustiMameho27'; // ⚠️ mot de passe de la boîte mail OVH
 $MAIL_TO   = 'a.marsaux@mameho.fr';     // destinataire des messages du site
 // ────────────────────────────────────────────────────────────────
 
