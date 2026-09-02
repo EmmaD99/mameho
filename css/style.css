@@ -358,9 +358,8 @@ section[id] { scroll-margin-top: var(--topbar-h); }
 .snake-ltr { flex-direction:row; }
 .snake-rtl { flex-direction:row-reverse; }
 .snake-arrow { display:flex; align-items:center; justify-content:center; font-size:22px; color:rgba(255,255,255,.6); flex-shrink:0; width:32px; align-self:center; }
-.snake-turn { display:flex; align-items:flex-end; justify-content:center; font-size:22px; color:rgba(255,255,255,.6); flex-shrink:0; width:32px; padding-bottom:8px; }
+.snake-turn { display:flex; align-items:flex-end; justify-content:center; font-size:26px; color:var(--yellow); flex-shrink:0; width:32px; padding-bottom:0; margin-bottom:-24px; }
 .snake-turn--br { align-self:flex-end; }
-.snake-turn--bl { align-self:flex-start; }
 .snake-card { flex:1; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; position:relative; box-shadow:0 4px 20px rgba(0,0,0,.15); min-width:0; }
 .snake-card--1 { background:#E8A838; color:#18201A; }
 .snake-card--2 { background:#AD1C69; color:#fff; }
