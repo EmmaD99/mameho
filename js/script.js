@@ -315,11 +315,15 @@ if (rvForm) {
     const formData = new FormData(rvForm);
     const payload = {
       type: 'revendeur',
-      nom: formData.get('nom') || '',
-      email: formData.get('email') || '',
-      telephone: formData.get('telephone') || '',
-      entreprise: formData.get('entreprise') || '',
-      message: formData.get('message') || ''
+      nom: formData.get('rv-nom') || '',
+      email: formData.get('rv-email') || '',
+      telephone: formData.get('rv-tel') || '',
+      entreprise: formData.get('rv-entreprise') || '',
+      message: [
+        formData.get('rv-activite') ? `Activité : ${formData.get('rv-activite')}` : '',
+        formData.get('rv-ville') ? `Ville : ${formData.get('rv-ville')}` : '',
+        formData.get('rv-msg') || ''
+      ].filter(Boolean).join('\n')
     };
 
     try {
