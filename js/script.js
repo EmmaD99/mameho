@@ -216,24 +216,61 @@ contactTypeBtns.forEach(btn => {
   btn.addEventListener('click', () => activateContactType(btn.dataset.type));
 });
 
+/* ── Envoi réel vers send-mail.php ── */
+const MAIL_ENDPOINT = '/send-mail.php'; // adapter le chemin si le fichier n'est pas à la racine
+
+async function envoyerFormulaire(payload) {
+  const res = await fetch(MAIL_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  let data;
+  try { data = await res.json(); } catch (e) { data = null; }
+  if (!res.ok || !data || data.ok !== true) {
+    const msg = (data && data.error) ? data.error : `Erreur serveur (${res.status})`;
+    throw new Error(msg);
+  }
+  return data;
+}
+
 /* ── Formulaire contact ── */
 const cf  = $('#contactForm');
 const fOk = $('#formSuccess');
 if (cf) {
   $$('input, textarea', cf).forEach(inp => inp.addEventListener('blur', () => validateField(inp)));
-  cf.addEventListener('submit', e => {
+  cf.addEventListener('submit', async e => {
     e.preventDefault();
     let valid = true;
     $$('input[required], textarea[required]', cf).forEach(inp => { if (!validateField(inp)) valid = false; });
     if (!valid) return;
+
     const btn = cf.querySelector('.btn-submit');
+    const originalBtnHtml = btn.innerHTML;
     btn.textContent = 'Envoi en cours…'; btn.disabled = true;
-    setTimeout(() => {
+    if (fOk) fOk.textContent = '';
+
+    const formData = new FormData(cf);
+    const payload = {
+      type: (contactTypeHidden && contactTypeHidden.value) || 'info',
+      nom: formData.get('nom') || '',
+      email: formData.get('email') || '',
+      telephone: formData.get('telephone') || '',
+      entreprise: formData.get('entreprise') || '',
+      message: formData.get('message') || ''
+    };
+
+    try {
+      await envoyerFormulaire(payload);
       if (fOk) fOk.textContent = '✓ Message bien reçu ! Nous vous répondrons rapidement. 🍎';
       cf.reset();
-      btn.innerHTML = '<span>Envoyer le message</span><span aria-hidden="true">→</span>';
+    } catch (err) {
+      if (fOk) fOk.textContent = "❌ Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler.";
+      console.error('Erreur envoi formulaire contact :', err);
+    } finally {
+      btn.innerHTML = originalBtnHtml;
       btn.disabled = false;
-    }, 1200);
+    }
   });
 }
 
@@ -264,19 +301,38 @@ rvModal && rvModal.addEventListener('click', e => { if (e.target === rvModal) cl
 
 if (rvForm) {
   $$('input, textarea', rvForm).forEach(inp => inp.addEventListener('blur', () => validateField(inp)));
-  rvForm.addEventListener('submit', e => {
+  rvForm.addEventListener('submit', async e => {
     e.preventDefault();
     let valid = true;
     $$('input[required]', rvForm).forEach(inp => { if (!validateField(inp)) valid = false; });
     if (!valid) return;
+
     const btn = rvForm.querySelector('.btn-submit');
+    const originalBtnHtml = btn.innerHTML;
     btn.textContent = 'Envoi en cours…'; btn.disabled = true;
-    setTimeout(() => {
+    if (rvOk) rvOk.textContent = '';
+
+    const formData = new FormData(rvForm);
+    const payload = {
+      type: 'revendeur',
+      nom: formData.get('nom') || '',
+      email: formData.get('email') || '',
+      telephone: formData.get('telephone') || '',
+      entreprise: formData.get('entreprise') || '',
+      message: formData.get('message') || ''
+    };
+
+    try {
+      await envoyerFormulaire(payload);
       if (rvOk) rvOk.textContent = '✓ Demande reçue ! Nous vous contacterons rapidement. 🍎';
       rvForm.reset();
-      btn.innerHTML = '<span>Envoyer ma demande</span><span aria-hidden="true">→</span>';
+    } catch (err) {
+      if (rvOk) rvOk.textContent = "❌ Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler.";
+      console.error('Erreur envoi formulaire revendeur :', err);
+    } finally {
+      btn.innerHTML = originalBtnHtml;
       btn.disabled = false;
-    }, 1200);
+    }
   });
 }
 
